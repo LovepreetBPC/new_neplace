@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/map_bg"
+        tools:context=".activity.BookRideActivity">
+
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            android:visibility="visible"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+
+
+            />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:src="@mipmap/ic_menu" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity=""
+                android:text="Select Address"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_twentytwo" />
+        </RelativeLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pickUpDropLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="@dimen/margin_sixty"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/black_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pickUpIndicator"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_circle_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/pickUpTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pickUpTextView" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/pickUpTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sixteen"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:hint="From Location"
+                android:singleLine="true"
+                android:paddingVertical="@dimen/padding_six"
+                android:paddingHorizontal="@dimen/padding_eight"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/pickUpIndicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/margin_six"
+                app:layout_constraintTop_toBottomOf="@id/pickUpTextView"
+                app:layout_constraintLeft_toLeftOf="@id/pickUpTextView"
+                app:layout_constraintRight_toRightOf="@id/pickUpTextView"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/dropIndicator"
+                app:layout_constraintEnd_toEndOf="@+id/pickUpIndicator"
+                app:layout_constraintStart_toStartOf="@+id/pickUpIndicator"
+                app:layout_constraintTop_toBottomOf="@+id/pickUpIndicator" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dropIndicator"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="16dp"
+                android:background="@mipmap/ic_down"
+                app:layout_constraintBottom_toBottomOf="@+id/dropTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/dropTextView" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/dropTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:hint="To Location"
+                android:paddingVertical="@dimen/padding_six"
+                android:paddingHorizontal="@dimen/padding_eight"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dropIndicator"
+                app:layout_constraintTop_toBottomOf="@+id/pickUpTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="@id/pickUpDropLayout"
+            app:layout_constraintTop_toBottomOf="@id/pickUpDropLayout"
+            android:text="Search"
+            android:visibility="gone"
+            android:background="@drawable/black_bg"
+            android:paddingHorizontal="@dimen/paddinge_sixteen"
+            android:paddingVertical="@dimen/padding_eight"
+            android:layout_margin="@dimen/margin_four"
+            />
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewMedium
+            android:id="@+id/txtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edt_height"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            android:layout_marginBottom="@dimen/margin_fourty"
+            android:background="@drawable/btn_bg"
+            android:backgroundTint="@color/blue_bg"
+            android:gravity="center"
+            android:paddingHorizontal="20sp"
+            android:text="Find Ride"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_eighteen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

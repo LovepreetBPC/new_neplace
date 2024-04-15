@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/edittext_corner_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <ImageView
+            android:id="@+id/imgXCard"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@mipmap/ic_card"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.neplacecustomer.utils.textview.TextViewMedium
+            android:id="@+id/txtCardType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:text="Debit/CreditCard"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imgXCard"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.neplacecustomer.utils.textview.TextViewRegular
+            android:id="@+id/cardnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="***********205"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/txtCardType"
+            app:layout_constraintTop_toBottomOf="@+id/txtCardType" />
+
+        <ImageView
+            android:id="@+id/imgCrossCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_coss_white"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

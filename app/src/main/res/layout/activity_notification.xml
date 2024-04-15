@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.NotificationActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notification"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/padding_ten"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+        </RelativeLayout>
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            android:id="@+id/txtClearAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativeTop"
+            android:text="Clear All"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_eighteen"
+            android:layout_marginEnd="@dimen/margin_ten"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/padding_ten"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtClearAll"
+            android:layout_marginStart="@dimen/margin_twenty"
+            android:layout_marginEnd="@dimen/margin_twenty"
+            android:layout_marginBottom="@dimen/margin_twenty" />
+
+
+    </RelativeLayout>
+</layout>

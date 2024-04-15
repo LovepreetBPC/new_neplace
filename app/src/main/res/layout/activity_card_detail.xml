@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CardDetailActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_back" />
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/padding_ten"
+            android:text="Add Card"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_twenty" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_sixty"
+        android:layout_marginHorizontal="@dimen/margin_twenty"
+        app:layout_constraintTop_toBottomOf="@id/relativeTop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <RelativeLayout
+            android:id="@+id/RelativeDone"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:visibility="gone"
+            android:layout_gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/margin_hundered"
+                android:layout_height="@dimen/margin_hundered"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/img_place_holder" />
+
+            <ImageView
+                android:id="@+id/imgUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgProfile"
+                android:src="@mipmap/ic_camera_upload_image"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="-6dp"
+                android:elevation="10sp" />
+        </RelativeLayout>
+
+        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_fourtyeight"
+            android:background="@drawable/edittext_corner_gray"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:textColorHint="@color/white"
+            android:drawableStart="@mipmap/card_name"
+            android:drawablePadding="@dimen/margin_ten"
+            android:hint="Full Name"
+            android:paddingHorizontal="@dimen/padding_ten"
+            android:textSize="@dimen/text_size_fourteen"
+            android:gravity="center_vertical" />
+
+        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+            android:id="@+id/edtCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_fourtyeight"
+            android:background="@drawable/edittext_corner_gray"
+            android:textColor="@color/white"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/margin_twenty"
+            android:textColorHint="@color/white"
+            android:drawableStart="@mipmap/icon_card_number"
+            android:drawablePadding="@dimen/margin_ten"
+            android:hint="Card Number"
+            android:paddingHorizontal="@dimen/padding_ten"
+            android:textSize="@dimen/text_size_fourteen"
+            android:gravity="center_vertical" />
+
+        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+            android:id="@+id/edtExpiryDate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_fourtyeight"
+            android:background="@drawable/edittext_corner_gray"
+            android:textColor="@color/white"
+            android:editable="false"
+            android:focusable="false"
+            android:drawableStart="@mipmap/calendar"
+            android:drawablePadding="@dimen/margin_ten"
+            android:layout_marginTop="@dimen/margin_twenty"
+            android:textColorHint="@color/white"
+            android:hint="Expiry Date"
+            android:paddingHorizontal="@dimen/padding_ten"
+            android:textSize="@dimen/text_size_fourteen"
+            android:gravity="center_vertical" />
+
+        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+            android:id="@+id/edtCvv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_fourtyeight"
+            android:background="@drawable/edittext_corner_gray"
+            android:textColor="@color/white"
+            android:drawableStart="@mipmap/cvv"
+            android:drawablePadding="@dimen/margin_ten"
+            android:layout_marginTop="@dimen/margin_twenty"
+            android:textColorHint="@color/white"
+            android:hint="CVV"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingHorizontal="@dimen/padding_ten"
+            android:textSize="@dimen/text_size_fourteen"
+            android:gravity="center_vertical" />
+
+
+
+    </LinearLayout>
+
+    <com.example.neplacecustomer.utils.textview.TextViewRegular
+        android:id="@+id/txtSaveCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10sp"
+        android:text="Save Card"
+        android:textSize="@dimen/text_size_eighteen"
+        android:layout_marginHorizontal="@dimen/margin_twenty"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/btn_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

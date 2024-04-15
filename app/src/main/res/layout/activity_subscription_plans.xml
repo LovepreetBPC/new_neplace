@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.SubscriptionPlansActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Membership Plans"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_ten"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:text="Please, Choose a plan to in order to get ride"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_sixteen" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/img_plan" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/white_border_ronded"
+                        android:paddingBottom="@dimen/padding_twenty"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_margin="1dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/gray_bg_rounded_drak"
+                            android:padding="@dimen/paddinge_eighteen">
+
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:id="@+id/imgSelected"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_selected" />
+
+                            <com.example.neplacecustomer.utils.textview.TextViewBold
+                                android:id="@+id/txtPlanName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="Elite"
+                                android:textSize="@dimen/text_size_twentysix"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:layout_toEndOf="@id/imgSelected"
+                                android:layout_toStartOf="@id/txtPrice" />
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewBold
+                                android:id="@+id/txtPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="$320"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_twentyeight"
+                                android:textColor="@color/white" />
+
+                        </RelativeLayout>
+
+
+                        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                            android:id="@id/txtTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="This plan provide you with a total of five trips."
+                            android:layout_marginHorizontal="@dimen/margin_twelve"
+                            android:layout_marginTop="@dimen/margin_six"
+                            android:textSize="@dimen/text_size_eighteen"
+                            android:textColor="@color/white"
+                            android:layout_below="@id/relativeTitle" />
+
+
+                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            android:id="@+id/txtPlanMonthly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="This is a monthly subscription."
+                            android:layout_marginHorizontal="@dimen/margin_twelve"
+                            android:layout_marginTop="@dimen/margin_six"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@id/relativeMoreDetail"
+                            android:textSize="@dimen/text_size_fourteen"
+                            android:textColor="@color/white"
+                            android:layout_below="@id/txtTitle" />
+
+                        <RelativeLayout
+                            android:id="@+id/relativeMoreDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding_two"
+                            android:layout_marginRight="@dimen/margin_ten"
+                            android:layout_alignTop="@id/txtPlanMonthly"
+                            android:layout_alignParentRight="true">
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                                android:id="@+id/txtMore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="More Detail"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_sixteen" />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="2dp"
+                                android:background="@color/white"
+                                android:layout_toStartOf="@id/txtMore"
+                                android:layout_toEndOf="@id/txtMore"
+                                android:layout_below="@id/txtMore"
+                                android:layout_gravity="center_horizontal" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/white_border_ronded"
+                        android:paddingBottom="@dimen/padding_twenty"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeTitle2"
+                            android:layout_width="match_parent"
+                            android:layout_margin="1dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/gray_bg_rounded_light"
+                            android:padding="@dimen/paddinge_eighteen">
+
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:id="@+id/imgSelected2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_un_selected" />
+
+                            <com.example.neplacecustomer.utils.textview.TextViewBold
+                                android:id="@+id/txtPlanName2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="Elite"
+                                android:textSize="@dimen/text_size_twentysix"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:layout_toEndOf="@id/imgSelected2"
+                                android:layout_toStartOf="@id/txtPrice2" />
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewBold
+                                android:id="@+id/txtPrice2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="$320"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_twentyeight"
+                                android:textColor="@color/white" />
+
+                        </RelativeLayout>
+
+
+                        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                            android:id="@+id/txtTitle2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="This plan provide you with a total of five trips."
+                            android:layout_marginHorizontal="@dimen/margin_twelve"
+                            android:layout_marginTop="@dimen/margin_six"
+                            android:textSize="@dimen/text_size_eighteen"
+                            android:textColor="@color/white"
+                            android:layout_below="@id/relativeTitle2" />
+
+
+                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            android:id="@+id/txtPlanMonthly2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="This is a monthly subscription."
+                            android:layout_marginHorizontal="@dimen/margin_twelve"
+                            android:layout_marginTop="@dimen/margin_six"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@id/relativeMoreDetail2"
+                            android:textSize="@dimen/text_size_fourteen"
+                            android:textColor="@color/white"
+                            android:layout_below="@id/txtTitle2" />
+
+                        <RelativeLayout
+                            android:id="@+id/relativeMoreDetail2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding_two"
+                            android:layout_marginRight="@dimen/margin_ten"
+                            android:layout_alignTop="@id/txtPlanMonthly2"
+                            android:layout_alignParentRight="true">
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                                android:id="@+id/txtAddVehicle2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="More Detail"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_sixteen" />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="2dp"
+                                android:background="@color/white"
+                                android:layout_toStartOf="@id/txtAddVehicle2"
+                                android:layout_toEndOf="@id/txtAddVehicle2"
+                                android:layout_below="@id/txtAddVehicle2"
+                                android:layout_gravity="center_horizontal" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtContinue"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:text="Continue"
+                        android:textSize="@dimen/text_size_eighteen"
+                        android:layout_below="@id/relativeDetail"
+                        android:layout_marginTop="@dimen/margin_fourty"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:paddingHorizontal="20sp"
+                        android:background="@drawable/btn_bg" />
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtSkip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtYes"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/padding_ten"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_sixteen"
+                        android:text="Skip Now"
+                        android:layout_marginTop="@dimen/margin_twenty" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/constraintMain"
+    android:background="@drawable/edittext_corner_gray"
+    android:layout_marginBottom="@dimen/margin_twenty"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_twelve"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_ten"
+                android:layout_toStartOf="@+id/relativeAvailable"
+                android:gravity="center_vertical">
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtStatusName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_border_ronded"
+                    android:maxWidth="200dp"
+                    android:paddingHorizontal="@dimen/paddinge_sixteen"
+                    android:paddingVertical="@dimen/padding_four"
+                    android:singleLine="true"
+                    android:text="Upcoming"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_green"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/imgEdit">
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="02/05/2022  10:30PM"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_sixteen"
+
+                    />
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtTime"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_fourteen"
+
+                    />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="4dp"
+                android:src="@mipmap/ic_edit" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativeProfile"
+
+            >
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/txtMiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/img_trip"
+                android:layout_alignBottom="@id/img_trip"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_fourteen"
+                android:text="8.5 Miles"/>
+
+
+            <ImageView
+                android:id="@+id/img_trip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/txtMiles"
+                android:src="@mipmap/icon_trip" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/txtPickUpAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/img_trip"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_marginStart="@dimen/margin_twenty"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:singleLine="true"
+                android:layout_marginEnd="@dimen/margin_twenty"
+                android:layout_toEndOf="@id/img_trip"
+                android:text="600 West Broadway, San Diego, CA 92101"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twelve" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/txtDropAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/img_trip"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_marginBottom="@dimen/text_size_ten"
+                android:singleLine="true"
+                android:layout_toEndOf="@id/img_trip"
+                android:text="600 B Street, San Diego, CA 92101"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twelve" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_below="@id/relativeAddress"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtCancellationFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    />
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$52"
+                    android:maxWidth="220dp"
+                    android:maxLength="10"
+                    android:layout_below="@id/txtCancellationFee"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twentyfour" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                >
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_alignParentEnd="true"
+                    android:stepSize="0.5"
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/margin_six"
+                    android:rating="4"
+                    android:progressTint="#FFAC33"
+                    android:progressBackgroundTint="#a8a8a8"
+                    android:layout_centerVertical="true"
+                    />
+
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="100dp"
+                    android:text="4.0"
+                    android:visibility="gone"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeProfileDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_below="@id/relativePrice"
+            >
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                />
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:id="@+id/txtWating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WAITING FOR DRIVER ACCEPTANCE"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/view"
+                android:textColor="@color/yellow"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_sixteen"
+                />
+
+
+
+            <RelativeLayout
+                android:id="@+id/relativeDriverProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view"
+                android:layout_centerInParent="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="40sp"
+                    android:visibility="visible"
+                    android:layout_height="40sp"
+                    android:src="@mipmap/img_place_holder"
+                    android:layout_centerVertical="true" />
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtDriverName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_toEndOf="@id/imgProfile"
+                    android:layout_marginStart="16dp"
+                    android:layout_toStartOf="@id/icMessage"
+                    android:text="name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twenty" />
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtCarName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/txtDriverName"
+                    android:layout_toEndOf="@id/imgProfile"
+
+                    android:layout_marginStart="16sp"
+                    android:text=""
+                    android:layout_toStartOf="@id/icMessage"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_sixteen" />
+
+
+
+
+                <ImageView
+                    android:id="@+id/icMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:padding="4dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_message"
+                    />
+
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

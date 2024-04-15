@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.PersonalIdCardActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/personal_id_card"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+
+                    <RelativeLayout
+                        android:id="@+id/relativeSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_corner_gray"
+                        >
+
+                        <Spinner
+                            android:id="@+id/spinnerPassenger"
+                            android:paddingHorizontal="10sp"
+                            android:layout_width="match_parent"
+                            android:spinnerMode="dialog"
+                            android:backgroundTint="@color/black"
+                            android:layout_height="50dp" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_id_card"
+                            android:layout_marginRight="10sp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            />
+
+
+                    </RelativeLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:hint="Personal ID Card"
+                        android:visibility="gone"
+                        android:drawableRight="@mipmap/ic_id_card"
+                        android:paddingHorizontal="@dimen/padding_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeFront"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtFrom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Front"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_sixteen" />
+
+
+                            <ImageView
+                                android:id="@+id/imgDelete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/padding_six"
+                                android:src="@mipmap/ic_delete_white" />
+
+                            <ImageView
+                                android:id="@+id/imgUpload"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@id/imgDelete"
+                                android:padding="@dimen/padding_six"
+                                android:src="@mipmap/ic_upload" />
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativefront"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:background="@drawable/edittext_corner_gray"
+                            android:layout_below="@id/relativeFront">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_camera_red_bg"
+                                android:layout_centerInParent="true" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/imgDocment"
+                                android:layout_width="match_parent"
+                                android:layout_height="220dp"
+                                android:background="#2E2C33"
+                                android:visibility="gone"
+                                app:shapeAppearance="@style/CornerRadious" />
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeBack"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Back"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_sixteen" />
+
+
+                            <ImageView
+                                android:id="@+id/imgDeleteBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/padding_six"
+                                android:src="@mipmap/ic_delete_white" />
+
+                            <ImageView
+                                android:id="@+id/imgUploadBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@id/imgDeleteBack"
+                                android:padding="@dimen/padding_six"
+                                android:src="@mipmap/ic_upload" />
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeback"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:background="@drawable/edittext_corner_gray"
+                            android:layout_below="@id/relativeBack">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_camera_red_bg"
+                                android:layout_centerInParent="true" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/imgDocmentBack"
+                                android:layout_width="match_parent"
+                                android:layout_height="220dp"
+                                android:background="#2E2C33"
+                                android:visibility="gone"
+                                app:shapeAppearance="@style/CornerRadious" />
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtSave"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_fourty"
+                        android:layout_marginBottom="@dimen/margin_fourty"
+                        android:background="@drawable/btn_bg"
+                        android:drawablePadding="@dimen/padding_ten"
+                        android:gravity="center"
+                        android:paddingHorizontal="20sp"
+                        android:paddingVertical="10sp"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_eighteen" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

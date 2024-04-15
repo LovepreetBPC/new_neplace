@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".activity.CancelRideDialogActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/margin_twenty"
+        android:paddingVertical="@dimen/margin_fourty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.neplacecustomer.utils.textview.TextViewBold
+            android:id="@+id/txtCancelRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_ten"
+            android:gravity="center"
+            android:text="Cancel Request"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_twenty" />
+
+        <RelativeLayout
+            android:id="@+id/RelativeDone"
+            android:layout_width="@dimen/margin_hundered"
+            android:layout_height="@dimen/margin_hundered"
+            android:layout_below="@id/txtCancelRequest"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_eighteen"
+            android:background="@drawable/circler_blue_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_cross_white" />
+        </RelativeLayout>
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewMedium
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RelativeDone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_sixteen"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="in case of cancellation $35 will be deducted from your A/c automatically"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_twenty" />
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            android:id="@+id/txtDec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/margin_thirty"
+            android:layout_marginTop="@dimen/margin_twenty"
+            android:gravity="center"
+            android:text="Do you still want to cancel the request?"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_sixteen" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDec"
+            android:layout_marginTop="@dimen/margin_fourty"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeNoContinue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_ten"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:padding="@dimen/paddinge_sixteen"
+                    android:text="No, Continue"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeYesCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_ten"
+                android:layout_weight="1"
+                android:background="@drawable/blue_boder">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:padding="@dimen/paddinge_sixteen"
+                    android:text="Yes, Cancel"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

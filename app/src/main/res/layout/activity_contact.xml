@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.ContactActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/padding_ten"
+                android:text="Contact Us"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_sixty"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How  can we help you?"
+                android:textSize="@dimen/text_size_twenty"
+                android:textColor="@color/white"
+                />
+
+            <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                android:id="@+id/edtDec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:minHeight="180dp"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:textColorHint="#99FFFFFF"
+                android:drawablePadding="@dimen/margin_ten"
+                android:hint="Your message here ..."
+                android:paddingHorizontal="@dimen/padding_ten"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:padding="@dimen/padding_twenty"
+                android:gravity="start" />
+
+
+
+
+            <TextView
+                android:id="@+id/txtUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10sp"
+                android:text="Submit"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:textSize="@dimen/text_size_eighteen"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/btn_bg" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

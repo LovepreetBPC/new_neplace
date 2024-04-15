@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.EditProfileActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/padding_ten"
+                android:text="@string/edit_profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_sixty"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <RelativeLayout
+                android:id="@+id/RelativeDone"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/img_place_holder" />
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/imgProfile"
+                    android:src="@mipmap/ic_camera_upload_image"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="-6dp"
+                    android:layout_marginRight="-6dp"
+                    android:elevation="10sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_fourtyeight"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_sixty"
+                android:textColorHint="@color/white"
+                android:drawableLeft="@mipmap/ic_user_outline"
+                android:drawablePadding="@dimen/margin_ten"
+                android:hint="@string/enter_your_name"
+                android:paddingHorizontal="@dimen/padding_ten"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/edtLastName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_fourtyeight"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:textColorHint="@color/white"
+                android:drawableLeft="@mipmap/ic_user_outline"
+                android:drawablePadding="@dimen/margin_ten"
+                android:hint="@string/enter_your_last_name"
+                android:paddingHorizontal="@dimen/padding_ten"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:gravity="center_vertical" />
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_fourtyeight"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:textColorHint="@color/white"
+                android:inputType="none"
+                android:focusableInTouchMode="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:drawableLeft="@mipmap/ic_gallery"
+                android:drawablePadding="@dimen/margin_ten"
+                android:hint="@string/enter_your_email"
+                android:paddingHorizontal="@dimen/padding_ten"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_fourtyeight"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:drawableLeft="@mipmap/ic_phone"
+                android:drawablePadding="@dimen/margin_ten"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:inputType="none"
+                android:focusableInTouchMode="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:textColorHint="@color/white"
+                android:hint="@string/phone_number"
+                android:paddingHorizontal="@dimen/padding_ten"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/edtVehicleType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_corner_gray"
+                android:textColor="@color/white"
+                android:paddingVertical="@dimen/padding_fourteen"
+                android:visibility="visible"
+                android:drawableLeft="@mipmap/ic_location_white"
+                android:drawablePadding="@dimen/margin_ten"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:textColorHint="@color/white"
+                android:text="-"
+                android:paddingLeft="@dimen/padding_ten"
+                android:lineSpacingExtra="5dp"
+                android:paddingRight="@dimen/margin_thirty"
+                android:textSize="@dimen/paddinge_sixteen"
+                android:gravity="center_vertical" />
+
+
+            <TextView
+                android:id="@+id/txtUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10sp"
+                android:text="Update"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:textSize="@dimen/text_size_eighteen"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/btn_bg" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/waiting_for_driver_bg"
+        tools:context=".activity.WaitingForDriverActivity">
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity=""
+                android:text="Waiting for Driver"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_twentytwo" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relativeWaitingDriver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20sp"
+            android:background="@drawable/bottom_sheet_bg_black"
+            android:layout_alignParentBottom="true">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtWaitingForDriver"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:text="Waiting for driver ... " />
+
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtRecommended"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/txtWaitingForDriver"
+                    android:text="You will get a notification when driver is on its way"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="@dimen/margin_thirty"
+                android:layout_below="@id/relativeTitle">
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeContinue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_ten">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:padding="@dimen/paddinge_sixteen"
+                        android:text="Continue"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeChangePickTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_ten">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/padding_ten"
+                        android:padding="@dimen/paddinge_sixteen"
+                        android:singleLine="true"
+                        android:text="Change Pick Up Time"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeCancelRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_ten"
+                android:layout_below="@id/linearBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal">
+
+                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    android:id="@+id/txtCancelRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel Request"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size_eighteen" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:background="@color/red"
+                    android:layout_toStartOf="@id/txtCancelRequest"
+                    android:layout_toEndOf="@id/txtCancelRequest"
+                    android:layout_below="@id/txtCancelRequest"
+                    android:layout_gravity="center_horizontal" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

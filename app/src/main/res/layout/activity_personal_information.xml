@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.PersonalInformationActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_ten"
+                        android:text="@string/personal_information"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_twenty" />
+
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                        android:id="@+id/edtFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:hint="@string/first_name"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                        android:id="@+id/edtLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:hint="@string/last_name"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:singleLine="true"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:hint="@string/email_id"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                        android:id="@+id/edtPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:singleLine="true"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:gravity="center_vertical"
+                        android:hint="@string/phone_number"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtUploadPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:hint="@string/upload_profile_photo"
+                        android:singleLine="true"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen"
+                        app:drawableRightCompat="@mipmap/ic_camera" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardProfileImage"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20sp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="20sp">
+
+                        <ImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img" />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                        android:id="@+id/edtCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:hint="@string/city"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:visibility="gone">
+
+                        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                            android:id="@+id/edtPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin_fourtyeight"
+                            android:background="@null"
+                            android:hint="@string/password"
+                            android:singleLine="true"
+                            android:inputType="textPassword"
+                            android:paddingHorizontal="@dimen/margin_twenty"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:visibility="gone">
+
+                        <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                            android:id="@+id/edtConfirmPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin_fourtyeight"
+                            android:background="@null"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:paddingHorizontal="@dimen/margin_twenty"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/paddinge_sixteen" />
+
+
+                    </RelativeLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtEnterAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_fourtyeight"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:hint="@string/address"
+                        android:singleLine="true"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/paddinge_sixteen"
+                        app:drawableRightCompat="@mipmap/ic_location" />
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtNext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="@dimen/margin_fourty"
+                        android:background="@drawable/btn_bg"
+                        android:gravity="center"
+                        android:paddingHorizontal="20sp"
+                        android:paddingVertical="10sp"
+                        android:text="Continue"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_eighteen" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

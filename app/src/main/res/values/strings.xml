@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">NePlaceCustomer</string>
+    <string name="get_started">Get Started</string>
+    <string name="enter_your_mobile_number">Enter your mobile number</string>
+    <string name="we_will_send_you_a_verification_code_in_order_to_verify_your_number">We will send you a verification code in order to verify your number.</string>
+    <!--    <string name="by_continue_you_are_accepting_our_privacy_policy_and_term_of_service">By “Continue” you are accepting our <u>Privacy Policy </u>and <u> Term of Service </u></string>-->
+    <string name="by_continue_you_are_accepting_our_privacy_policy_and_term_of_service">By “Continue” you are accepting our <u>Privacy Policy </u>and <u> Term of Service </u></string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="find_my_account"><u>Find my Account</u></string>
+    <string name="find_my_accounts">Find my account</string>
+    <string name="no_this_is_not_me">No, this is not me</string>
+    <string name="enter_the_4_digit_code_sent_to_you_at">Enter the 4-digit code sent to you at</string>
+    <string name="i_didn_t_receive_a_code">I didn’t receive a code</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_id">Email Id</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="city">City</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="upload_profile_photo">Upload Profile Photo</string>
+    <string name="address">Address</string>
+    <string name="save">Save</string>
+    <string name="personal_id_card">Personal ID Card</string>
+    <string name="my_account">My Account</string>
+    <string name="rides">Book Ride</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_condition"><![CDATA[Terms & Condition]]></string>
+    <string name="logout">Logout</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="where_to">Where To</string>
+    <string name="choose_a_vehicle">Choose a Vehicle</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="notification">Notification</string>
+    <string name="submit">Submit</string>
+    <string name="edit_profile">Edit Profile </string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="upload_from">Upload from</string>
+    <string name="change_pick_up_time">Change Pick Up Time</string>
+    <string name="enter_your_last_name">Enter your last name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="upgrade_plan"><u>Upgrade Plan</u></string>
+    <string name="privacy_policy_"><u>Privacy Policy</u></string>
+    <string name="and_term_of_service">and <u>Term of Service</u></string>
+    <string name="YOUR_MAPBOX_API_KEY">pk.eyJ1IjoiZ29uZXBsYWNlMjQiLCJhIjoiY2xxdnh4YnVwNXc4bTJrcDF5MmszbzdzZSJ9.giFCyEOyJGZb6jzPGKfYFw</string>
+
+    <string name="noTokenDialogBody">Empty Body</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZ29uZXBsYWNlMjQiLCJhIjoiY2xzNXVkajdzMWlrMDJqcXBvdHpkOHRibSJ9.A5YbSqVcw2ulqN5bqDBabQ</string>
+    <string name="noTokenDialogTitle">No Token</string>
+    <string name="cancel_request"><u>Cancel Request</u></string>
+    <string name="cancellation_fee">Cancellation Fee</string>
+
+</resources>

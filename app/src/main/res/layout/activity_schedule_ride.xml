@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.ScheduleRideActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Schedule Ride"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twentytwo" />
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/img_calander" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Service Type"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:background="@drawable/edittext_corner_gray">
+
+                        <Spinner
+                            android:id="@+id/spinnerServiceType"
+                            android:paddingHorizontal="10sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:spinnerMode="dialog"
+                            />
+                    </RelativeLayout>
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="No of Hours"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeHours"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:background="@drawable/edittext_corner_gray">
+
+                        <Spinner
+                            android:id="@+id/spinnerHours"
+                            android:layout_width="match_parent"
+                            android:paddingHorizontal="10sp"
+                            android:layout_height="match_parent"
+                            android:spinnerMode="dialog"
+                            />
+                    </RelativeLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Pick Up Address"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtPickUpAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:text="-"
+                        android:singleLine="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Drop Off Address"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtDropOffAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:singleLine="true"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:text="-"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        />
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pickup Date should be at least 24hours in  advance "
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtDatePicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text="2023-06-20"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableRight="@mipmap/ic_calendar" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pickup Time"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:textSize="14sp"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text="12:57:00"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableRight="@mipmap/ic_clock" />
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtDateError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Please select pick up time after 24 hrs"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#B4141E"
+                        android:textSize="@dimen/text_size_twelve"
+                        />
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="@dimen/margin_ten">
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtNumberPassenger"
+                                android:layout_width="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:layout_height="wrap_content"
+                                android:text="Number of Passenger" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:layout_below="@id/txtNumberPassenger"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <Spinner
+                                    android:id="@+id/spinnerPassenger"
+                                    android:paddingHorizontal="10sp"
+                                    android:layout_width="match_parent"
+                                    android:spinnerMode="dialog"
+                                    android:layout_height="match_parent" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="@dimen/margin_ten"
+                            android:layout_height="wrap_content">
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtNumberLuggage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:text="Number of Luggage" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:layout_below="@id/txtNumberLuggage"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <Spinner
+                                    android:id="@+id/spinnerLuggage"
+                                    android:paddingHorizontal="10sp"
+                                    android:layout_width="match_parent"
+                                    android:spinnerMode="dialog"
+                                    android:layout_height="match_parent"
+                                    />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="@dimen/margin_ten">
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtChildSeat"
+                                android:layout_width="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:layout_height="wrap_content"
+                                android:text="Child Seat" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:layout_below="@id/txtChildSeat"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <Spinner
+                                    android:id="@+id/spinnerChild"
+                                    android:layout_width="match_parent"
+                                    android:paddingHorizontal="10sp"
+                                    android:spinnerMode="dialog"
+                                    android:layout_height="match_parent" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="@dimen/margin_ten"
+                            android:layout_height="wrap_content">
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtHandicap"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:text="Handicap" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:layout_below="@id/txtHandicap"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <Spinner
+                                    android:id="@+id/spinnerHandicap"
+                                    android:spinnerMode="dialog"
+                                    android:paddingHorizontal="10sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtAirportCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Airport Code"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                        android:id="@+id/edtAirportCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:textSize="14sp"
+                        android:focusable="false"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text=""
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableEnd="@mipmap/ic_airport" />
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtAirline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Airline"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                        android:id="@+id/edtAirline"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:focusable="false"
+                        android:textSize="14sp"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text=""
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableRight="@mipmap/ic_airline" />
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/linerFlightNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="@dimen/margin_ten">
+
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtFlightNumber"
+                                android:layout_width="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:layout_height="wrap_content"
+                                android:text="Flight Number" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:layout_below="@id/txtFlightNumber"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                                    android:id="@+id/edtFlightNumber"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/edt_height"
+                                    android:layout_marginTop="@dimen/margin_four"
+                                    android:focusable="false"
+                                    android:background="@drawable/edittext_corner_gray"
+                                    android:text=""
+                                    android:textSize="14sp"
+                                    android:gravity="center_vertical"
+                                    android:paddingHorizontal="@dimen/margin_twenty"
+                                    android:textColor="@color/white"
+                                    android:drawableRight="@mipmap/ic_flight" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="@dimen/margin_ten"
+                            android:layout_height="wrap_content">
+
+                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                                android:id="@+id/txtETA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_twelve"
+                                android:textColor="@color/white"
+                                android:text="ETA" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edt_height"
+                                android:layout_marginTop="@dimen/margin_four"
+                                android:textSize="12dp"
+                                android:layout_below="@id/txtETA"
+                                android:background="@drawable/edittext_corner_gray">
+
+                                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                                    android:id="@+id/edtETA"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingHorizontal="@dimen/margin_twenty"
+                                    android:singleLine="true"
+                                    android:textSize="14sp"
+                                    android:background="@drawable/edittext_corner_gray"/>
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtContinue"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:text="Continue"
+                        android:textSize="@dimen/text_size_eighteen"
+                        android:layout_marginBottom="@dimen/margin_fourty"
+                        android:layout_below="@id/txtDec"
+                        android:layout_marginTop="@dimen/margin_fourty"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:paddingHorizontal="20sp"
+                        android:background="@drawable/btn_bg" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

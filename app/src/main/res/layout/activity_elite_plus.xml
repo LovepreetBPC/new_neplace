@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/black_bg"
+        android:layout_height="match_parent"
+        tools:context=".activity.ElitePlusActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Elite"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twenty" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relativeTop">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="100dp"
+                android:layout_height="85dp"
+                android:src="@mipmap/logo"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:id="@+id/relativeAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLogo"
+                android:layout_centerHorizontal="true">
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:id="@+id/txtAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$210.00"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twentyeight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/month"
+                    android:layout_toEndOf="@id/txtAmount"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="4dp"
+                    android:layout_alignBottom="@id/txtAmount"
+                    android:textSize="@dimen/text_size_twenty" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_eighty"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_below="@id/relativeAmount" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

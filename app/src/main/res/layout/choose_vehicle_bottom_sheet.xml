@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activity.ChooseVehicleActivity"
+        android:background="@drawable/bottom_sheet_bg_black"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+           >
+
+            <RelativeLayout
+                android:id="@+id/relativeAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/imgEdit"
+                android:layout_marginTop="@dimen/margin_twenty">
+
+                <ImageView
+                    android:id="@+id/img_trip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_trip" />
+
+                <TextView
+                    android:id="@+id/pickup_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/img_trip"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginStart="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_ten"
+                    android:layout_marginEnd="@dimen/margin_twenty"
+                    android:singleLine="true"
+                    android:layout_toEndOf="@id/img_trip"
+                    android:text="600 West Broadway, San Diego, CA 92101"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twelve" />
+
+                <TextView
+                    android:id="@+id/drop_location"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/img_trip"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginBottom="@dimen/text_size_ten"
+                    android:layout_toEndOf="@id/img_trip"
+                    android:text="600 B Street, San Diego, CA 92101"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twelve" />
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:layout_alignParentRight="true" />
+
+
+            <TextView
+                android:id="@+id/txtChooseVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:layout_below="@id/relativeAddress"
+                android:text="@string/choose_a_vehicle"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_eighteen" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtChooseVehicle"
+                tools:listitem="@layout/choose_vehicle_item"
+                tools:itemCount="1"
+                android:layout_marginTop="@dimen/margin_fourty"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@id/txtChooseVehicle"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgCar1"
+                        android:layout_width="@dimen/margin_nighty"
+                        android:layout_height="@dimen/margin_nighty"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/img_car" />
+
+                    <TextView
+                        android:id="@+id/txtCarName1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lincoln MKZ"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/imgCar1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_twenty" />
+
+                    <TextView
+                        android:id="@+id/txtPrice1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$20.54"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtCarName1"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:gravity="center"
+                        android:background="@mipmap/car_seets_bg"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtPrice1"
+                        android:layout_centerHorizontal="true" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgCar2"
+                        android:layout_width="@dimen/margin_nighty"
+                        android:layout_height="@dimen/margin_nighty"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/img_car" />
+
+                    <TextView
+                        android:id="@+id/txtCarName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SUV"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/imgCar2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_twenty" />
+
+                    <TextView
+                        android:id="@+id/txtPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$30.48"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtCarName2"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:gravity="center"
+                        android:background="@mipmap/car_seets_bg"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtPrice2"
+                        android:layout_centerHorizontal="true" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgCar3"
+                        android:layout_width="@dimen/margin_nighty"
+                        android:layout_height="@dimen/margin_nighty"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/img_car" />
+
+                    <TextView
+                        android:id="@+id/txtCarName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mercede"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/imgCar3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_twenty" />
+
+                    <TextView
+                        android:id="@+id/txtPrice3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$40.54"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtCarName3"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7"
+                        android:gravity="center"
+                        android:background="@mipmap/car_seets_bg"
+                        android:textColor="@color/white"
+                        android:layout_below="@id/txtPrice3"
+                        android:layout_centerHorizontal="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

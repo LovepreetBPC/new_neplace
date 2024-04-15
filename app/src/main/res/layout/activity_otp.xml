@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.OtpActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/enter_the_4_digit_code_sent_to_you_at" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="@dimen/margin_four"
+                android:text="+1 (310) 270-0000" />
+
+
+            <LinearLayout
+                android:id="@+id/root_otp_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    android:id="@+id/edtOtp1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="@dimen/margin_twenty"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="@dimen/text_size_twenty"
+                    android:background="@drawable/edittext_corner_gray" />
+
+                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    android:id="@+id/edtOtp2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="@dimen/margin_six"
+                    android:layout_marginEnd="@dimen/margin_twenty"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twenty"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/edittext_corner_gray" />
+
+                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    android:id="@+id/edtOtp3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="@dimen/margin_six"
+                    android:layout_marginEnd="@dimen/margin_twenty"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_twenty"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/edittext_corner_gray" />
+
+                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    android:id="@+id/edtOtp4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="@dimen/margin_ten"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twenty"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/edittext_corner_gray" />
+
+
+            </LinearLayout>
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtVerifyOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10sp"
+                android:text="@string/i_didn_t_receive_a_code"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:textSize="@dimen/text_size_twelve"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/red_bg" />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearTop"
+            android:layout_margin="20sp"
+            >
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtResend"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:layout_above="@id/txtSndOtp"
+                android:layout_marginBottom="@dimen/margin_twenty"
+                android:background="@drawable/black_bg"
+                android:visibility="gone"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:text="Resend code via SMS"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_eighteen" />
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtSndOtp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:text="Submit"
+                android:layout_alignParentBottom="true"
+                android:textSize="@dimen/text_size_eighteen"
+                android:layout_marginBottom="@dimen/margin_thirty"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/btn_bg" />
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

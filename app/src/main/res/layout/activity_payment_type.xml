@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.PaymentTypeActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_back" />
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            android:id="@+id/txteditcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/padding_ten"
+            android:text="Edit Card"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_twenty" />
+
+        <com.example.neplacecustomer.utils.textview.TextViewRegular
+            android:id="@+id/txtaddCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/txteditcard"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:text="+ Add Card"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16sp"
+            android:background="#06304D"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp" />
+
+    </RelativeLayout>
+
+
+    <com.example.neplacecustomer.utils.textview.TextViewMedium
+        android:id="@+id/tvpayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:text="Payment Method"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/relativeTop"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/text_size_twenty" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10sp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/cardlist"
+        app:layout_constraintTop_toBottomOf="@+id/tvpayment"
+        app:layout_constraintBottom_toTopOf="@id/txtCancelRide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        android:id="@+id/txtNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Card Found!!"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/text_size_twenty" />
+
+
+
+    <com.example.neplacecustomer.utils.textview.TextViewMedium
+        android:id="@+id/txtCancelRide"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_margin="20sp"
+        android:layout_alignParentEnd="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Cancel Ride"
+        android:visibility="visible"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16sp"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

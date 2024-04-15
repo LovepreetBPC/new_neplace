@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">30dp</dimen>
+    <dimen name="slide_desc">16dp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+
+
+    <dimen name="txtSize">20sp</dimen>
+    <dimen name="txtMargin">20sp</dimen>
+
+    <dimen name="text_size_ten">10sp</dimen>
+    <dimen name="text_size_twelve">12sp</dimen>
+    <dimen name="text_size_thirteen">13sp</dimen>
+    <dimen name="text_size_fourteen">14sp</dimen>
+    <dimen name="text_size_fifteen">15sp</dimen>
+    <dimen name="text_size_sixteen">16sp</dimen>
+    <dimen name="text_size_eighteen">18sp</dimen>
+    <dimen name="text_size_twenty">20sp</dimen>
+    <dimen name="text_size_twentytwo">22sp</dimen>
+    <dimen name="text_size_twentyfour">24sp</dimen>
+    <dimen name="text_size_twentysix">26sp</dimen>
+    <dimen name="text_size_twentyeight">28sp</dimen>
+    <dimen name="text_size_thirty">30sp</dimen>
+    <dimen name="text_size_thirty_six">36sp</dimen>
+    <dimen name="text_size_fourty">40sp</dimen>
+    <dimen name="text_size_fourtyeight">48sp</dimen>
+
+
+    <!--define padding-->
+    <dimen name="padding_two">2dp</dimen>
+    <dimen name="padding_four">4dp</dimen>
+    <dimen name="padding_six">6dp</dimen>
+    <dimen name="padding_eight">8dp</dimen>
+    <dimen name="padding_ten">10dp</dimen>
+    <dimen name="padding_twelve">12dp</dimen>
+    <dimen name="padding_fourteen">14dp</dimen>
+    <dimen name="paddinge_sixteen">16sp</dimen>
+    <dimen name="paddinge_eighteen">18dp</dimen>
+    <dimen name="padding_twenty">20dp</dimen>
+    <dimen name="padding_twentytwo">22dp</dimen>
+    <dimen name="padding_twentyfour">24dp</dimen>
+    <dimen name="padding_twentysix">26dp</dimen>
+    <dimen name="padding_twentyeight">28dp</dimen>
+
+    <!--define margin-->
+    <dimen name="margin_two">2dp</dimen>
+    <dimen name="margin_four">4dp</dimen>
+    <dimen name="margin_six">6dp</dimen>
+    <dimen name="margin_eight">8dp</dimen>
+    <dimen name="margin_ten">10dp</dimen>
+    <dimen name="margin_twelve">12dp</dimen>
+    <dimen name="margin_fourteen">14dp</dimen>
+    <dimen name="margin_sixteen">16dp</dimen>
+    <dimen name="margin_seventeen">17dp</dimen>
+    <dimen name="margin_eighteen">18dp</dimen>
+    <dimen name="margin_twenty">20dp</dimen>
+    <dimen name="margin_twentytwo">22dp</dimen>
+    <dimen name="margin_twentyfour">24dp</dimen>
+    <dimen name="margin_twentysix">26dp</dimen>
+    <dimen name="margin_twentyeight">28dp</dimen>
+    <dimen name="margin_thirty">30dp</dimen>
+    <dimen name="margin_thirtytwo">32dp</dimen>
+    <dimen name="margin_thirtyfour">34dp</dimen>
+    <dimen name="margin_thirtysix">36dp</dimen>
+    <dimen name="margin_thirtyeight">38dp</dimen>
+    <dimen name="margin_fourty">40dp</dimen>
+    <dimen name="margin_fourtytwo">42dp</dimen>
+    <dimen name="margin_fourtyfour">44dp</dimen>
+    <dimen name="margin_fourtysix">46dp</dimen>
+    <dimen name="margin_fourtyeight">48dp</dimen>
+    <dimen name="margin_fifty">50dp</dimen>
+    <dimen name="margin_fiftytwo">52dp</dimen>
+    <dimen name="margin_fiftyfour">54dp</dimen>
+    <dimen name="margin_fiftysix">56dp</dimen>
+    <dimen name="margin_fiftyeight">58dp</dimen>
+    <dimen name="margin_sixty">60dp</dimen>
+    <dimen name="margin_sixtysix">66dp</dimen>
+    <dimen name="margin_seventy">70dp</dimen>
+    <dimen name="margin_seventysix">76dp</dimen>
+    <dimen name="margin_eighty">80dp</dimen>
+    <dimen name="margin_eightytwo">84dp</dimen>
+    <dimen name="margin_eightysix">86dp</dimen>
+    <dimen name="margin_nighty">90dp</dimen>
+    <dimen name="margin_hundered">100dp</dimen>
+    <dimen name="margin_one_hundered_ten">110dp</dimen>
+    <dimen name="margin_one_hundered_twenty">120dp</dimen>
+    <dimen name="margin_one_hundered_thartyfive">135dp</dimen>
+    <dimen name="margin_one_hundered_tharty">130dp</dimen>
+    <dimen name="margin_one_hundered_thartyEight">130dp</dimen>
+    <dimen name="margin_one_hundered_fourty">140dp</dimen>
+    <dimen name="margin_one_hundered_fourtyeight">148dp</dimen>
+    <dimen name="margin_one_hundered_fifty">150dp</dimen>
+    <dimen name="margin_one_hundered_seventy">170dp</dimen>
+    <dimen name="margin_one_hundered_eighty">180dp</dimen>
+    <dimen name="margin_two_hundered">200dp</dimen>
+    <dimen name="margin_two_hundered_twenty">220dp</dimen>
+    <dimen name="margin_two_hundered_twentyeight">228dp</dimen>
+    <dimen name="margin_two_hundered_fourty">240dp</dimen>
+    <dimen name="margin_two_hundered_eighty">280dp</dimen>
+    <dimen name="margin_four_hundered">400dp</dimen>
+    <dimen name="margin_five_hundered">500dp</dimen>
+    <dimen name="margin_six_hundered">600dp</dimen>
+    <dimen name="margin_three_hundered">300dp</dimen>
+    <dimen name="margin_three_hundered_twenty">320dp</dimen>
+    <dimen name="margin_three_hundered_fourty">340dp</dimen>
+    <dimen name="margin_three_hundered_eighty">380dp</dimen>
+    <dimen name="margin_fourty_eight">48dp</dimen>
+    <dimen name="text_size_eight">8sp</dimen>
+
+    <dimen name="margin_metrics_box">110dp</dimen>
+    <dimen name="edt_height">54dp</dimen>
+
+
+</resources>

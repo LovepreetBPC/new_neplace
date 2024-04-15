@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context=".activity.DriveDetailsActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity=""
+                android:text="Driver Details"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twentytwo" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_twenty"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <RelativeLayout
+                android:id="@+id/RelativeDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/margin_hundered"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="@dimen/margin_hundered"
+                    android:src="@mipmap/img_place_holder" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="@dimen/margin_thirty"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_below="@id/imgProfile">
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:text="Rick Laurence"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_eighteen" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/relativeEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/txtName">
+
+                        <TextView
+                            android:id="@+id/txtEmailTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_two"
+                            android:text="Email -"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_fourteen" />
+
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/txtEmailTitle"
+                            android:layout_marginLeft="@dimen/margin_two"
+                            android:layout_toEndOf="@id/txtEmailTitle"
+                            android:singleLine="true"
+                            android:text="rick@email.com"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_fourteen" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/relativeEmail"
+                        android:layout_centerHorizontal="true">
+
+                        <TextView
+                            android:id="@+id/txtMobileTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_two"
+                            android:text="Mobile -"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_fourteen" />
+
+                        <TextView
+                            android:id="@+id/txtMobileNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/txtMobileTitle"
+                            android:layout_marginLeft="@dimen/margin_two"
+                            android:layout_toEndOf="@id/txtMobileTitle"
+                            android:singleLine="true"
+                            android:text="+1-310-234-0000"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_fourteen" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RelativeTrips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_sixteen"
+                android:layout_below="@id/relativeProfile">
+
+
+                <RelativeLayout
+                    android:id="@+id/RelativeRatingMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeRating"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:background="@drawable/circler_blue_bg">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_star" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/RelativeRating"
+                        android:textColor="@color/white"
+                        android:text="4.8 Rating"
+                        android:layout_centerHorizontal="true" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RelativeTaxiMain"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="@dimen/margin_fourty"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/RelativeRatingMain">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeTaxi"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:background="@drawable/circler_blue_bg">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_taxi" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/relativeTaxi"
+                        android:textColor="@color/white"
+                        android:text="150 Trips"
+                        android:layout_centerHorizontal="true" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/padding_eight"
+                android:paddingHorizontal="@dimen/padding_twenty"
+                android:background="@drawable/edittext_corner_gray"
+                android:layout_marginTop="@dimen/margin_thirty">
+
+                <TextView
+                    android:id="@+id/txtVehicleInformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Vehicle Information"
+                    android:textColor="@color/white" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_ten"
+                    android:layout_below="@id/txtVehicleInformation">
+
+                    <ImageView
+                        android:id="@+id/imgCar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/car_img" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_twenty"
+                        android:layout_alignTop="@id/imgCar"
+                        android:layout_toEndOf="@id/imgCar"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hundai Elentre 2.0 SMT"
+                            android:textColor="@color/white"
+                            android:layout_toEndOf="@id/imgCar"
+                            android:layout_alignTop="@id/imgCar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HSW 1253kk"
+                            android:textColor="@color/white"
+                            android:layout_toEndOf="@id/imgCar"
+                            android:layout_alignTop="@id/imgCar" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtContinue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:text="Contact"
+                android:textSize="@dimen/text_size_eighteen"
+                android:layout_below="@id/txtDec"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/btn_bg" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

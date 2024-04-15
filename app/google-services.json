@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "319811497841",
+    "project_id": "ne-place",
+    "storage_bucket": "ne-place.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319811497841:android:fed16099855add7df710d0",
+        "android_client_info": {
+          "package_name": "com.example.neplacecustomer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319811497841-1bqeguv91ua0rbl44demacu54f2oaia2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.neplacecustomer",
+            "certificate_hash": "86f6619179233977422959c8ed2e2d08ca367897"
+          }
+        },
+        {
+          "client_id": "319811497841-hhoh4d8khjkaqpuq6so1ecdbccus54vj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4uc4XxRnaZaBABMJn9qWCFcmwWHDfFRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319811497841-hhoh4d8khjkaqpuq6so1ecdbccus54vj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "319811497841-26qn1hi04gdph35vmv90lp66gkpo4fhq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neplace.customer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

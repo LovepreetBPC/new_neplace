@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.ChangePickUpTimeActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/change_pick_up_time"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twentytwo" />
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relativeTop">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_twenty"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+
+
+
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pickup Date "
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtDatePicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text="2023-06-20"
+                        android:textSize="@dimen/text_size_twelve"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableRight="@mipmap/ic_calendar" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtDateError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Should be at least 24hours in advance"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#B4141E"
+                        android:textSize="@dimen/text_size_twelve" />
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pickup Time"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin_twenty"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:layout_marginTop="@dimen/margin_four"
+                        android:textSize="@dimen/text_size_twelve"
+                        android:background="@drawable/edittext_corner_gray"
+                        android:text="12:57:00"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/margin_twenty"
+                        android:textColor="@color/white"
+                        android:drawableRight="@mipmap/ic_clock" />
+
+                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        android:id="@+id/txtTimeError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Should be at least 24hours in advance"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#B4141E"
+                        android:textSize="@dimen/text_size_twelve" />
+
+
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtContinue"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edt_height"
+                        android:text="Continue"
+                        android:textSize="@dimen/text_size_eighteen"
+                        android:layout_marginBottom="@dimen/margin_fourty"
+                        android:layout_below="@id/txtDec"
+                        android:layout_marginTop="@dimen/margin_fourty"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:paddingHorizontal="20sp"
+                        android:background="@drawable/btn_bg" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

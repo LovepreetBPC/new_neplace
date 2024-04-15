@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_bg">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20sp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewMedium
+            android:id="@+id/txtFindAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/find_my_accounts"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_eighteen" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/txtFindAccount"
+            android:layout_marginTop="@dimen/margin_ten"
+            android:background="#33000000" />
+
+        <RelativeLayout
+            android:id="@+id/relativeProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view"
+            android:layout_margin="@dimen/margin_twenty">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/margin_fourty"
+                android:layout_height="@dimen/margin_fourty"
+                android:src="@drawable/img" />
+
+            <RelativeLayout
+                android:id="@+id/relativeDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgProfile"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_toEndOf="@id/imgProfile"
+                android:gravity="center_vertical"
+                android:minWidth="120dp"
+
+                >
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="200dp"
+                    android:singleLine="true"
+                    android:text="John"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_sixteen" />
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    android:id="@+id/txtMobileNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtName"
+                    android:maxWidth="140dp"
+                    android:singleLine="true"
+                    android:text="+1 (310) *****00"
+                    android:textColor="#B3000000"
+                    android:textSize="@dimen/text_size_fourteen" />
+
+
+            </RelativeLayout>
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+
+                android:id="@+id/txtYes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:layout_below="@id/relativeDetail"
+                android:layout_marginTop="@dimen/margin_fourty"
+                android:background="@drawable/black_bg"
+                android:gravity="center"
+                android:paddingHorizontal="20sp"
+                android:text="Yes, It’s me"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_eighteen" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtYes"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_twenty"
+                android:padding="@dimen/padding_ten"
+                android:text="@string/no_this_is_not_me"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_sixteen" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".activity.WelcomeActivity">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_twenty"
+            android:layout_marginRight="@dimen/margin_twenty"
+            app:layout_constraintBottom_toTopOf="@id/txtGetStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/img_welcome" />
+
+            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLogo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/margin_fourty"
+                android:layout_marginTop="@dimen/margin_thirty"
+                android:gravity="center"
+                android:text="NATIONWIDE AIRPORT TRANSFERS \nAT YOUR FINGERTIPS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_fourteen"
+                android:visibility="visible" />
+
+
+        </RelativeLayout>
+
+
+        <com.example.neplacecustomer.utils.textview.TextViewMedium
+            android:id="@+id/txtGetStart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_fiftysix"
+            android:layout_marginHorizontal="@dimen/margin_twenty"
+            android:layout_marginBottom="@dimen/margin_fourty"
+            android:background="@drawable/btn_bg"
+            android:gravity="center"
+            android:paddingHorizontal="20sp"
+            android:text="@string/get_started"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_eighteen"
+            app:drawableRightCompat="@mipmap/ic_next_arrow"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
