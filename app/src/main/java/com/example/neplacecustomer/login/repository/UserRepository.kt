@@ -104,11 +104,7 @@ class UserRepository {
     }
 
 
-    suspend fun profileEdit(
-        first_name: String,
-        last_name: String,
-        image: MultipartBody.Part,
-    ): Response<ProfileModel> {
+    suspend fun profileEdit(first_name: String, last_name: String, image: MultipartBody.Part, ): Response<ProfileModel> {
         return UserNetwork.retrofit.profileEdit(
             RetrofitUtils.stringToRequestBody(first_name),
             RetrofitUtils.stringToRequestBody(last_name),

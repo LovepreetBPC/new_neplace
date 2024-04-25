@@ -190,24 +190,15 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
                 if (Validation()) {
                     var body: MultipartBody.Part? = null
                     if (selectedImageFile != null) {
-                        val requestBody: RequestBody =
-                            selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-                        body = MultipartBody.Part.createFormData(
-                            "image",
-                            selectedImageFile!!.name,
-                            requestBody
-                        )
+                        val requestBody: RequestBody = selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+                        body = MultipartBody.Part.createFormData("image", selectedImageFile!!.name, requestBody)
 
                         viewModel.profileEditUser(binding.edtName.text.toString(), binding.edtLastName.text.toString(), body)
 
 
                     } else {
                         val requestBody: RequestBody = "".toRequestBody("multipart/form-data".toMediaTypeOrNull())
-                        body = MultipartBody.Part.createFormData(
-                                "image",
-                                "",
-                                requestBody
-                            )
+                        body = MultipartBody.Part.createFormData("image", "", requestBody)
 
                         viewModel.profileEditUser(binding.edtName.text.toString(), binding.edtLastName.text.toString(), body)
 
