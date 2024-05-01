@@ -176,7 +176,7 @@
                 android:id="@+id/txtSndOtp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edt_height"
-                android:text="Submit"
+                android:text="Cancel"
                 android:layout_alignParentBottom="true"
                 android:textSize="@dimen/text_size_eighteen"
                 android:layout_marginBottom="@dimen/margin_thirty"

@@ -36,6 +36,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.TermsAndConditionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PrivacyPolicyActivity"
+            android:exported="false"
+            android:label="@string/title_activity_privacy_policy"
+            android:theme="@style/Theme.NePlaceCustomer" />
+        <activity
+            android:name=".activity.SupportChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SupportActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CreatePlanActivity"
             android:exported="false" />
         <activity
@@ -151,8 +165,6 @@
         <activity
             android:name=".activity.BookRideActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".activity.SubscriptionPlansActivity"
             android:exported="false" />
@@ -185,7 +197,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBue_Y6GdkBD4NshnYo-GAg7Ohn1yd_KLI" />
 
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.neplacecustomer"
@@ -195,7 +206,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>

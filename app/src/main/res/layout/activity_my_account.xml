@@ -438,18 +438,6 @@
                     android:paddingHorizontal="20sp"
                     android:background="@drawable/btn_bg" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
-                    android:id="@+id/txtDeleteAccount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="Delete Account"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/margin_sixteen"
-                    android:padding="@dimen/padding_ten"
-                    android:layout_below="@id/txtSubscibeNow"
-                    android:layout_marginTop="@dimen/margin_sixteen"
-                    />
 
 
                 <com.example.neplacecustomer.utils.textview.TextViewMedium
@@ -458,7 +446,7 @@
                     android:layout_height="@dimen/edt_height"
                     android:text="Logout"
                     android:textSize="@dimen/text_size_eighteen"
-                    android:layout_below="@id/txtDeleteAccount"
+                    android:layout_below="@id/txtSubscibeNow"
                     android:layout_marginTop="@dimen/margin_twenty"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -466,6 +454,18 @@
                     android:background="@drawable/btn_bg" />
 
 
+                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    android:id="@+id/txtDeleteAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Delete Account"
+                    android:textColor="@color/red"
+                    android:layout_below="@id/txtLogoutMain"
+                    android:textSize="@dimen/margin_sixteen"
+                    android:padding="@dimen/padding_ten"
+                    android:layout_marginTop="@dimen/margin_sixteen"
+                    />
 
             </RelativeLayout>
         </ScrollView>

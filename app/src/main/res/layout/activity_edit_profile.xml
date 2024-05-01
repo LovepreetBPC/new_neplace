@@ -120,7 +120,7 @@
                 android:focusableInTouchMode="true"
                 android:cursorVisible="false"
                 android:focusable="false"
-                android:drawableLeft="@mipmap/ic_gallery"
+                android:drawableLeft="@mipmap/ic_mail"
                 android:drawablePadding="@dimen/margin_ten"
                 android:hint="@string/enter_your_email"
                 android:paddingHorizontal="@dimen/padding_ten"

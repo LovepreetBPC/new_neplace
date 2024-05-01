@@ -84,7 +84,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     lateinit var user_id: String
     lateinit var senderName: String
     var ride_status: String = ""
-    var apiKey: String? = null
+    var apiKey: String = "AIzaSyAMAdPcBMgkpCDoycbvxeFh6274KbKCvjQ"
     lateinit var cancelRideViewModel: CancelRideViewModel
     private val TAG = "lovepreet098799"
 
@@ -211,7 +211,10 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
 
         if (!Places.isInitialized()) {
-            Places.initialize(applicationContext, apiKey ?: "")
+            Places.initialize(applicationContext, apiKey)
+        }else{
+            Places.initialize(applicationContext, apiKey.toString())
+
         }
 
         // Map Fragment

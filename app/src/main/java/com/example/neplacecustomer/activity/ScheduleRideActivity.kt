@@ -85,7 +85,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     var etaArrayList = ArrayList<String>()
 
 
-    private val serviceTypeList = arrayOf("From Airport", "To Airport", "Point-To-Point", "Hourly As-Directed")
+    private val serviceTypeList = arrayOf("Select Service type", "From Airport", "To Airport", "Point-To-Point", "Hourly As-Directed")
     private val hoursList = arrayOf("3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18","19", "20", "21", "22", "23", "24")
     var serviceType = ""
     var selectedHours = ""
@@ -715,16 +715,15 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
         // Apply the adapter to the spinner
         binding.spinnerServiceType.adapter = adapter
         binding.spinnerServiceType.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?, view: View?, position: Int, id: Long
-                ) {
+            object : AdapterView.OnItemSelectedListener { override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                     val selectedItem = "From Airport" // Replace with your selected item
                     val selectedItemPosition = serviceTypeList.indexOf(selectedItem)
+
                     serviceType = parent?.getItemAtPosition(position) as String
 
-                    if (serviceType == "From Airport") {
+                when (serviceType) {
+                    "From Airport" -> {
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
 
@@ -734,7 +733,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         binding.edtAirline.visibility = View.VISIBLE
                         binding.linerFlightNumber.visibility = View.VISIBLE
                     }
-                    else if (serviceType == "To Airport") {
+                    "To Airport" -> {
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
                         binding.txtAirportCode.visibility = View.VISIBLE
@@ -744,7 +743,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         binding.linerFlightNumber.visibility = View.VISIBLE
 
                     }
-                    else if (serviceType == "Point-To-Point") {
+                    "Point-To-Point" -> {
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
 
@@ -755,7 +754,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         binding.linerFlightNumber.visibility = View.GONE
 
                     }
-                    else if (serviceType == "Hourly As-Directed") {
+                    "Hourly As-Directed" -> {
                         binding.relativeHours.visibility = View.VISIBLE
                         binding.txtHours.visibility = View.VISIBLE
 
@@ -765,6 +764,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         binding.edtAirline.visibility = View.GONE
                         binding.linerFlightNumber.visibility = View.GONE
                     }
+                }
 
 
 //                    if (selectedItemPosition != -1) {

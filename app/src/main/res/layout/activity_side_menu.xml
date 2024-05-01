@@ -138,6 +138,15 @@
 
                     </RelativeLayout>
 
+                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        android:id="@+id/txtSupport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/support"
+                        android:padding="@dimen/padding_ten"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_sixteen"
+                        android:layout_marginHorizontal="@dimen/margin_ten" />
 
 
                     <com.example.neplacecustomer.utils.textview.TextViewMedium

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_bg"
+            tools:context="com.example.neplace.activity.EditProfileActivity">
+
+            <RelativeLayout
+                android:id="@+id/relativeTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_back" />
+
+
+                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/padding_ten"
+                    android:text="@string/support"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_twenty" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+
+                <RelativeLayout
+                    android:id="@+id/RelativeDone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/img_car" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relativeGmailSupport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:background="@drawable/edittext_corner_gray"
+                    android:padding="@dimen/padding_twelve">
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeSecurity"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:background="@drawable/circler_blue_bg">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_mail" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/RelativeSecurity"
+                        android:layout_alignBottom="@id/RelativeSecurity"
+                        android:layout_marginHorizontal="@dimen/margin_sixteen"
+                        android:layout_toEndOf="@id/RelativeSecurity"
+                        android:gravity="center_vertical">
+
+                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                            android:id="@+id/txtSupport"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="Support@gmail.com"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_eighteen" />
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:background="@drawable/edittext_corner_gray"
+                    android:padding="@dimen/padding_twelve">
+
+                    <RelativeLayout
+                        android:id="@+id/RelativePhone"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:background="@drawable/circler_blue_bg">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_phone" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/RelativePhone"
+                        android:layout_alignBottom="@id/RelativePhone"
+                        android:layout_marginHorizontal="@dimen/margin_sixteen"
+                        android:layout_toEndOf="@id/RelativePhone"
+                        android:gravity="center_vertical">
+
+                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                            android:id="@+id/txtPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="(888) 672-9325"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_eighteen" />
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:background="@drawable/edittext_corner_gray"
+                    android:padding="@dimen/padding_twelve">
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeChat"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:background="@drawable/circler_blue_bg">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/icon_chat" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/RelativeChat"
+                        android:layout_alignBottom="@id/RelativeChat"
+                        android:layout_marginHorizontal="@dimen/margin_sixteen"
+                        android:layout_toEndOf="@id/RelativeChat"
+                        android:gravity="center_vertical">
+
+                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                            android:id="@+id/txtChat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="Chat With Us"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_eighteen" />
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

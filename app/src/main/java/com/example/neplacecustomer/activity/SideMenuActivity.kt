@@ -39,6 +39,9 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
         binding.txtBillingInformation.setOnClickListener(this)
         binding.txtLogOut.setOnClickListener(this)
         binding.relativeContactUs.setOnClickListener(this)
+        binding.txtSupport.setOnClickListener(this)
+        binding.txtTermsCondition.setOnClickListener(this)
+        binding.txtPrivacyPolicy.setOnClickListener(this)
 
 
 
@@ -112,6 +115,10 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.txtNotification -> {
                 startActivity(Intent(this, NotificationActivity::class.java))
             }
+
+            R.id.txtSupport -> {
+                startActivity(Intent(this, SupportActivity::class.java))
+            }
             R.id.txtChat -> {
 //                startActivity(Intent(this, ChatActivity::class.java))
             }
@@ -121,6 +128,16 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.txtSubscriptionPlans -> {
                 startActivity(Intent(this, SubscriptionPlansActivity::class.java))
             }
+
+            R.id.txtPrivacyPolicy -> {
+                startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+            }
+
+
+            R.id.txtTermsCondition -> {
+                startActivity(Intent(this, TermsAndConditionsActivity::class.java))
+            }
+
             R.id.relativeContactUs -> {
                 startActivity(Intent(this, ContactActivity::class.java))
             }

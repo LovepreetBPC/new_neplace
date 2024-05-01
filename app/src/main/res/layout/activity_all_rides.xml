@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         tools:context=".activity.AllRidesActivity">
 
-
         <RelativeLayout
             android:id="@+id/relativeTop"
             android:layout_width="match_parent"
@@ -35,9 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="My Reservations"
                 android:layout_gravity="center_horizontal"
                 android:padding="@dimen/padding_ten"
+                android:text="My Reservations"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_twenty" />
         </RelativeLayout>
@@ -48,44 +47,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/relativeTop">
 
 
-             <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:tabBackground="@color/black_bg"
-                    app:tabIndicatorColor="#3A955E"
-                    app:tabGravity="fill"
-                    app:tabMode="fixed"
-                    app:tabTextColor="@android:color/white"
-                    style="@style/TabTextStyle" />
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabTextAppearance="@style/TabTextAppearances"
+                app:tabBackground="@color/black_bg"
+                app:tabIndicatorColor="#3A955E"
+                app:tabTextColor="@android:color/white" />
 
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="1dp"
+            android:background="#3A955E"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/linearTab"
-            android:background="#3A955E" />
+            app:layout_constraintTop_toBottomOf="@id/linearTab" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:theme="@style/MyCustomTabLayout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearTab">
 
+
         </androidx.viewpager.widget.ViewPager>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

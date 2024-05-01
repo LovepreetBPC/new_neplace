@@ -114,7 +114,8 @@ class HistoryRidesFragment() : Fragment() ,AllRidesActivity.Refreshable{
         }
     }
 
-    override fun refreshData() {
+
+    override fun refreshDataAsync() {
         initViews()
     }
 }

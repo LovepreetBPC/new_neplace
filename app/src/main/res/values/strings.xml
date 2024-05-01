@@ -97,5 +97,7 @@
     <string name="noTokenDialogTitle">No Token</string>
     <string name="cancel_request"><u>Cancel Request</u></string>
     <string name="cancellation_fee">Cancellation Fee</string>
+    <string name="support">Support</string>
+    <string name="title_activity_privacy_policy">PrivacyPolicyActivity</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.neplacecustomer.activity
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -102,11 +103,31 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
                 binding.edtOtp3, binding.edtOtp4, this
             )
         )
-        binding.edtOtp4.addTextChangedListener(
-            GenericTextWatcher(
-                binding.edtOtp4, binding.edtOtp4, this
-            )
-        )
+//        binding.edtOtp4.addTextChangedListener(
+//            GenericTextWatcher(binding.edtOtp4, binding.edtOtp4, this)
+//        )
+
+        binding.edtOtp4.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Not needed
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Not needed
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Check if edtOtp4 is fully filled
+                if (s.toString().length == 1) {
+
+                    val otp = binding.edtOtp1.text.toString() + binding.edtOtp2.text.toString() + binding.edtOtp3.text.toString() + binding.edtOtp4.text.toString()
+                    verifyOtpViewModel.verifyOtpUser(phoneNumber, otp, device_token)
+
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(binding.edtOtp4.windowToken, 0)
+                }
+            }
+        })
 
 
         //      GenericKeyEvent here works for deleting the element and to switch back to previous EditText
@@ -125,11 +146,11 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
             }
 
             R.id.txtSndOtp -> {
-                if (Validation()) {
-                    val otp =
-                        binding.edtOtp1.text.toString() + binding.edtOtp2.text.toString() + binding.edtOtp3.text.toString() + binding.edtOtp4.text.toString()
-                    verifyOtpViewModel.verifyOtpUser(phoneNumber, otp, device_token)
-                }
+                finish()
+//                if (Validation()) {
+//                    val otp = binding.edtOtp1.text.toString() + binding.edtOtp2.text.toString() + binding.edtOtp3.text.toString() + binding.edtOtp4.text.toString()
+//                    verifyOtpViewModel.verifyOtpUser(phoneNumber, otp, device_token)
+//                }
             }
 
             R.id.txtResend -> {
@@ -186,7 +207,13 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
 
                 is BaseResponse.Success -> {
                     dismissProgress()
-                    processLogin(it.data)
+                    if (it.data!!.status){
+                        processLogin(it.data)
+
+                    }else{
+                        ToastMsg(it.data.message)
+                    }
+
                 }
 
                 is BaseResponse.Error -> {
@@ -313,11 +340,10 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
 
         if (model != null) {
             if (model.status) {
-                val data = model.data
-                if (model.data.token.isNotEmpty()) {
-                    val user = data.user
+                if (model.data.token!!.isNotEmpty()) {
+                    val user = model.data.user
                     ToastMsg(model.message)
-                    sharePref.saveString(Constant.TOKEN, data.token)
+                    sharePref.saveString(Constant.TOKEN, model.data.token)
                     sharePref.saveString(Constant.USERTYPE, "Customer")
                     sharePref.saveString(Constant.USERID, user.id.toString())
                     sharePref.saveString(Constant.USERNAME, user.name)
@@ -335,7 +361,6 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
                     val intent = Intent(this, PersonalInformationActivity::class.java)
                     intent.putExtra("phone_number", phoneNumber)
                     startActivity(intent)
-                    finish()
                 }
             } else {
                 val intent = Intent(this, PersonalInformationActivity::class.java)

@@ -149,7 +149,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     }
 
-    fun convertPhoneNumberFormat(phoneNumber: String): String {
+    private fun convertPhoneNumberFormat(phoneNumber: String): String {
         // Remove all non-digit characters from the phone number
         val digitsOnly = phoneNumber.replace("\\D".toRegex(), "")
 

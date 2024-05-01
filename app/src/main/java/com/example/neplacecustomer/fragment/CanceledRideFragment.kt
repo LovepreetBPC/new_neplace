@@ -85,7 +85,9 @@ class CanceledRideFragment() : Fragment(),AllRidesActivity.Refreshable {
 
     }
 
-    override fun refreshData() {
+
+
+    override fun refreshDataAsync() {
         initViews()
     }
 }

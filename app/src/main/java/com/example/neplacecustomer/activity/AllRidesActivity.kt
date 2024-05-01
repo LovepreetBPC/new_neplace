@@ -22,10 +22,9 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
             finish()
         }
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(UpcomingRideFragment(), "Upcoming")
-        adapter.addFragment(HistoryRidesFragment(), "Historical")
-        adapter.addFragment(CanceledRideFragment(), "Canceled")
-        // Adding the Adapter to the ViewPager
+        adapter.addFragment(UpcomingRideFragment(), "Upcoming".lowercase())
+        adapter.addFragment(HistoryRidesFragment(), "Historical".lowercase())
+        adapter.addFragment(CanceledRideFragment(), "Canceled".lowercase())
         binding.viewPager.adapter = adapter
 
         // bind the viewPager with the TabLayout.
@@ -39,7 +38,7 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
     override fun onTabSelected(tab: TabLayout.Tab?) {
         val fragment = (binding.viewPager.adapter as ViewPagerAdapter).getItem(binding.tabs.selectedTabPosition)
         if (fragment is Refreshable && fragment.isAdded && !fragment.isDetached) {
-            fragment.refreshData()
+            fragment.refreshDataAsync()
         }
     }
 
@@ -47,7 +46,6 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
     override fun onTabReselected(tab: TabLayout.Tab?) {}
 
     interface Refreshable {
-        fun refreshData()
+        fun refreshDataAsync()
     }
-
 }

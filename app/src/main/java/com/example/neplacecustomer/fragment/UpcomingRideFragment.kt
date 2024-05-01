@@ -86,8 +86,9 @@ class UpcomingRideFragment() : Fragment(), AllRidesActivity.Refreshable {
         }
 
     }
-    override fun refreshData() {
-        // Update your data here
+
+
+    override fun refreshDataAsync() {
         initViews()
     }
 }
