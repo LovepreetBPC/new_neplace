@@ -85,24 +85,9 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
             Log.e("TAG", "init: " + device_token)
         })
 
-
-
-
-        binding.edtOtp1.addTextChangedListener(
-            GenericTextWatcher(
-                binding.edtOtp1, binding.edtOtp2, this
-            )
-        )
-        binding.edtOtp2.addTextChangedListener(
-            GenericTextWatcher(
-                binding.edtOtp2, binding.edtOtp3, this
-            )
-        )
-        binding.edtOtp3.addTextChangedListener(
-            GenericTextWatcher(
-                binding.edtOtp3, binding.edtOtp4, this
-            )
-        )
+        binding.edtOtp1.addTextChangedListener(GenericTextWatcher(binding.edtOtp1, binding.edtOtp2, this))
+        binding.edtOtp2.addTextChangedListener(GenericTextWatcher(binding.edtOtp2, binding.edtOtp3, this))
+        binding.edtOtp3.addTextChangedListener(GenericTextWatcher(binding.edtOtp3, binding.edtOtp4, this))
 //        binding.edtOtp4.addTextChangedListener(
 //            GenericTextWatcher(binding.edtOtp4, binding.edtOtp4, this)
 //        )
@@ -269,7 +254,8 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
 
     class GenericTextWatcher internal constructor(
         private val currentView: View, private val nextView: View?, private val activity: Activity
-    ) : TextWatcher {
+    ) : TextWatcher
+    {
         override fun afterTextChanged(editable: Editable) { // TODO Auto-generated method stub
             val text = editable.toString()
             when (currentView.id) {
@@ -290,9 +276,7 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
         ) { // TODO Auto-generated method stub
         }
 
-        override fun onTextChanged(
-            arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int
-        ) { // TODO Auto-generated method stub
+        override fun onTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) { // TODO Auto-generated method stub
         }
 
         private fun closesKeyboard(view: View?) {

@@ -63,6 +63,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
     lateinit var serviceType: String
     lateinit var handicap: String
     lateinit var min_hours: String
+    lateinit var alacart: String
     lateinit var eta: String
     var seatNumber: Int = 0
     private val db = Firebase.firestore
@@ -97,6 +98,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         eta = intent.getStringExtra("eta").toString()
         handicap = intent.getStringExtra("handicap").toString()
         min_hours = intent.getStringExtra("min_hours").toString()
+        alacart = intent.getStringExtra("alacart").toString()
 
 
         Log.e("pickup_date", "onCreate: $pickup_time    ,   $pickup_date")
@@ -191,7 +193,12 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                             }
 
                         } else {
-                            payment_type = ""
+//                            payment_type = ""
+                            if (serviceType == "Hourly As-Directed") {
+                                payment_type = "hourly"
+                            } else {
+                                payment_type = "fixed"
+                            }
 
                         }
 
@@ -319,6 +326,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                         .addFormDataPart("vehicle_type", vehicleType)
                         .addFormDataPart("pickup_city", pickup_city)
                         .addFormDataPart("min_hours", min_hours)
+//                        .addFormDataPart("alacart", alacart)
                         .build()
 
                     Log.e(

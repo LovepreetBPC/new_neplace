@@ -49,6 +49,7 @@ class CreatePlanActivity : AppCompatActivity() {
             intent.putExtra("drop_lat", drop_lat)
             intent.putExtra("drop_long", drop_long)
             intent.putExtra("pickup_city", pickup_city)
+            intent.putExtra("alacart", "1")
             startActivity(intent)
         }
         binding.imgBack.setOnClickListener {

@@ -89,6 +89,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     private val hoursList = arrayOf("3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18","19", "20", "21", "22", "23", "24")
     var serviceType = ""
     var selectedHours = ""
+    var alacart = ""
     val seatsName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,6 +104,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
         seatNumber = intent.getStringExtra("seat")!!.toString().toInt()
         vehicleType = intent.getStringExtra("vehicleType").toString()
         pickup_city = intent.getStringExtra("pickup_city").toString()
+        alacart = intent.getStringExtra("alacart").toString()
 
         setOnClick()
     }
@@ -568,6 +570,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         intent.putExtra("eta", binding.edtETA.text.toString())
                         intent.putExtra("handicap", selectHandicap.toString())
                         intent.putExtra("min_hours", selectedHours.toString())
+                        intent.putExtra("alacart", alacart.toString())
                         startActivity(intent)
 
 
