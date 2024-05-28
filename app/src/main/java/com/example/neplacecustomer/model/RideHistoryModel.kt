@@ -35,7 +35,7 @@ data class RideHistoryData(
     val pickup_long: String,
     val pickup_time: String,
     val price: String,
-    val ridestatus: Any,
+    val ridestatus: String,
     val service_type: String,
     val status: String,
     val trip_id: Int,

@@ -20,6 +20,7 @@ import android.content.SharedPreferences
         return mSharedPref!!.getString(key, defValue)
     }
 
+
     fun saveString(key: String?, value: String?) {
         val prefsEditor = mSharedPref!!.edit()
         prefsEditor.putString(key, value)

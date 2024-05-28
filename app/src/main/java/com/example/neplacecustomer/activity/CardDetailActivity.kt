@@ -13,7 +13,7 @@ import com.example.neplacecustomer.login.BaseActivity
 import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.Craete_CardToken
 import com.example.neplacecustomer.viewmodel.AddCardViewModel
-import com.nexter.application.retrofit.UserNetwork
+import com.example.neplacecustomer.retrofit.UserNetwork
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

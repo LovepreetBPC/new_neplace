@@ -1,6 +1,5 @@
 package com.example.neplacecustomer.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -10,7 +9,7 @@ import com.example.neplacecustomer.R
 import com.example.neplacecustomer.databinding.ActivityWelcomeBinding
 import com.example.neplacecustomer.login.BaseActivity
 import com.example.neplacecustomer.login.LoginActivity
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class WelcomeActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivityWelcomeBinding

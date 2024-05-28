@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
-import android.text.Spanned
-import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.neplacecustomer.R
@@ -31,7 +28,7 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import java.util.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {

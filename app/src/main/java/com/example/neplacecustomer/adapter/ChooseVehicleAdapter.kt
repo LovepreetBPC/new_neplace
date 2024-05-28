@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.neplacecustomer.R
 import com.example.neplacecustomer.model.GetVehicleData
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class ChooseVehicleAdapter(val context: Context,val data: List<GetVehicleData> , val handler :itemClick) :
     RecyclerView.Adapter<ChooseVehicleAdapter.ViewHolder>() {

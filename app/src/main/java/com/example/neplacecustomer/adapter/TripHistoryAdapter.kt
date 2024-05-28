@@ -3,8 +3,8 @@ package com.example.neplacecustomer.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.media.Rating
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,6 @@ import android.widget.RatingBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.neplacecustomer.R
@@ -22,7 +21,7 @@ import com.example.neplacecustomer.activity.ChatActivity
 import com.example.neplacecustomer.activity.DriverSelectionActivity
 import com.example.neplacecustomer.activity.EditScheduleRideActivity
 import com.example.neplacecustomer.model.RideHistoryData
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -141,20 +140,31 @@ class TripHistoryAdapter(val context: Context, val data: List<RideHistoryData>, 
             context.startActivity(Intent(context,EditScheduleRideActivity::class.java).putExtra("trip_id",data[position].trip_id.toString()))
         }
 
-        if (data[position].ratting_given){
 
-            holder.txtRating.visibility = View.VISIBLE
-            holder.rating.visibility = View.VISIBLE
-            holder.linearRating.visibility = View.VISIBLE
-        }
-        else{
+        if (data[position].ride_rating.toInt() < 1) {
+            Log.e("ride_status", "onBindViewHolder: " + data[position].status)
 
             holder.linearRating.visibility = View.GONE
             holder.txtRating.visibility = View.GONE
             holder.rating.visibility = View.GONE
+        } else {
+            Log.e("ride_status", "onBindViewHolder else: " + data[position].status)
+            holder.rating.visibility = View.VISIBLE
+            holder.txtRating.visibility = View.VISIBLE
+            holder.linearRating.visibility = View.VISIBLE
+
+
+        }
+
+
+
 
             holder.itemView.setOnClickListener {
-                context.startActivity(Intent(context, DriverSelectionActivity::class.java)
+                if (data[position].ratting_given){
+                    Log.e("ratingAdd", "onBindViewHolder: No Need for ratting")
+                }
+                else{
+                    context.startActivity(Intent(context, DriverSelectionActivity::class.java)
                     .putExtra("drop_lat", data[position].drop_lat)
                     .putExtra("drop_long", data[position].drop_long)
                     .putExtra("pickup_lat", data[position].pickup_lat)
@@ -164,7 +174,7 @@ class TripHistoryAdapter(val context: Context, val data: List<RideHistoryData>, 
                     .putExtra("vehicle_type", data[position].vehicle_type.toString())
                     .putExtra("id", data[position].trip_id.toString())
                     .putExtra("user_id", data[position].user.user_id.toString())
-                    .putExtra("ride_status", "active")
+                    .putExtra("ride_status", data[position].ridestatus)
                 )
             }
         }

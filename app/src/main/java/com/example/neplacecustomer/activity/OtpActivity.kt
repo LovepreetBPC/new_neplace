@@ -24,7 +24,7 @@ import com.example.neplacecustomer.viewmodel.LoginViewModel
 import com.example.neplacecustomer.viewmodel.VerifyOtpViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class OtpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivityOtpBinding

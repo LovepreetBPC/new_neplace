@@ -17,7 +17,7 @@ import com.example.neplacecustomer.model.Chat
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class ChatActivity : BaseActivity(), View.OnClickListener {
 

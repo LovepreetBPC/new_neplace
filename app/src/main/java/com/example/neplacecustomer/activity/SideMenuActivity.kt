@@ -13,7 +13,7 @@ import com.example.neplacecustomer.login.BaseActivity
 import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.ProfileModel
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class SideMenuActivity : BaseActivity(), View.OnClickListener {
 
@@ -60,7 +60,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
 
 
         getProfileViewModel = ViewModelProvider(this)[GetProfileViewModel::class.java]
-        getProfileViewModel.getProfileUser()
         getProfileViewModel.profileEditResponse.observe(this) {
             when (it) {
                 is BaseResponse.Loading -> {
@@ -81,6 +80,12 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getProfileViewModel.getProfileUser()
 
     }
 

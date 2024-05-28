@@ -60,7 +60,7 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
         intentcard_id = intent.getStringExtra("card_id").toString()
         Log.e("card_id", "onCreate: $intentcard_id")
         pDialog = ProgressDialog(this)
-        if (type.equals("cancel_ride")) {
+        if (type == "cancel_ride") {
             binding.txtCancelRide.visibility = View.VISIBLE
         } else {
             binding.txtCancelRide.visibility = View.GONE
@@ -260,14 +260,57 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun updateRideStatus(newStatus: String) {
-        db.collection("Trip").document(ride_id).update("status", newStatus).addOnSuccessListener {
-//                Toast.makeText(this, "Ride status updated successfully", Toast.LENGTH_SHORT).show()
+//    private fun updateRideStatus(newStatus: String) {
+//        db.collection("Trip").document(ride_id).update("status", newStatus).addOnSuccessListener {
+////                Toast.makeText(this, "Ride status updated successfully", Toast.LENGTH_SHORT).show()
+//        }.addOnFailureListener { e ->
+//            Log.e("lovepreet12345", "Error updating ride status", e)
+////                Toast.makeText(this, "Failed to update ride status", Toast.LENGTH_SHORT).show()
+//        }
+//    }
+private fun updateRideStatus(newStatus: String) {
+//        db.collection("Trip").document(ride_id).update("status", newStatus).addOnSuccessListener {
+////                Toast.makeText(this, "Ride status updated successfully", Toast.LENGTH_SHORT).show()
+//        }.addOnFailureListener { e ->
+//            Log.e("lovepreet12345", "Error updating ride status", e)
+////                Toast.makeText(this, "Failed to update ride status", Toast.LENGTH_SHORT).show()
+//        }
+
+    db.collection("Trip").document(ride_id).get().addOnSuccessListener { document ->
+        if (document.exists()) {
+            // Document exists, proceed with update
+            db.collection("Trip").document(ride_id).update("status", newStatus)
+                .addOnSuccessListener {
+                    Log.d("lovepreet12345", "Ride status updated successfully")
+                }.addOnFailureListener { e ->
+                    Log.e("lovepreet12345", "Error updating ride status: ${e.message}")
+                }
+        } else {
+            // Document doesn't exist
+            Log.e("lovepreet12345", "Document with ID $ride_id doesn't exist.")
+            createAndSaveNewDocument(ride_id)
+        }
+    }.addOnFailureListener { e ->
+        Log.e("lovepreet12345", "Error getting document: ${e.message}")
+    }
+
+}
+
+    private fun createAndSaveNewDocument(newStatus: String) {
+        // Create a new document with the specified ID and save data to it
+        val tripData = hashMapOf(
+            "status" to newStatus,
+            // Add other fields as needed
+        )
+
+        db.collection("Trip").document(ride_id).set(tripData).addOnSuccessListener {
+            Log.d("lovepreet12345", "New document created and data saved successfully")
         }.addOnFailureListener { e ->
-            Log.e("lovepreet12345", "Error updating ride status", e)
-//                Toast.makeText(this, "Failed to update ride status", Toast.LENGTH_SHORT).show()
+            Log.e("lovepreet12345", "Error creating and saving new document: ${e.message}")
         }
     }
+
+
 
     private fun initViews() {
 

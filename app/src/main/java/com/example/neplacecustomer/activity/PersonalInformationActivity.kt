@@ -43,7 +43,7 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.firebase.messaging.FirebaseMessaging
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -316,6 +316,8 @@ class PersonalInformationActivity : BaseActivity(), View.OnClickListener {
             } else {
                 choosePhotoFromGallary()
             }
+            choosePhotoFromGallary()
+
         }
         pickerDialog.show()
     }
@@ -330,8 +332,10 @@ class PersonalInformationActivity : BaseActivity(), View.OnClickListener {
         ActivityCompat.requestPermissions(
             this, arrayOf(
                 Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
             ), PERMISSION_CAMERA_REQUEST_CODE
         )
     }
@@ -377,18 +381,22 @@ class PersonalInformationActivity : BaseActivity(), View.OnClickListener {
         val readPermission =
             ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
         val writePermission = ActivityCompat.checkSelfPermission(
-            this,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
+            this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         return readPermission == PackageManager.PERMISSION_GRANTED && writePermission == PackageManager.PERMISSION_GRANTED
+
     }
 
     private fun requestStoragePermission() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+
+
             ),
             PERMISSION_STORAGE_REQUEST_CODE
         )

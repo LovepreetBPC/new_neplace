@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 
 object Utils {
 
@@ -46,6 +48,24 @@ object Utils {
             }
         }
         return false
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetwork
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+        return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    fun showNoInternetDialog(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("No Internet Connection")
+        builder.setMessage("Please check your internet connection and try again.")
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.create().show()
     }
 
 }

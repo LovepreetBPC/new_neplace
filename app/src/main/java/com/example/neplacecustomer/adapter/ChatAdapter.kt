@@ -36,8 +36,7 @@ class ChatAdapter(
                 LayoutInflater.from(parent.context).inflate(R.layout.chat_right_item, parent, false)
             return ViewHolder(view)
         } else {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.chat_left_item, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.chat_left_item, parent, false)
             return ViewHolder(view)
         }
 

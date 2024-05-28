@@ -14,7 +14,7 @@ import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.GetCardsData
 import com.example.neplacecustomer.viewmodel.GetCardVM
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 
 class MyAccountActivity : BaseActivity(),View.OnClickListener {
 
@@ -151,7 +151,7 @@ class MyAccountActivity : BaseActivity(),View.OnClickListener {
                             binding.relativePlanDetail.visibility = View.VISIBLE
                             binding.txtPlanName.text = it.data.data.subscriptionDetails.plan.name.toString()
                             binding.txtPrice.text = it.data.data.subscriptionDetails.plan.price.toString()
-                            binding.txtSubscibeNow.visibility = View.VISIBLE
+                            binding.txtSubscibeNow.visibility = View.GONE
 
                         }else{
                             binding.relativePlanDetail.visibility = View.GONE

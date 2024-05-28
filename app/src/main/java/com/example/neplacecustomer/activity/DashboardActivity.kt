@@ -1,10 +1,12 @@
 package com.example.neplacecustomer.activity
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -15,9 +17,8 @@ import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.ProfileModel
 import com.example.neplacecustomer.viewmodel.GetGoogleKeyViewModel
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
-import com.google.android.libraries.places.api.Places
-import com.nexter.application.common.Constant
-import com.nexter.application.retrofit.RetrofitUtils
+import com.example.neplacecustomer.common.Constant
+import com.example.neplacecustomer.utils.Utils
 import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
 
 class DashboardActivity : BaseActivity() {
@@ -26,11 +27,17 @@ class DashboardActivity : BaseActivity() {
     lateinit var getProfileViewModel: GetProfileViewModel
      lateinit var googleKeyViewModel : GetGoogleKeyViewModel
      var subscribePlan:Boolean= false
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
 
 
+        if (Utils.isInternetAvailable(this)){
+            Log.e("interNet", "onCreate: ")
+        }else{
+            Utils.showNoInternetDialog(this)
+        }
 
         initViews()
 

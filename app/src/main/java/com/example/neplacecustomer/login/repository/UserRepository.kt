@@ -26,7 +26,7 @@ import com.example.neplacecustomer.model.StripePaymentModel
 import com.example.neplacecustomer.model.UserNotificationModel
 import com.example.neplacecustomer.model.VerifyOtpModel
 import com.nexter.application.retrofit.RetrofitUtils
-import com.nexter.application.retrofit.UserNetwork
+import com.example.neplacecustomer.retrofit.UserNetwork
 import okhttp3.MultipartBody
 import retrofit2.Response
 

@@ -233,8 +233,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         ActivityCompat.requestPermissions(
             this, arrayOf(
                 Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
             ), PERMISSION_CAMERA_REQUEST_CODE
         )
     }
@@ -312,7 +314,8 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
         val writePermission = ActivityCompat.checkSelfPermission(
             this,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+
         )
         return readPermission == PackageManager.PERMISSION_GRANTED && writePermission == PackageManager.PERMISSION_GRANTED
     }
@@ -321,8 +324,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
             ),
             PERMISSION_STORAGE_REQUEST_CODE
         )

@@ -62,7 +62,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
     var selectPassenger: Int = 0
     var selectLuggage = 0
     var selectChild = 0
-    var selectHandicap = 1
+    var selectHandicap = 0
     val arrayList = ArrayList<Int>()
     lateinit var dialog: Dialog
 
@@ -650,7 +650,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
         //setPassengerSpinner
 
-        for (i in 1..seatNumber) {
+        for (i in 0..seatNumber) {
             arrayList.add(i)
         }
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList)
@@ -681,7 +681,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         // setLuggageSpinner
 
         val arrayList2 = ArrayList<Int>()
-        for (i in 1..seatNumber) {
+        for (i in 0..seatNumber) {
             arrayList2.add(i)
         }
 
@@ -711,7 +711,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         //setChildSpinner
 
         val arrayList3 = ArrayList<Int>()
-        for (i in 1..seatNumber) {
+        for (i in 0..seatNumber) {
             arrayList3.add(i)
         }
         Log.e("child", "setChildSpinner:   $selectPassenger")
@@ -740,7 +740,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         //spinnerHandicap
 
         val arrayList4 = ArrayList<Int>()
-        for (i in 1..seatNumber) {
+        for (i in 0..seatNumber) {
             arrayList4.add(i)
         }
 //        Log.e("luggage", "setChildSpinner:   $selectPassenger")

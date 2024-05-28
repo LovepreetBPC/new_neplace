@@ -1,19 +1,15 @@
 package com.example.neplacecustomer.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.neplacecustomer.R
 import com.example.neplacecustomer.adapter.ChatAdapter
 import com.example.neplacecustomer.databinding.ActivitySupportChatBinding
 import com.example.neplacecustomer.login.BaseActivity
-import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.Chat
 import com.google.firebase.firestore.FirebaseFirestore
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import okhttp3.MultipartBody
 
 class SupportChatActivity : BaseActivity() {
@@ -22,7 +18,7 @@ class SupportChatActivity : BaseActivity() {
     private lateinit var firestore: FirebaseFirestore
     var senderId = ""
     var senderName = ""
-    var companyId="1"
+    var companyId="7"
     var chatList = ArrayList<Chat>()
 //    lateinit var sendMessageNotificationViewModel: SendMessageNotificationViewModel
 

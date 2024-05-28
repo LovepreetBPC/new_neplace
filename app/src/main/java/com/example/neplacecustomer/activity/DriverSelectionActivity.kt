@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -49,7 +50,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -184,21 +185,26 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             if (documentSnapshot != null && documentSnapshot.exists()) {
                 val trip = documentSnapshot.toObject(UpdateStatusModel::class.java)
                 ride_status = trip?.status.toString()
-                if (ride_status.equals("accepted")) {
-                    getRideDetailViewModel.getRide(trip_id)
+                setRideData()
 
-                } else {
-                    setRideData()
-
-                }
+//                if (ride_status == "accepted") {
+//                    getRideDetailViewModel.getRide(trip_id)
+//
+//                } else {
+//                    setRideData()
+//
+//                }
 
                 Log.d(TAG, "Current ride status: $ride_status")
 //                getDriverInitViews()
-                setRideData()
+
                 // Do something with the retrieved data
             } else {
                 Log.d(TAG, "Current data: null")
+                ride_status = "completed"
                 // Document does not exist
+                setRideData()
+
             }
         }
 
@@ -327,7 +333,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.txtCancelRequestOnWay -> {
-                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, true)
+                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
                 updateRideStatus("canceled")
             }
 
@@ -348,7 +354,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 } else {
                     val requestBody = MultipartBody.Builder().setType(MultipartBody.FORM)
                         .addFormDataPart("rating", binding.userRating.rating.toInt().toString())
-                        .addFormDataPart("rated_user_id", user_id)
+                        .addFormDataPart("rated_user_id", driver_id)
                         .addFormDataPart("ride_id", trip_id)
                         .addFormDataPart("description", binding.edtReview.text.toString())
                         .build()
@@ -394,7 +400,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
         googleKeyViewModel.getGoogleKey()
 
-        googleKeyViewModel.getGoogleKeyResponse.observe(this) {
+        googleKeyViewModel.getGoogleKeyResponse.observe(this) { it ->
             when (it) {
                 is BaseResponse.Loading -> {
                     showProgress()
@@ -438,8 +444,13 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 //                            Toast.makeText(this, "Null -> " + it.data.data.status, Toast.LENGTH_SHORT).show()
                                 ride_status = "active"
 
-                            } else {
+                            }else if(it.data.data.status=="canceled") {
+                                Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                            else {
                                 setRideData()
+//                                Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
 
 
                             }
@@ -581,7 +592,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
-            } else if (ride_status.equals("goto_pickup")) {
+            } else if (ride_status == "goto_pickup") {
                 binding.linerLocation.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.VISIBLE
                 binding.relativeOnWay.visibility = View.VISIBLE
@@ -593,6 +604,21 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+            }
+            else if (ride_status == "canceled") {
+                binding.linerLocation.visibility = View.GONE
+                binding.relativeConfirm.visibility = View.GONE
+                binding.relativeOnWay.visibility = View.GONE
+                binding.viewConfirmed.visibility = View.GONE
+                binding.relativeStartTip.visibility = View.GONE
+                binding.relativeConfirmedAddress.visibility = View.GONE
+                binding.relativeRide.visibility = View.GONE
+                binding.relativeMainBottom.visibility = View.GONE
+                binding.relativeWaitingDriver.visibility = View.GONE
+                binding.RelativeRatingDriver.visibility = View.GONE
+                binding.imgDirections.visibility = View.GONE
+                finish()
+                Toast.makeText(this, "Your trip has been canceled by driver ", Toast.LENGTH_SHORT).show()
             }
         } else {
             Log.e("ride_statusNew", "setRideData else :   " + ride_status)
@@ -634,17 +660,15 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
     private fun processEdit(data: GetRideModel?) {
 //      ToastMsg( " getRide "+"DriverSection :  driver_name  -> $driver_name ,  driver_phoneNumber  -> $driver_phoneNumber   , driver_image -> $driver_image")
-        ride_status = data!!.data.ridestatus
-        Log.e(
-            "ChatActivity",
-            "DriverSection :  driver_name  -> ${data.data.driver_name} ,  driver_phoneNumber  -> ${data.data.driver_phone}  , driver_image -> ${data.data.driver_image} "
-        )
+//        ride_status = data!!.data.ride_status
+//        Log.e("ChatActivity", "DriverSection :  driver_name  -> ${data!!.data.driver_name} ,  driver_phoneNumber  -> ${data.data.driver_phone}  , driver_image -> ${data.data.driver_image} ")
+
 
         setRideData()
 
         try {
 
-            user_id = data.data.user_id.toString()
+            user_id = data!!.data.user_id.toString()
             if (data.data.driver_id.toString().isNotEmpty() && data.data.driver_id != 0) {
                 Log.e("driver_id", "processEdit: " + data.data.driver_id.toString())
 
@@ -653,7 +677,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 Glide.with(this).load(Constant.BASEURL + data.data.driver_image)
                     .error(R.mipmap.img_place_holder).into(binding.imgProfile)
                 binding.ratingBar.numStars = 5
-                binding.ratingBar.rating = data.data.driver_rating.toFloat()
+                binding.ratingBar.rating = data.data.driver_rating!!.toFloat()
                 binding.txtPrice.text = "$" + data.data.price.toString()
                 binding.txtratingValue.text = data.data.driver_rating.toString()
                 binding.txtVehicleName.text = vehicle_type
@@ -680,8 +704,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
                 binding.txtTimes.text = "2 min"
 
-                pickup_time = data.data.pickup_time
-                pickup_date = data.data.pickup_date
+                pickup_time = data.data.pickup_time.toString()
+                pickup_date = data.data.pickup_date.toString()
                 //confirm_ride
 
                 Glide.with(this).load(Constant.BASEURL + data.data.driver_image)
@@ -710,7 +734,11 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.ratingTop.rating = data.data.driver_rating.toFloat()
 
 
-            } else {
+            }
+            else {
+                Glide.with(this).load(Constant.BASEURL + data.data.driver_image)
+                    .error(R.mipmap.img_place_holder).into(binding.imgProfile)
+
                 binding.relativeMainBottom.visibility = View.GONE
                 binding.relativeWaitingDriver.visibility = View.GONE
             }

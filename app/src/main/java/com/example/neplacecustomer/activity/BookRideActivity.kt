@@ -70,7 +70,7 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_book_ride)
 
-        Log.e("12345678", "book ride: " + MAPS_API_KEY)
+        Log.e("12345678", "book ride: $MAPS_API_KEY")
 
 
         mapAPi()
@@ -106,7 +106,7 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
                 }
 
                 else -> {
-                    Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
                 }
             }
         }

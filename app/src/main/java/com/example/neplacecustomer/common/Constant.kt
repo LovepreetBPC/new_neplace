@@ -1,4 +1,4 @@
-package com.nexter.application.common
+package com.example.neplacecustomer.common
 
 import android.util.Log
 import java.text.SimpleDateFormat

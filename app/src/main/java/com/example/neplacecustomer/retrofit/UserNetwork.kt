@@ -1,10 +1,9 @@
-package com.nexter.application.retrofit
+package com.example.neplacecustomer.retrofit
 
 import android.util.Log
 import com.google.gson.GsonBuilder
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import com.example.neplacecustomer.common.SharedPref
-import com.example.neplacecustomer.retrofit.ApiInterface
 import com.example.neplacecustomer.utils.Utils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -62,7 +61,7 @@ var sharePref= SharedPref
             .header("Authorization", "Bearer ${sharePref.getString(Constant.TOKEN, "").toString()}")
             .build()
 
-        Log.e("access_token", "token: "+sharePref.getString(Constant.TOKEN, "").toString() )
+        Log.e("access_token", "token: "+ sharePref.getString(Constant.TOKEN, "").toString() )
         chain.proceed(newRequest)
 
     }

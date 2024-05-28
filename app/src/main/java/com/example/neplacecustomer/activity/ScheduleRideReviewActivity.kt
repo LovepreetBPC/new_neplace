@@ -68,7 +68,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
     var seatNumber: Int = 0
     private val db = Firebase.firestore
     lateinit var getProfileViewModel: GetProfileViewModel
-    var subscribePlan:Boolean= false
+    var subscribePlan: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -257,7 +257,11 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         val txtTripId = dialog.findViewById(R.id.txtTripId) as TextView
         txtTripId.text = "Trip Id-# $id"
         noContinue.setOnClickListener {
-            startActivity(Intent(this, BookRideActivity::class.java).putExtra("subscribePlan",subscribePlan))
+            startActivity(
+                Intent(this, BookRideActivity::class.java).putExtra(
+                    "subscribePlan", subscribePlan
+                )
+            )
             finish()
             dialog.dismiss()
         }
@@ -304,8 +308,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 
                     val requestBody = MultipartBody.Builder()
 
-                        .setType(MultipartBody.FORM)
-                        .addFormDataPart("ride_status", "Active")
+                        .setType(MultipartBody.FORM).addFormDataPart("ride_status", "Active")
                         .addFormDataPart("pickup_lat", pickup_lat)
                         .addFormDataPart("pickup_long", pickup_long)
                         .addFormDataPart("drop_lat", drop_lat)
@@ -319,7 +322,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                         .addFormDataPart("airline", airline)
                         .addFormDataPart("airport_code", airPort_code)
                         .addFormDataPart("service_type", serviceType)
-                        .addFormDataPart("no_of_passemger", seatNumber.toString())
+                        .addFormDataPart("no_of_passemger", passenger.toString())
                         .addFormDataPart("handicap", handicap)
                         .addFormDataPart("luggage", luggage.toString())
                         .addFormDataPart("child_seat", child.toString())
@@ -329,8 +332,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 //                        .addFormDataPart("alacart", alacart)
                         .build()
 
-                    Log.e(
-                        "requestBody", "rideStatus :  $rideStatus , " +
+                    Log.e("requestBody", "rideStatus :  $rideStatus , " +
                                 "  pickup_lat :  $pickup_lat ," +
                                 "  pickup_long :  $pickup_long ," +
                                 "  drop_lat :  $drop_lat ," +
@@ -352,9 +354,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                     viewModel.getRidesUser(requestBody)
                 } else {
                     Toast.makeText(
-                        this,
-                        "Please select pick up time after 24 hrs",
-                        Toast.LENGTH_SHORT
+                        this, "Please select pick up time after 24 hrs", Toast.LENGTH_SHORT
                     ).show()
                 }
             }

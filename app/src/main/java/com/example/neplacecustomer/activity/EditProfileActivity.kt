@@ -32,7 +32,7 @@ import com.example.neplacecustomer.model.ProfileModel
 import com.example.neplacecustomer.utils.BitmapUtils
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
 import com.example.neplacecustomer.viewmodel.ProfileEditViewModel
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -268,6 +268,7 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
             } else {
                 choosePhotoFromGallary()
             }
+            choosePhotoFromGallary()
         }
         pickerDialog.show()
     }
@@ -282,8 +283,10 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
         ActivityCompat.requestPermissions(
             this, arrayOf(
                 Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
             ), PERMISSION_CAMERA_REQUEST_CODE
         )
     }
@@ -339,8 +342,10 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
             ),
             PERMISSION_STORAGE_REQUEST_CODE
         )

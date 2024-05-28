@@ -11,15 +11,11 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.neplacecustomer.R
-import com.example.neplacecustomer.activity.ChatActivity
-import com.example.neplacecustomer.activity.DriverSelectionActivity
-import com.example.neplacecustomer.activity.EditScheduleRideActivity
 import com.example.neplacecustomer.model.RideHistoryData
-import com.nexter.application.common.Constant
+import com.example.neplacecustomer.common.Constant
 import java.text.SimpleDateFormat
 import java.util.Locale
 
