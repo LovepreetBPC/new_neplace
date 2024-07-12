@@ -356,6 +356,8 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(galleryIntent, GALLERY)
 
+
+
     }
 
     @Throws(IOException::class)

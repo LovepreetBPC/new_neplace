@@ -92,6 +92,10 @@ class ChangePickUpTimeActivity : BaseActivity(), View.OnClickListener {
             R.id.txtDatePicker -> {
 //                showDatePicker()
             }
+            R.id.imgBack -> {
+                finish()
+//                showDatePicker()
+            }
 
             R.id.txtTime -> {
                 showTimePicker()

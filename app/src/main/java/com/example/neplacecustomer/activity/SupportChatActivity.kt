@@ -18,7 +18,7 @@ class SupportChatActivity : BaseActivity() {
     private lateinit var firestore: FirebaseFirestore
     var senderId = ""
     var senderName = ""
-    var companyId="7"
+    var companyId="1"
     var chatList = ArrayList<Chat>()
 //    lateinit var sendMessageNotificationViewModel: SendMessageNotificationViewModel
 

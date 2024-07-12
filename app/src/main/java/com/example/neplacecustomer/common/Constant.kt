@@ -7,7 +7,7 @@ import java.util.Locale
 object Constant {
 
 //    var BASEURL: String = "http://18.246.71.89/"
-    var BASEURL: String = "http://18.216.223.224/"
+    var BASEURL: String = "https://app.goneplace.app/"
 
     val USERTYPE: String = "UserType"
     val TOKEN: String = "Token"

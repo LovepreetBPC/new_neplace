@@ -39,9 +39,9 @@ class MyAccountActivity : BaseActivity(),View.OnClickListener {
         val profile_image = sharePref.getString(Constant.USERIMAGE, "").toString()
 
 
-        binding.txtName.setText(name)
-        binding.txtMobileNumber.setText(number)
-        binding.txtEmail.setText(email)
+        binding.txtName.text = name
+        binding.txtMobileNumber.text = number
+        binding.txtEmail.text = email
         Glide.with(this).load(Constant.BASEURL+profile_image)
             .error(R.mipmap.img_place_holder)
             .into(binding.imgProfile)
@@ -112,8 +112,8 @@ class MyAccountActivity : BaseActivity(),View.OnClickListener {
                     }else{
 
                         binding.relativecarddetail.visibility = View.VISIBLE
-                        card_id=it.data!!.data[0].cardid
-                        binding.cardnumber.setText(  "************"+  it.data!!.data[0].card_number)
+                        card_id= it.data.data[0].cardid
+                        binding.cardnumber.text = "************"+  it.data.data[0].card_number
 
                     }
 

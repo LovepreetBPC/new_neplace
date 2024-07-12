@@ -74,6 +74,8 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
         deleteCardVM = ViewModelProvider(this)[DeleteCardVM::class.java]
         planSubscriptionViewModel = ViewModelProvider(this)[PlanSubscriptionViewModel::class.java]
         getCardVM.getCard()
+
+
         getCardVM.getCardsResponse.observe(this) {
             when (it) {
                 is BaseResponse.Loading -> {

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_bg"
+        tools:context="activity.DriverDetailActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:src="@mipmap/ic_back" />
+
+
+            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity=""
+                android:text="Driver Detail"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_twentytwo" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeTop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_twenty"
+                android:layout_marginTop="@dimen/margin_twenty">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/relativeProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@mipmap/img_place_holder"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/details"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_ten"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:foregroundGravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgProfile">
+
+
+                        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                            android:id="@+id/txtName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:gravity="center"
+                            android:text="Rick Laurence"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_twenty" />
+
+                        <TextView
+                            android:id="@+id/txtEmailTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_two"
+                            android:text="Email -"
+                            android:visibility="gone"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtName"
+                            android:textSize="@dimen/text_size_sixteen" />
+
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/txtEmailTitle"
+                            android:layout_marginStart="@dimen/margin_two"
+                            android:singleLine="true"
+                            android:gravity="center"
+
+                            app:layout_constraintStart_toEndOf="@+id/txtEmailTitle"
+                            app:layout_constraintTop_toBottomOf="@+id/txtName"
+                            android:text="rick@email.com"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_sixteen" />
+
+                        <TextView
+                            android:id="@+id/txtMobileTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txtEmailTitle"
+                            android:layout_marginTop="@dimen/margin_two"
+                            android:text="Mobile -"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_sixteen" />
+
+                        <TextView
+                            android:id="@+id/txtMobileNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/txtMobileTitle"
+                            android:layout_marginLeft="@dimen/margin_two"
+                            android:layout_toEndOf="@id/txtMobileTitle"
+                            android:singleLine="true"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+                            app:layout_constraintStart_toEndOf="@+id/txtMobileTitle"
+                            android:text="+1-310-234-0000"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_sixteen" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imgProfileEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:src="@mipmap/ic_edit"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RelativeTrips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeProfile"
+                    android:layout_marginTop="30sp"
+                    android:gravity="center_horizontal">
+
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeRatingMain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/RelativeRating"
+                            android:layout_width="@dimen/margin_sixty"
+                            android:layout_height="@dimen/margin_sixty"
+                            android:background="@drawable/circler_blue_bg">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_star" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/txtRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/RelativeRating"
+                            android:layout_centerHorizontal="true"
+                            android:text="4.8 Rating"
+                            android:textColor="@color/white" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeTaxiMain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_fourty"
+                        android:layout_toEndOf="@id/RelativeRatingMain">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeTaxi"
+                            android:layout_width="@dimen/margin_sixty"
+                            android:layout_height="@dimen/margin_sixty"
+                            android:background="@drawable/circler_blue_bg">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_taxi" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/txtTotalTrip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/relativeTaxi"
+                            android:layout_centerHorizontal="true"
+                            android:text="150 Trips"
+                            android:textColor="@color/white" />
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/RelativeTrips"
+                    android:layout_marginTop="20sp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/txtLogOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_fourty"
+                    android:layout_marginBottom="@dimen/margin_fourty"
+                    android:layout_below="@id/recyclerView"
+                    android:background="@drawable/btn_bg"
+                    android:gravity="center"
+                    android:paddingHorizontal="20sp"
+                    android:paddingVertical="10sp"
+                    android:text="Contact"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_eighteen" />
+
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
+
+
+
+

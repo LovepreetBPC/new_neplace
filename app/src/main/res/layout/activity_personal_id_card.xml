@@ -80,7 +80,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@mipmap/ic_id_card"
+                            android:src="@drawable/ccp_ic_arrow_drop_down"
                             android:layout_marginRight="10sp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"

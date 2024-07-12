@@ -246,7 +246,8 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
                 e.printStackTrace()
             }
             binding.pickUpTextView.text = place.name.toString().plus(",").plus(place.address.toString())
-        } else if (resultCode == RESULT_OK && requestCode == 101) {
+        }
+        else if (resultCode == RESULT_OK && requestCode == 101) {
             val place: Place = Autocomplete.getPlaceFromIntent(data!!)
             val latLng: LatLng? = place.latLng
 

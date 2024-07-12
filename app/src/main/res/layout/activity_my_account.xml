@@ -382,7 +382,7 @@
                             android:layout_marginLeft="@dimen/margin_eight"
                             android:layout_toEndOf="@id/imgPlan"
                             android:layout_alignTop="@id/imgPlan"
-                            android:layout_alignBottom="@id/imgPlan">
+                           >
 
 
                             <com.example.neplacecustomer.utils.textview.TextViewSemiBold
@@ -409,8 +409,7 @@
                                 android:id="@+id/txtPeningRide"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/margin_two"
-                                android:text="4 Ride Remaining "
+                                android:text="4 Ride"
                                 android:layout_below="@id/txtPrice"
                                 android:textSize="@dimen/text_size_fourteen"
                                 android:textColor="@color/white" />
