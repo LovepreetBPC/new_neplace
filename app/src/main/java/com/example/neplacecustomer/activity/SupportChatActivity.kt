@@ -34,6 +34,11 @@ class SupportChatActivity : BaseActivity() {
 
         readMessage()
 
+
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnSendMessage.setOnClickListener {
             val message: String = binding.etMessage.text.toString()
 
@@ -74,6 +79,7 @@ class SupportChatActivity : BaseActivity() {
             .collection("Messages").add(chat)
             .addOnSuccessListener { documentReference ->
                 // Chat data saved successfully
+                binding.recyclerView.scrollToPosition(chatList.size - 1)
             }
             .addOnFailureListener { e ->
                 // Handle the failure
@@ -107,6 +113,7 @@ class SupportChatActivity : BaseActivity() {
                         val adapter = ChatAdapter(this@SupportChatActivity, chatList, senderId)
                         binding.recyclerView.layoutManager = LinearLayoutManager(this)
                         binding.recyclerView.adapter = adapter
+                        binding.recyclerView.scrollToPosition(chatList.size - 1)
                     }
                 }
         }catch (e:Exception){
