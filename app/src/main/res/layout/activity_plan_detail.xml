@@ -90,6 +90,28 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/linearResgistr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/linearPrice"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+
+                <com.example.neplacecustomer.utils.textview.TextViewBold
+                    android:id="@+id/txtRegistrFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$210 /"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    />
+
+            </LinearLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"

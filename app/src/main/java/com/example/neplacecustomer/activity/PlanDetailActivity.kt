@@ -2,6 +2,7 @@ package com.example.neplacecustomer.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -84,6 +85,13 @@ class PlanDetailActivity : BaseActivity() {
 //        ToastMsg(data!!.message.toString())
         binding.txtPrice.text = "$" + data!!.data.price + "/"
         binding.txtMonth.text = data.data.type
+
+        if (data.data.extra_price != null){
+            binding.txtRegistrFee.text = "$"+data.data.extra_price  + "/" + "Registration Fee"
+        }else{
+            binding.linearResgistr.visibility = View.GONE
+        }
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = PlanDecListItemAdapter(this, data.data.description)
         binding.recyclerView.adapter = adapter
