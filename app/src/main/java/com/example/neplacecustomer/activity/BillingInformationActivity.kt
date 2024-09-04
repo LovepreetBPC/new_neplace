@@ -28,8 +28,6 @@ class BillingInformationActivity : AppCompatActivity() {
         binding.imgBack.setOnClickListener {
             finish()
         }
-
-
     }
 
     private fun initViews() {
@@ -46,7 +44,6 @@ class BillingInformationActivity : AppCompatActivity() {
 //                    dismissProgress()
                     if (it.data!!.status) {
                         processEdit(it.data)
-
                     }
                 }
 

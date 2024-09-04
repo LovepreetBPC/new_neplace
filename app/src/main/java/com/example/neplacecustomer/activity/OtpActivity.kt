@@ -25,6 +25,7 @@ import com.example.neplacecustomer.viewmodel.VerifyOtpViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.example.neplacecustomer.common.Constant
+import com.google.firebase.FirebaseApp
 
 class OtpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivityOtpBinding
@@ -42,6 +43,7 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
         initViewss()
         setOnClick()
 
+        FirebaseApp.initializeApp(this)
 
         Log.e("phoneNumber", "onCreate: $phoneNumber")
         object : CountDownTimer(30000, 1000) {
@@ -61,7 +63,6 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
                 binding.txtResend.visibility = View.VISIBLE
             }
         }.start()
-
     }
 
     private fun setOnClick() {
@@ -70,12 +71,8 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
         binding.txtSndOtp.setOnClickListener(this)
         binding.txtResend.setOnClickListener(this)
 
-
-
-
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
-
                 return@OnCompleteListener
             }
 

@@ -11,6 +11,4 @@
         android:topLeftRadius="@dimen/margin_twenty"
         />
 
-
-
 </shape>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.example.neplacecustomer.R
+import com.example.neplacecustomer.common.Constant
 import com.example.neplacecustomer.databinding.ActivityTermsAndConditionsBinding
 
 
@@ -29,6 +30,7 @@ class TermsAndConditionsActivity : AppCompatActivity() {
                 return true
             }
         }
-        binding.webview.loadUrl("http://18.216.223.224/terms")
+        //binding.webview.loadUrl("http://18.216.223.224/terms")
+        binding.webview.loadUrl(Constant.BASEURL + "terms")
     }
 }

@@ -34,6 +34,7 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.Date
+import java.util.TimeZone
 
 class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 
@@ -70,11 +71,22 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
     lateinit var getProfileViewModel: GetProfileViewModel
     var subscribePlan: Boolean = false
 
+    lateinit var user_timezone: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_schedule_ride_review)
         FirebaseApp.initializeApp(this)
+
+        val timezoneID = TimeZone.getDefault().id
+        val sdf2 = SimpleDateFormat("dd-MMM-yyyy")
+        sdf2.timeZone = TimeZone.getTimeZone(timezoneID)
+        val formattedDate = sdf2.format(Date())
+        Log.d("Time_", "Date in timezone ($timezoneID): $formattedDate")
+
+        user_timezone = timezoneID
+        Log.d("Time_", "=" + user_timezone)
 
         rideStatus = intent.getStringExtra("rideStatus").toString()
         pickup_date = intent.getStringExtra("pickup_date").toString()
@@ -99,7 +111,6 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         handicap = intent.getStringExtra("handicap").toString()
         min_hours = intent.getStringExtra("min_hours").toString()
         alacart = intent.getStringExtra("alacart").toString()
-
 
         Log.e("pickup_date", "onCreate: $pickup_time    ,   $pickup_date")
 
@@ -134,7 +145,6 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         binding.txtHandicapSeat.setText(handicap)
 
 
-
         binding.imgBack.setOnClickListener(this)
         binding.relativeRest.setOnClickListener(this)
         binding.txtContinue.setOnClickListener(this)
@@ -142,14 +152,12 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 
         initViewss()
 
-
     }
 
 
     private fun initViewss() {
         viewModel = ViewModelProvider(this)[AddRidesViewModel::class.java]
         getProfileViewModel = ViewModelProvider(this)[GetProfileViewModel::class.java]
-
 
         viewModel.addRidesResponse.observe(this) {
             when (it) {
@@ -272,7 +280,6 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
             startActivity(intent)
             finish()
             dialog.dismiss()
-
         }
 
         dialog.show()
@@ -329,6 +336,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                         .addFormDataPart("vehicle_type", vehicleType)
                         .addFormDataPart("pickup_city", pickup_city)
                         .addFormDataPart("min_hours", min_hours)
+                        .addFormDataPart("user_timezone", user_timezone.toString())
 //                        .addFormDataPart("alacart", alacart)
                         .build()
 
@@ -349,7 +357,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                                 "  luggage :  $luggage" +
                                 "  child :  $child" +
                                 "  vehicleType :  $vehicleType" +
-                                "  pickup_city :  $pickup_city"
+                                "  pickup_city :  $pickup_city"+ "user_timeZone : $user_timezone"
                     )
                     viewModel.getRidesUser(requestBody)
                 } else {

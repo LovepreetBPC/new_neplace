@@ -130,6 +130,7 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.txtBillingInformation -> {
                 startActivity(Intent(this, BillingInformationActivity::class.java))
             }
+
             R.id.txtSubscriptionPlans -> {
                 startActivity(Intent(this, SubscriptionPlansActivity::class.java))
             }
@@ -146,9 +147,9 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.relativeContactUs -> {
                 startActivity(Intent(this, ContactActivity::class.java))
             }
+
             R.id.txtLogOut -> {
                 commonAlertDialog("Do you want to logout?", "Alert", "logout")
-
             }
         }
     }

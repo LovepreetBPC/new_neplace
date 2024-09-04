@@ -1,10 +1,13 @@
 package com.example.neplacecustomer.adapter
 
+import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neplacecustomer.R
 import com.example.neplacecustomer.model.NotificationData
@@ -12,6 +15,7 @@ import java.lang.Math.abs
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 class NotificationAdapter(val data: List<NotificationData>, var handler: DeleteNotificationHandler) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
 
@@ -21,7 +25,9 @@ class NotificationAdapter(val data: List<NotificationData>, var handler: DeleteN
         return ViewHolder(view)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.txtName.setText(data[position].title)
         holder.txtTripIdTitle.setText(data[position].body)
         val timestamp = data[position].created_at
@@ -61,10 +67,21 @@ class NotificationAdapter(val data: List<NotificationData>, var handler: DeleteN
 
     fun convertToTimeAgo(timestamp: String): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US)
-        val date = sdf.parse(timestamp)
+        sdf.timeZone = TimeZone.getTimeZone("UTC")
+        val utcDate = sdf.parse(timestamp)
+        val localSdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        localSdf.timeZone = TimeZone.getDefault()
+        val localTimeString = localSdf.format(utcDate)
+        val date = localSdf.parse(localTimeString)
         val currentTime = Date()
 
-        val diffInMillis = abs(currentTime.time - date.time)
+        /*val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US)
+        val date = sdf.parse(timestamp)
+        val currentTime = Date()*/
+
+        val diffInMillis = abs(currentTime.time - date!!.time)
+        Log.d("diffInMillis", "convertToTimeAgo: $diffInMillis")
+        Log.d("diffInMillis", "currentTime: $currentTime")
         val diffInSeconds = diffInMillis / 1000
         val diffInMinutes = diffInSeconds / 60
         val diffInHours = diffInMinutes / 60
@@ -81,7 +98,6 @@ class NotificationAdapter(val data: List<NotificationData>, var handler: DeleteN
             else -> "$diffInSeconds seconds ago"
         }
     }
-
 
     interface DeleteNotificationHandler {
         fun onClick(id: String)

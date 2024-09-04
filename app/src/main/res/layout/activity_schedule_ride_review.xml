@@ -549,7 +549,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:weightSum="2"
+                        android:gravity="bottom"
+                        android:layout_marginBottom="40dp">
 
                         <RelativeLayout
                             android:id="@+id/txtContinue"
@@ -589,6 +591,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="46dp"
+                                android:layout_marginTop="@dimen/margin_four"
                                 android:background="@drawable/blue_boder">
 
                                 <com.example.neplacecustomer.utils.textview.TextViewMedium
@@ -596,6 +599,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
+                                    android:paddingHorizontal="20sp"
                                     android:textAllCaps="true"
                                     android:text="Modify"
                                     android:textColor="@color/white"

@@ -58,6 +58,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     private val etaData = ArrayList<String>()
 
     var seatNumber = 6
+    var leftSeat : String?= null
     var selectPassenger: Int = 0
     var selectLuggage = 0
     var selectChild = 0
@@ -115,7 +116,9 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
         binding.txtDatePicker.setOnClickListener(this)
         binding.txtTime.setOnClickListener(this)
         initViewss()
+
         setPassengerSpinner()
+        /*setChildSeat(seatNumber.toString())*/
         setServiceTypeSpinner()
         setHoursSpinner()
         val sdf = SimpleDateFormat("MM-dd-yyyy")
@@ -602,12 +605,12 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setPassengerSpinner() {
-
         //setPassengerSpinner
 
         for (i in 0..seatNumber) {
             arrayList.add(i)
         }
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerPassenger.adapter = adapter
@@ -616,13 +619,16 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
-                    selectPassenger = arrayList[position]
-                    seatNumber  = selectPassenger-seatNumber
-//                    selectPassenger = seatNumber - arrayList[position]
+                    if (position in arrayList.indices) {  // Check if position is within valid range
+                        selectPassenger = arrayList[position]
+                        leftSeat = (seatNumber - selectPassenger).toString()
 
-                    Log.e("luggage", "setPassengerSpinner   $selectPassenger")
-//                val selectedFruit = parent?.getItemAtPosition(position) as String
-                    // Do something with the selected item (selectedFruit)
+                        setChildSeat(leftSeat.toString())
+                        Log.d("luggage", "leftSeat: $leftSeat")
+                        Log.d("luggage", "setPassengerSpinner242424: $selectPassenger")
+                    } else {
+                        Log.d("luggage", "Invalid position selected: $position")
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -632,7 +638,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
 
         // setLuggageSpinner
-
         val arrayList2 = ArrayList<Int>()
         for (i in 0..seatNumber) {
             arrayList2.add(i)
@@ -646,7 +651,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
-//                    selectPassenger = selectChild - arrayList2[position].toInt()
                     selectLuggage = arrayList2[position].toInt()
                     seatNumber - arrayList[position]
 
@@ -657,14 +661,17 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 }
             }
 
+    }
 
+    private fun setChildSeat(leftSeat1: String) {
         //setChildSpinner
-
         val arrayList3 = ArrayList<Int>()
-        for (i in 0..seatNumber) {
+        val seatLeftUpdte = leftSeat1.toIntOrNull() ?: seatNumber
+        Log.d("luggage", "seatLeftChild: $seatLeftUpdte")
+
+        for (i in 0..seatLeftUpdte) {
             arrayList3.add(i)
         }
-        Log.e("child", "setChildSpinner:   $selectPassenger")
 
         val adapter3 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList3)
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -673,26 +680,29 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-//                selectPassenger = arrayList3[position].toInt()
                 selectChild = arrayList3[position].toInt()
-                seatNumber - arrayList[position]
-
+                leftSeat = (leftSeat1.toInt() - selectChild).toString()
+                Log.d("luggage", "leftSeatChilde 111: $leftSeat")
+                setHandiCapSeat(leftSeat.toString())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Do something when nothing is selected
             }
         }
+    }
 
+    private fun setHandiCapSeat(leftSeat1: String) {
         //spinnerHandicap
-
         val arrayList4 = ArrayList<Int>()
-        for (i in 0..seatNumber) {
+        val seatLeftUpdte = leftSeat1.toIntOrNull() ?: seatNumber
+        Log.d("luggage", "setHandiCapSeat: $seatLeftUpdte")
+
+        for (i in 0..seatLeftUpdte) {
             arrayList4.add(i)
         }
-//        Log.e("luggage", "setChildSpinner:   $selectPassenger")
 
-        val adapter4 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList3)
+        val adapter4 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList4)
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerHandicap.adapter = adapter4
         binding.spinnerHandicap.onItemSelectedListener =
@@ -700,20 +710,17 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
-//                    selectPassenger = arrayList3[position].toInt()
-                    selectHandicap = arrayList3[position].toInt()
-
+                    selectHandicap = arrayList4[position].toInt()
+                    leftSeat = (seatNumber - selectHandicap).toString()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     // Do something when nothing is selected
                 }
             }
-
     }
 
     private fun setServiceTypeSpinner() {
-
         // Create an ArrayAdapter using the string array and a default spinner layout
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, serviceTypeList)
 

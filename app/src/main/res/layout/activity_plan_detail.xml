@@ -89,16 +89,30 @@
 
             </LinearLayout>
 
+            <com.example.neplacecustomer.utils.textview.TextViewMedium
+                android:id="@+id/txtPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Privacy Policy"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:textSize="@dimen/margin_sixteen"
+                android:padding="@dimen/padding_ten"
+                android:layout_above="@+id/txtContinue"
+                android:layout_marginTop="@dimen/margin_sixteen" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_below="@id/linearPrice"
                 android:layout_height="match_parent"
-                android:layout_above="@id/txtContinue"
-                android:layout_marginTop="@dimen/margin_fifty"
-                android:layout_marginBottom="20sp"
-                />
+                android:layout_below="@id/linearPrice"
+                android:layout_above="@+id/txtPrivacy"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20sp" />
 
             <com.example.neplacecustomer.utils.textview.TextViewMedium
                 android:id="@+id/txtContinue"
@@ -106,7 +120,7 @@
                 android:layout_height="@dimen/edt_height"
                 android:text="Join Now"
                 android:textSize="@dimen/text_size_eighteen"
-                android:layout_marginBottom="40sp"
+                android:layout_marginBottom="20sp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="@dimen/margin_twenty"
                 android:textColor="@color/white"

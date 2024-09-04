@@ -18,8 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20sp"
-            app:layout_constraintTop_toTopOf="parent"
-           >
+            app:layout_constraintTop_toTopOf="parent">
 
             <RelativeLayout
                 android:id="@+id/relativeAddress"
@@ -79,12 +78,11 @@
                 android:id="@+id/txtChooseVehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_fourty"
+                android:layout_marginTop="@dimen/margin_ten"
                 android:layout_below="@id/relativeAddress"
                 android:text="@string/choose_a_vehicle"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_eighteen" />
-
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -92,13 +90,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtChooseVehicle"
-                tools:listitem="@layout/choose_vehicle_item"
+                android:layout_marginTop="37dp"
                 tools:itemCount="1"
-                android:layout_marginTop="@dimen/margin_fourty"
-                >
+                tools:listitem="@layout/choose_vehicle_item">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
             <LinearLayout
                 android:layout_width="match_parent"

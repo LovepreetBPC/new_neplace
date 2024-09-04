@@ -72,7 +72,6 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
 
         Log.e("12345678", "book ride: $MAPS_API_KEY")
 
-
         mapAPi()
 
         Places.initialize(this@BookRideActivity, MAPS_API_KEY ?: "")
@@ -83,7 +82,6 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         getCurrentLocation()
         setOnClick()
-
     }
 
 

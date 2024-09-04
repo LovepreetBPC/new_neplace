@@ -42,14 +42,8 @@ var sharePref= SharedPref
             .baseUrl(Constant.BASEURL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
-
             .build()
-
-
-
             .create(ApiInterface::class.java)
-
-
 
     }
 

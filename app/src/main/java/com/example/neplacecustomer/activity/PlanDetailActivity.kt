@@ -2,6 +2,7 @@ package com.example.neplacecustomer.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +45,10 @@ class PlanDetailActivity : BaseActivity() {
             finish()
         }
 
+        binding.txtPrivacy.setOnClickListener{
+            startActivity(Intent(this@PlanDetailActivity, PrivacyPolicyActivity::class.java))
+            finish()
+        }
 
     }
 

@@ -92,6 +92,8 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         card_id = it.data.data[0].cardid
                         cardPaymenyId = it.data.data[0].id.toString()
+                        Log.d("cardPaymenyId", "cardPaymenyId: $cardPaymenyId")
+                        Log.d("cardPaymenyId", "ride_id: $ride_id")
 
                         binding.txtNoData.visibility = View.GONE
                         binding.tvpayment.visibility = View.VISIBLE

@@ -252,11 +252,12 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
             }
 
-            R.id.relativeCancel -> {
+            /*R.id.relativeCancel -> {
                 rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, true)
                 updateRideStatus("active")
 
-            }
+
+            }*/
 
             R.id.imgMenu -> {
                 finish()
@@ -328,6 +329,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
                 rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
                 updateRideStatus("canceled")
+
+
 //                }
 
             }

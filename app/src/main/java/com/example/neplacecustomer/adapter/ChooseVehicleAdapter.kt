@@ -1,6 +1,7 @@
 package com.example.neplacecustomer.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,10 @@ class ChooseVehicleAdapter(val context: Context,val data: List<GetVehicleData> ,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Glide.with(context).load(Constant.BASEURL+data[position].image)
+        Glide.with(context).load(Constant.BASEURL + data[position].image)
             .error(R.mipmap.car_img)
+            .centerInside()
             .into(holder.imgCar)
-
 
         holder.itemView.setOnClickListener{
             handler.itemClick(position,data[position])

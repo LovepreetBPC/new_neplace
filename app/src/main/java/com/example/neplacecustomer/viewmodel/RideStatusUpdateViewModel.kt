@@ -20,6 +20,7 @@ class RideStatusUpdateViewModel : ViewModel() {
             try {
                 val response = userRepo.rideStatusUpdate(status,user_id,is_reject_driver)
                 if (response.code() == 200) {
+                    Log.e("UpdateStatus", "user_id: "+user_id)
                     rideResponse.value=null
                     rideResponse.value = BaseResponse.Success(response.body())
                 } else {
@@ -31,6 +32,8 @@ class RideStatusUpdateViewModel : ViewModel() {
                 ae.printStackTrace()
 
                 Log.e("UpdateStatus", "getRide: "+ae.message)
+                Log.e("UpdateStatus", "user_id: $user_id   , status-> $status  ,is_reject_driver  -> $is_reject_driver ")
+
             }
 
         }

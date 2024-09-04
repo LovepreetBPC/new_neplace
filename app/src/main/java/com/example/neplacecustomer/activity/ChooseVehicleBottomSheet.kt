@@ -41,9 +41,7 @@ class ChooseVehicleBottomSheet(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = ChooseVehicleBottomSheetBinding.inflate(layoutInflater)
-
         return binding.root
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +59,6 @@ class ChooseVehicleBottomSheet(
         pDialog = ProgressDialog(requireContext())
         pDialog.setCancelable(false)
         pDialog.setMessage("Loading...")
-
     }
 
     private fun setOnClick() {
@@ -79,7 +76,6 @@ class ChooseVehicleBottomSheet(
             R.id.imgEdit -> {
                 startActivity(Intent(requireContext(), BookRideActivity::class.java))
             }
-
 
         }
     }

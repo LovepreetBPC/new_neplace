@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.example.neplacecustomer.common.Constant
 import com.example.neplacecustomer.databinding.ActivityPrivacyPolicyBinding
 
 class PrivacyPolicyActivity : AppCompatActivity() {
@@ -24,7 +25,8 @@ class PrivacyPolicyActivity : AppCompatActivity() {
                 return true
             }
         }
-        binding.webview.loadUrl("http://18.216.223.224/privacy-policy")
+       // binding.webview.loadUrl("http://18.216.223.224/privacy-policy")
+        binding.webview.loadUrl(Constant.BASEURL + "privacy-policy")
 
 //        binding.webview.loadUrl("https://nightcoders.org/rumonradio/")
     }

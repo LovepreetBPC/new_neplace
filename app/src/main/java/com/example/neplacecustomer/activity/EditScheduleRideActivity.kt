@@ -59,6 +59,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
     private val etaData = ArrayList<String>()
 
     var seatNumber = 6
+    lateinit var leftSeat : String
     var selectPassenger: Int = 0
     var selectLuggage = 0
     var selectChild = 0
@@ -113,12 +114,6 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         initViewss()
         getDriverInitViews()
         setPassengerSpinner()
-//        val sdf = SimpleDateFormat("yyyy-MM-dd")
-//        val time = SimpleDateFormat("hh:mm:ss")
-//        val currentDate = sdf.format(Date())
-//        val currentTime = time.format(Date())
-//        binding.txtDatePicker.setText(currentDate.toString())
-//        binding.txtTime.setText(currentTime.toString())
 
 
         binding!!.edtAirportCode.setOnClickListener(View.OnClickListener {
@@ -647,7 +642,6 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setPassengerSpinner() {
-
         //setPassengerSpinner
 
         for (i in 0..seatNumber) {
@@ -664,16 +658,21 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
                     position: Int,
                     id: Long
                 ) {
-                    selectPassenger = arrayList[position]
-//                    selectPassenger = seatNumber - arrayList[position]
+                    Log.d("luggage", "onItemSelected called with position: $position")
 
-                    Log.e("luggage", "setPassengerSpinner   " + selectPassenger)
-//                val selectedFruit = parent?.getItemAtPosition(position) as String
-                    // Do something with the selected item (selectedFruit)
+                    if (position in arrayList.indices) {  // Check if position is within valid range
+                        selectPassenger = arrayList[position]
+                        leftSeat = (seatNumber - selectPassenger).toString()
+                        Log.d("luggage", "leftSeat: $leftSeat")
+                        //Log.d("luggage", "setPassengerSpinner1111: $selectPassenger")
+                    } else {
+                        Log.d("luggage", "Invalid position selected: $position")
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     // Do something when nothing is selected
+                    Log.d("luggage", "onNothingSelected called")
                 }
             }
 
@@ -714,7 +713,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         for (i in 0..seatNumber) {
             arrayList3.add(i)
         }
-        Log.e("child", "setChildSpinner:   $selectPassenger")
+        Log.d("luggage", "setChildSpinner:   $selectPassenger")
 
         val adapter3 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList3)
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -743,9 +742,9 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
         for (i in 0..seatNumber) {
             arrayList4.add(i)
         }
-//        Log.e("luggage", "setChildSpinner:   $selectPassenger")
+        Log.d("luggage", "setHandicap:   $selectPassenger")
 
-        val adapter4 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList3)
+        val adapter4 = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList4)
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerHandicap.adapter = adapter4
         binding.spinnerHandicap.onItemSelectedListener =
@@ -757,7 +756,7 @@ class EditScheduleRideActivity : BaseActivity(), View.OnClickListener {
                     id: Long
                 ) {
 //                    selectPassenger = arrayList3[position].toInt()
-                    selectHandicap = arrayList3[position].toInt()
+                    selectHandicap = arrayList4[position].toInt()
 
                 }
 
