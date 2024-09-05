@@ -252,12 +252,10 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
             }
 
-            /*R.id.relativeCancel -> {
+            R.id.relativeCancel -> {
                 rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, true)
                 updateRideStatus("active")
-
-
-            }*/
+            }
 
             R.id.imgMenu -> {
                 finish()
@@ -330,9 +328,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
                 updateRideStatus("canceled")
 
-
 //                }
-
             }
 
             R.id.txtCancelRequestOnWay -> {
@@ -363,7 +359,6 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                         .build()
                     sendRatingViewModel.senReview(requestBody)
                 }
-
 
             }
         }
@@ -528,7 +523,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeWaitingDriver.visibility = View.VISIBLE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
-            } else if (ride_status.equals("active")) {
+            }
+            else if (ride_status.equals("active")) {
                 binding.relativeMainBottom.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.GONE
@@ -538,7 +534,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.linerLocation.visibility = View.VISIBLE
                 binding.imgDirections.visibility = View.GONE
 
-            } else if (ride_status.equals("Active")) {
+            }
+           /* else if (ride_status.equals("Active")) {
                 binding.relativeMainBottom.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.GONE
@@ -548,7 +545,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.linerLocation.visibility = View.VISIBLE
                 binding.imgDirections.visibility = View.GONE
 
-            } else if (ride_status.equals("completed")) {
+            } */
+            else if (ride_status.equals("completed")) {
                 binding.relativeMainBottom.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.VISIBLE
@@ -677,8 +675,10 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
 
 
+                Log.d("Driver_IMG", "processEdit: ${Constant.BASEURL + data.data.driver_image}")
                 Glide.with(this).load(Constant.BASEURL + data.data.driver_image)
                     .error(R.mipmap.img_place_holder).into(binding.imgProfile)
+
                 binding.ratingBar.numStars = 5
                 binding.ratingBar.rating = data.data.driver_rating!!.toFloat()
                 binding.txtPrice.text = "$" + data.data.price.toString()

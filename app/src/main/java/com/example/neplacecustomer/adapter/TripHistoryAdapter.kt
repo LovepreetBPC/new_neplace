@@ -48,6 +48,7 @@ class TripHistoryAdapter(val context: Context, val data: List<RideHistoryData>, 
 //        }
 
         val status = data[position].status
+        Log.d("Trip_ID", "onBindViewHolder: ${data[position].trip_id}")
         when (status) {
             "active" -> {
                 holder.relativeDriverProfile.visibility = View.GONE

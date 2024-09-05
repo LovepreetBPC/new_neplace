@@ -113,6 +113,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         alacart = intent.getStringExtra("alacart").toString()
 
         Log.e("pickup_date", "onCreate: $pickup_time    ,   $pickup_date")
+        Log.e("requestBody", "min_hours: $min_hours")
 
         if (serviceType == "From Airport") {
             binding.linearAiportCodespinnerServiceType.visibility = View.VISIBLE
@@ -357,7 +358,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                                 "  luggage :  $luggage" +
                                 "  child :  $child" +
                                 "  vehicleType :  $vehicleType" +
-                                "  pickup_city :  $pickup_city"+ "user_timeZone : $user_timezone"
+                                "  pickup_city :  $pickup_city"+ "user_timeZone : $user_timezone "+ "  min_hours : $min_hours"
                     )
                     viewModel.getRidesUser(requestBody)
                 } else {

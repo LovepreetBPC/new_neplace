@@ -87,7 +87,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
 
     private val serviceTypeList = arrayOf("Select Service type", "From Airport", "To Airport", "Point-To-Point", "Hourly As-Directed")
-    private val hoursList = arrayOf("3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18","19", "20", "21", "22", "23", "24")
+    private val hoursList = arrayOf("0","1","2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18","19", "20", "21", "22", "23", "24")
     var serviceType = ""
     var selectedHours = ""
     var alacart = ""
@@ -739,6 +739,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
                 when (serviceType) {
                     "From Airport" -> {
+                        selectedHours = "0"
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
 
@@ -749,6 +750,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         binding.linerFlightNumber.visibility = View.VISIBLE
                     }
                     "To Airport" -> {
+                        selectedHours = "0"
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
                         binding.txtAirportCode.visibility = View.VISIBLE
@@ -759,6 +761,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
                     }
                     "Point-To-Point" -> {
+                        selectedHours = "0"
                         binding.txtHours.visibility = View.GONE
                         binding.relativeHours.visibility = View.GONE
 
@@ -770,6 +773,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
                     }
                     "Hourly As-Directed" -> {
+                        selectedHours = "3"
                         binding.relativeHours.visibility = View.VISIBLE
                         binding.txtHours.visibility = View.VISIBLE
 
@@ -877,8 +881,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 binding.txtDatePicker.text = selectedDate
             }, year, month, day)
 
-        datePickerDialog.datePicker.minDate =
-            currentDate // Set the minimum date to the current time
+        datePickerDialog.datePicker.minDate = currentDate // Set the minimum date to the current time
         datePickerDialog.show()
     }
 

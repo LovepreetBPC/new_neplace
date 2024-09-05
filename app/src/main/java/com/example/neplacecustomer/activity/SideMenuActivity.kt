@@ -79,8 +79,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
                 }
             }
         }
-
-
     }
 
     override fun onResume() {
@@ -97,7 +95,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
         binding.txtName.text = data.data.user.user_name
         binding.txtNotificationCount.text = data.data.user.ntf_count.toString()
         subscribePlan = data.data.subscription
-
     }
 
     override fun onClick(p0: View?) {

@@ -322,7 +322,7 @@
                     android:layout_width="20sp"
                     android:layout_height="26sp"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_location_white" />
+                    android:src="@drawable/location_icon_new" />
 
                 <com.example.neplacecustomer.utils.textview.TextViewMedium
                     android:id="@+id/txtStartAddress"
@@ -348,9 +348,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relativeAddress"
-
                 android:layout_marginTop="@dimen/margin_twenty"
-
                 android:visibility="gone">
 
 
@@ -611,7 +609,7 @@
                     android:layout_width="20sp"
                     android:layout_height="26sp"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_location_white" />
+                    android:src="@drawable/location_icon_new" />
 
                 <com.example.neplacecustomer.utils.textview.TextViewMedium
                     android:id="@+id/txtStartAddressConfirmed"
@@ -688,7 +686,7 @@
             android:paddingHorizontal="20sp"
             android:paddingTop="@dimen/padding_twenty"
             android:paddingBottom="40dp"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <RelativeLayout

@@ -167,6 +167,7 @@
                                 android:layout_height="220dp"
                                 android:background="#2E2C33"
                                 android:visibility="gone"
+                                android:scaleType="fitXY"
                                 app:shapeAppearance="@style/CornerRadious" />
 
                         </RelativeLayout>
@@ -237,6 +238,7 @@
                                 android:layout_height="220dp"
                                 android:background="#2E2C33"
                                 android:visibility="gone"
+                                android:scaleType="fitXY"
                                 app:shapeAppearance="@style/CornerRadious" />
 
                         </RelativeLayout>

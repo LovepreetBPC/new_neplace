@@ -18,6 +18,8 @@ import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -122,6 +124,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         binding.relativeback.setOnClickListener(this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onClick(p0: View?) {
         when (p0!!.id) {
             R.id.imgBack -> {
@@ -131,25 +134,33 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                 if (Validation()) {
                     var body: MultipartBody.Part? = null
                     var bodyBack: MultipartBody.Part? = null
-                    if (selectedImageFile != null && selectedImageFileBack != null) {
-                        val requestBody: RequestBody = selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-                        body = MultipartBody.Part.createFormData("personal_id_card_front_image", selectedImageFile!!.name, requestBody)
-                        bodyBack = MultipartBody.Part.createFormData("personal_id_card_back_image", selectedImageFileBack!!.name, requestBody)
+                    if (selectedImageFile != null) {
+                        Log.d("personalID", "onClick: if")
 
-                        registerCustomerCardViewModel.registerCustomerCardUser(body,bodyBack)
+                        if (selectedImageFileBack != null ){
+                            Log.d("personalID", "onClick back: if")
 
-                    }
+                            val requestBody: RequestBody = selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+                            body = MultipartBody.Part.createFormData("personal_id_card_front_image", selectedImageFile!!.name, requestBody)
+                            bodyBack = MultipartBody.Part.createFormData("personal_id_card_back_image", selectedImageFileBack!!.name, requestBody)
 
-                    else {
-                        val requestBody: RequestBody = "".toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                            registerCustomerCardViewModel.registerCustomerCardUser(body,bodyBack)
+
+                        }else{
+                            Log.d("personalID", "onClick back: else")
+                            Toast.makeText(applicationContext, "please enter your ID card back image!!", Toast.LENGTH_SHORT).show()
+                        }
+
+
+                    } else {
+                        Log.d("personalID", "onClick: else")
+                        Toast.makeText(applicationContext, "please enter your ID card front image!!", Toast.LENGTH_SHORT).show()
+                        /*val requestBody: RequestBody = "".toRequestBody("multipart/form-data".toMediaTypeOrNull())
                         body = MultipartBody.Part.createFormData("personal_id_card_front_image", "", requestBody)
                         bodyBack = MultipartBody.Part.createFormData("personal_id_card_back_image", "", requestBody)
-                        registerCustomerCardViewModel.registerCustomerCardUser(body!!,bodyBack)
-
+                        registerCustomerCardViewModel.registerCustomerCardUser(body!!,bodyBack)*/
                     }
                 }
-
-
             }
 
             R.id.relativefront -> {
@@ -171,6 +182,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun imagePickerDialog(i: Int) {
 
         val builder = AlertDialog.Builder(
@@ -198,10 +210,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         dialogWindow.setGravity(Gravity.BOTTOM)
         clickImage.setOnClickListener {
             pickerDialog.dismiss()
-            if (!checkCameraPermission()) {
-                requestCameraPermission()
-            } else {
+            if (checkCameraPermission()) {
                 launchCamera(i)
+            } else {
+                requestCameraPermission()
             }
         }
         selectImage.setOnClickListener {
@@ -229,6 +241,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         return cameraPermission == PackageManager.PERMISSION_GRANTED
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun requestCameraPermission() {
         ActivityCompat.requestPermissions(
             this, arrayOf(
@@ -361,7 +374,6 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             if (data != null) {
                 val uri: Uri = data.getData()!!
                 selectedImageData = uri.toString()
-
                 if (GALLERY == 145) {
                     selectedImageFile = File(getRealPathFromURI(uri)!!)
 
@@ -402,6 +414,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             Log.e("Select", "CAM_REQUEST $uri")
             if (REQUEST_IMAGE_CAPTURE == 88) {
                 if (uri != null) {
+                    selectedImageFile = File(getRealPathFromURI(uri)!!)
                     binding.imgDocment.visibility = View.VISIBLE
                 } else {
                     binding.imgDocment.visibility = View.GONE
@@ -414,10 +427,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                     .into(binding.imgDocment)
             } else if (REQUEST_IMAGE_CAPTURE == 100) {
                 if (uri != null) {
+                    selectedImageFileBack = File(getRealPathFromURI(uri)!!)
                     binding.imgDocmentBack.visibility = View.VISIBLE
                 } else {
                     binding.imgDocmentBack.visibility = View.GONE
-
                 }
                 Glide.with(this).load(uri)
                     .placeholder(R.mipmap.img_place_holder)
@@ -425,9 +438,9 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                     // .trnsform(RotateTransformation(this, 90f))
                     .into(binding.imgDocmentBack)
             }
-
         }
     }
+
 
     fun getImageUri(inImage: Bitmap): Uri {
         val bytes = ByteArrayOutputStream()
