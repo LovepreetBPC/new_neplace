@@ -686,7 +686,7 @@
             android:paddingHorizontal="20sp"
             android:paddingTop="@dimen/padding_twenty"
             android:paddingBottom="40dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <RelativeLayout
@@ -794,7 +794,7 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/bottom_sheet_bg_black"
             android:padding="20sp"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <RelativeLayout

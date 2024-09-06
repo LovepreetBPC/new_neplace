@@ -1,7 +1,6 @@
 package com.example.neplacecustomer.model
 
 data class StripePaymentModel(
-    val `data`: StripePaymentData,
     val message: String,
     val status: Boolean,
     val statusCode: Int

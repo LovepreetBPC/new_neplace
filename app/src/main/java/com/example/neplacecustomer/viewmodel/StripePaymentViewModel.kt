@@ -1,5 +1,6 @@
 package com.example.neplacecustomer.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.login.repository.UserRepository
@@ -21,16 +22,18 @@ class StripePaymentViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = userRepo.stripePayment(body)
+
                 if (response.code() == 200) {
-                    stripePaymentResponse.value=null
-
-                    stripePaymentResponse.value=null
-
+                    stripePaymentResponse.value = null
+                    stripePaymentResponse.value = BaseResponse.Success(response.body())
+                } else {
+                    stripePaymentResponse.value = null
                     stripePaymentResponse.value = BaseResponse.Error(response.message())
                 }
 
             } catch (ae: Exception) {
                 ae.printStackTrace()
+                Log.e("TAG_StripePayment", "addStripePayment: "+ae.message)
 
             }
 
