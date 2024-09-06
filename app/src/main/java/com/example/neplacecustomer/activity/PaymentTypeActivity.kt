@@ -61,6 +61,7 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
         Log.e("card_id", "onCreate: $intentcard_id")
         pDialog = ProgressDialog(this)
         if (type == "cancel_ride") {
+            plan_id = ""
             binding.txtCancelRide.visibility = View.VISIBLE
         } else {
             binding.txtCancelRide.visibility = View.GONE
@@ -147,8 +148,13 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                     dismissProgress()
 
                     if (it.data!!.status) {
-                        rideStatusUpdateViewModel.updateRideStatus("canceled", ride_id, true)
-                        updateRideStatus("canceled")
+//                        rideStatusUpdateViewModel.updateRideStatus("cancelled", ride_id, false)
+//                        updateRideStatus("canceled")
+                        startActivity(Intent(this, AllRidesActivity::class.java))
+                        Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
+                        finish()
+
+
                     } else {
                         Toast.makeText(this, "" + it.data.message.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -159,8 +165,8 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                     dismissProgress()
 //                    Toast.makeText(this, ""+it.msg, Toast.LENGTH_SHORT).show()
                     Log.e("deleteCard", "deleteCard: Error" + it.msg)
-                    rideStatusUpdateViewModel.updateRideStatus("canceled", ride_id, true)
-                    updateRideStatus("canceled")
+//                    rideStatusUpdateViewModel.updateRideStatus("cancelled", ride_id, false)
+//                    updateRideStatus("canceled")
 
                 }
 
@@ -185,7 +191,6 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                         finish()
                     } else {
                         Toast.makeText(this, "" + it.data.message, Toast.LENGTH_SHORT).show()
-                        finish()
                     }
 //                  getCardVM.getCard()
                 }
@@ -240,7 +245,8 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 override fun onPlanClick(card_id: Int) {
-                    if (plan_id != "") {
+                    cardPaymenyId = card_id.toString()
+                    if (plan_id != "" && plan_id.isNotEmpty()) {
                         planSubscriptionViewModel.getPlanSubscription(plan_id, card_id.toString())
                     }
                 }

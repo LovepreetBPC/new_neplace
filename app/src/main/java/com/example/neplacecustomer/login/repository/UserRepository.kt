@@ -18,6 +18,7 @@ import com.example.neplacecustomer.model.LoginModel
 import com.example.neplacecustomer.model.PlanDetailModel
 import com.example.neplacecustomer.model.PlanSubscripationModel
 import com.example.neplacecustomer.model.ProfileModel
+import com.example.neplacecustomer.model.RideCancelChargesModel
 import com.example.neplacecustomer.model.RideHistoryModel
 import com.example.neplacecustomer.model.RideStatusUpdateModel
 import com.example.neplacecustomer.model.SendRatingModel
@@ -149,6 +150,10 @@ class UserRepository {
 
     suspend fun getRide(status: String): Response<RideHistoryModel> {
         return UserNetwork.retrofit.getRide(status)
+    }
+
+    suspend fun getRideCancelCharges(id: String): Response<RideCancelChargesModel> {
+        return UserNetwork.retrofit.getRideCancelCharges(id)
     }
 
     suspend fun rideStatusUpdate(status: String, user_id: String, is_reject_driver : Boolean): Response<RideStatusUpdateModel> {

@@ -51,10 +51,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.example.neplacecustomer.common.Constant
+import com.example.neplacecustomer.viewmodel.GetRideCancelChargesViewModel
 import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReadyCallback {
 
@@ -95,6 +100,10 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     private lateinit var rideRef: DocumentReference
 
 
+    lateinit var getRideCancelChargesViewModel: GetRideCancelChargesViewModel
+    var cancellation_charges = ""
+
+
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var PERMISSION_REQUEST_CODE = 200
     var currentLat = "30.6960754"
@@ -117,10 +126,9 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         FirebaseApp.initializeApp(this)
 
 
-
         plan_id = sharePref.getString(Constant.PlanID, "").toString()
 
-
+        getRideCancelChargesApiCall()
         initViews()
 
 
@@ -319,21 +327,52 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.relativeCancelRequest -> {
-//                showDialog()
 
-//                if (plan_id == "1") {
-//                    startActivity(Intent(this, CancelRideDialogActivity::class.java).putExtra("ride_id", trip_id))
-//                } else {
 
-                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
-                updateRideStatus("canceled")
+                Log.e("TAG_CancelRequest", "onClick: "+ pickup_date +" "+ pickup_time)
 
-//                }
+                val pickupTime = pickup_date +" "+ pickup_time
+                // Date format of the pickup time
+                val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                val currentTime = Date()
+
+
+                try {
+                    // Parse the pickup_time to a Date object
+                    val parsedPickupTime = format.parse(pickupTime)
+                    parsedPickupTime?.let {
+                        val timeDifference = currentTime.time - it.time
+                        val hoursDifference = timeDifference / (1000 * 60 * 60)
+
+                        if (hoursDifference < 24) {
+                            if (cancellation_charges.equals("0")) {
+                                rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+                                updateRideStatus("canceled")
+                            }else{
+                                startActivity(Intent(this,CancelRideDialogActivity::class.java).putExtra("ride_id",trip_id.toString()).putExtra("ride_amount",cancellation_charges.toString()))
+                            }
+
+                        } else {
+                            rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+                            updateRideStatus("canceled")
+//                            Toast.makeText(this, "Cancellation request denied. Pickup was more than 24 hours ago.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: ParseException) {
+                    e.printStackTrace()
+                    Log.e("TAG_CancelRequest", "Failed to parse pickup time.")
+                }
+
+
+//                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
+//                updateRideStatus("canceled")
+
+
             }
 
             R.id.txtCancelRequestOnWay -> {
-                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
-                updateRideStatus("canceled")
+                rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+                updateRideStatus("cancelled")
             }
 
 
@@ -497,8 +536,40 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
     }
 
+
+
+    private fun getRideCancelChargesApiCall() {
+        getRideCancelChargesViewModel  = ViewModelProvider(this)[GetRideCancelChargesViewModel::class.java]
+        getRideCancelChargesViewModel.getRideCancelCharges(trip_id)
+        getRideCancelChargesViewModel.getRideCancelChargesResponse.observe(this){
+            when(it){
+                is BaseResponse.Loading -> {
+                    showProgress()
+                }
+                is BaseResponse.Success -> {
+                    dismissProgress()
+                    if (it.data?.status == true){
+                        cancellation_charges = it.data?.data?.cancellation_charges.toString()
+
+                    }else{
+                        cancellation_charges = ""
+                    }
+                }
+                is BaseResponse.Error -> {
+                    dismissProgress()
+                    ToastMsg(it.msg.toString())
+                }
+                else -> {
+                    dismissProgress()
+                }
+            }
+        }
+    }
+
+
     private fun setRideData() {
         Log.e(TAG, "setRideData:123456789 " + ride_status)
+
 
         if (ride_status != null) {
 

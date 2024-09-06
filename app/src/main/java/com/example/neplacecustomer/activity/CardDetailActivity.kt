@@ -109,8 +109,14 @@ class CardDetailActivity : BaseActivity(), View.OnClickListener {
 
                 is BaseResponse.Success -> {
                     dismissProgress()
-                    Toast.makeText(this, it.data?.message, Toast.LENGTH_SHORT).show()
-                    finish()
+                    if(it.data!!.status){
+                        Toast.makeText(this, it.data.message, Toast.LENGTH_SHORT).show()
+                        finish()
+                    }else{
+                        Toast.makeText(this, it.data.message, Toast.LENGTH_SHORT).show()
+                    }
+
+
                 }
 
                 is BaseResponse.Error -> {

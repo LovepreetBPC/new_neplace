@@ -132,6 +132,9 @@ interface ApiInterface {
     @GET("api/rides")
     suspend fun getRide(@Query("status") status: String): Response<RideHistoryModel>
 
+    @GET("api/ridecancelcharges/{id}")
+    suspend fun getRideCancelCharges(@Path("id") id: String?): Response<RideCancelChargesModel>
+
 
     @Multipart
     @POST("api/driver/rideStatusUpdate")
