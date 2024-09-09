@@ -1,5 +1,6 @@
 package com.example.neplacecustomer.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.neplacecustomer.R
@@ -14,12 +15,20 @@ import com.google.android.material.tabs.TabLayout
 class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
     lateinit var binding: ActivityAllRidesBinding
+    var type = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_all_rides)
 
+        type = intent.getStringExtra("type").toString()
+
         binding.imgBack.setOnClickListener{
-            finish()
+            if (type == "Book"){
+                startActivity(Intent(this,SideMenuActivity::class.java))
+                finish()
+            }else{
+                finish()
+            }
         }
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(UpcomingRideFragment(), "Upcoming".lowercase())

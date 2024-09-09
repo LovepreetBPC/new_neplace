@@ -71,16 +71,23 @@ class OtpActivity : BaseActivity(), View.OnClickListener {
         binding.txtSndOtp.setOnClickListener(this)
         binding.txtResend.setOnClickListener(this)
 
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                return@OnCompleteListener
-            }
 
-            // Get new FCM registration token
-            device_token = task.result
+        try {
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    return@OnCompleteListener
+                }
 
-            Log.e("TAG", "init: " + device_token)
-        })
+                // Get new FCM registration token
+                device_token = task.result
+
+                Log.e("TAG", "init: " + device_token)
+            })
+
+        }catch (e:Exception){
+            Log.e("TAG_FirebaseOTP", "setOnClick catch: "+e.message)
+        }
+
 
         binding.edtOtp1.addTextChangedListener(GenericTextWatcher(binding.edtOtp1, binding.edtOtp2, this))
         binding.edtOtp2.addTextChangedListener(GenericTextWatcher(binding.edtOtp2, binding.edtOtp3, this))

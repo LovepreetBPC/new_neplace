@@ -31,5 +31,5 @@ data class RideData(
     val service_type: String,
     val updated_at: String,
     val user_id: Int,
-    val vehicle_type: String
-)
+    val vehicle_type: String,
+    )

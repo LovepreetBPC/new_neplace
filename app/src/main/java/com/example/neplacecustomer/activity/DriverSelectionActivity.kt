@@ -108,6 +108,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     private var PERMISSION_REQUEST_CODE = 200
     var currentLat = "30.6960754"
     var currentLong = "76.6051696"
+    var type = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,6 +125,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         trip_id = intent.getStringExtra("id").toString()
         user_id = intent.getStringExtra("user_id").toString()
         ride_status = intent.getStringExtra("ride_status").toString()
+        type = intent.getStringExtra("type").toString()
         FirebaseApp.initializeApp(this)
 
 
@@ -266,7 +269,16 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.imgMenu -> {
-                finish()
+                if (type == "Book"){
+                    startActivity(Intent(this,SideMenuActivity::class.java))
+                    finish()
+                }else{
+                    startActivity(Intent(this, AllRidesActivity::class.java))
+                    finish()
+                }
+
+//                finish()
+
 //                startActivity(Intent(this, SideMenuActivity::class.java))
 
             }
