@@ -219,6 +219,13 @@ interface ApiInterface {
         @Path("destination") destination: String
     ): Call<DirectionsResponse>
 
+    @Multipart
+    @POST("api/delete-my-account")
+    suspend fun deleteAccount(
+        @Part("user_id") user_id:  RequestBody?,
+    ): Response<DeleteUserAccountModel>
+
+
 //    @GET("directions/v5/mapbox/driving/{origin};{destination}")
 //    fun getDirections(
 //        @Query("alternatives") alternatives: Boolean = true,

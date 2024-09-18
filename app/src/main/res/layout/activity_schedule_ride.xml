@@ -463,6 +463,8 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_marginLeft="@dimen/margin_ten"

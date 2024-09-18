@@ -126,6 +126,11 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         FirebaseApp.initializeApp(this)
 
 
+        binding.relativeRideCancel.visibility = View.VISIBLE
+        binding.txtLoc.setText(pickup_location.toString())
+
+
+
         plan_id = sharePref.getString(Constant.PlanID, "").toString()
 
         getRideCancelChargesApiCall()
@@ -165,6 +170,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         binding.txtCancelRequestOnWay.setOnClickListener(this)
         binding.edtDropLocation.setText(drop_location.toString())
         binding.edtPickupLocation.setText(pickup_location.toString())
+
+        binding.cancelRideBtn.setOnClickListener(this)
 
 
 //        val tripRef = db.collection("Trip").document(trip_id)
@@ -243,12 +250,17 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             val urll = getDirectionURL(originLocation, destinationLocation, apiKey?:"")
             GetDirection(urll).execute()
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 14F))
-
         }
     }
 
     override fun onClick(p0: View?) {
         when (p0!!.id) {
+
+            R.id.cancelRideBtn -> {
+                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, true)
+                updateRideStatus("canceled")
+            }
+
             R.id.txtConfirm -> {
                 rideStatusUpdateViewModel.updateRideStatus("confirmed", trip_id, false)
                 updateRideStatus("confirmed")
@@ -582,6 +594,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+                binding.relativeRideCancel.visibility = View.GONE
             } else if (ride_status.equals("confirmed")) {
                 binding.linerLocation.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.GONE
@@ -594,6 +607,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeWaitingDriver.visibility = View.VISIBLE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+                binding.relativeRideCancel.visibility = View.GONE
             }
             else if (ride_status.equals("active")) {
                 binding.relativeMainBottom.visibility = View.GONE
@@ -604,6 +618,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeRide.visibility = View.GONE
                 binding.linerLocation.visibility = View.VISIBLE
                 binding.imgDirections.visibility = View.GONE
+                binding.relativeRideCancel.visibility = View.VISIBLE
 
             }
            /* else if (ride_status.equals("Active")) {
@@ -626,6 +641,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeRide.visibility = View.VISIBLE
                 binding.linerLocation.visibility = View.GONE
                 binding.imgDirections.visibility = View.GONE
+                binding.relativeRideCancel.visibility = View.GONE
 
             } else if (ride_status.equals("end_trip")) {
                 binding.relativeMainBottom.visibility = View.GONE
@@ -636,6 +652,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeRide.visibility = View.VISIBLE
                 binding.linerLocation.visibility = View.GONE
                 binding.imgDirections.visibility = View.GONE
+                binding.relativeRideCancel.visibility = View.GONE
 
             } else if (ride_status.equals("start_ride")) {
                 binding.relativeMainBottom.visibility = View.VISIBLE
@@ -646,6 +663,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeRide.visibility = View.VISIBLE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.relativeWaitingDriver.visibility = View.GONE
+                binding.relativeRideCancel.visibility = View.GONE
             } else if (ride_status.equals("pickup_city")) {
                 binding.linerLocation.visibility = View.GONE
                 binding.relativeMainBottom.visibility = View.VISIBLE
@@ -655,6 +673,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+                binding.relativeRideCancel.visibility = View.GONE
             } else if (ride_status.equals("start_trip")) {
                 binding.linerLocation.visibility = View.GONE
                 binding.relativeStartTip.visibility = View.VISIBLE
@@ -664,6 +683,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+                binding.relativeRideCancel.visibility = View.GONE
             } else if (ride_status == "goto_pickup") {
                 binding.linerLocation.visibility = View.GONE
                 binding.relativeConfirm.visibility = View.VISIBLE
@@ -676,6 +696,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.VISIBLE
+                binding.relativeRideCancel.visibility = View.GONE
             }
             else if (ride_status == "canceled") {
                 binding.linerLocation.visibility = View.GONE
@@ -689,6 +710,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.relativeWaitingDriver.visibility = View.GONE
                 binding.RelativeRatingDriver.visibility = View.GONE
                 binding.imgDirections.visibility = View.GONE
+                binding.relativeRideCancel.visibility = View.GONE
                 finish()
                 Toast.makeText(this, "Your trip has been canceled by driver ", Toast.LENGTH_SHORT).show()
             }

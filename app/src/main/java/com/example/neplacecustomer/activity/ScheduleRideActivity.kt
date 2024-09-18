@@ -581,7 +581,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         intent.putExtra("alacart", alacart.toString())
                         startActivity(intent)
 
-
                     } else {
                         binding.txtDateError.visibility = View.VISIBLE
                         println("The target date is less than 24 hours in advance.")

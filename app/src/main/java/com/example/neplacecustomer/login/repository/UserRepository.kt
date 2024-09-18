@@ -6,6 +6,7 @@ import com.example.neplacecustomer.model.AirPortCodeModel
 import com.example.neplacecustomer.model.AirlineModel
 import com.example.neplacecustomer.model.ChooseVehicleModel
 import com.example.neplacecustomer.model.DeleteCardModel
+import com.example.neplacecustomer.model.DeleteUserAccountModel
 import com.example.neplacecustomer.model.EtaNumberModel
 import com.example.neplacecustomer.model.FlightNumberModel
 import com.example.neplacecustomer.model.GetCards
@@ -29,6 +30,7 @@ import com.example.neplacecustomer.model.VerifyOtpModel
 import com.nexter.application.retrofit.RetrofitUtils
 import com.example.neplacecustomer.retrofit.UserNetwork
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 
 class UserRepository {
@@ -230,6 +232,13 @@ class UserRepository {
 
     suspend fun rideTimeUpdate(hashMap: MultipartBody): Response<AddRidesModel> {
         return UserNetwork.retrofit.rideTimeUpdate(hashMap)
+    }
+    suspend fun deleteAccount(
+        user_id: String,
+    ): Response<DeleteUserAccountModel> {
+        return UserNetwork.retrofit.deleteAccount(
+            RetrofitUtils.stringToRequestBody(user_id),
+        )
     }
 
     suspend fun getGoogleKey():Response<GetGoogleKeyModel>{

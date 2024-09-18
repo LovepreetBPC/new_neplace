@@ -32,7 +32,6 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
 
         binding.tabs.addOnTabSelectedListener(this)
-
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {

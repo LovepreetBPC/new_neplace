@@ -120,7 +120,7 @@ open class BaseActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
 
-            } else if (from == "") {
+            } else if (from == "delete") {
 
             }
             dialog.dismiss()

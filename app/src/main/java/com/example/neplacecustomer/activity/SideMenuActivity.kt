@@ -21,6 +21,8 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
     lateinit var getProfileViewModel: GetProfileViewModel
     var subscribePlan:Boolean= false
 
+    var userID = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_side_menu)
@@ -44,10 +46,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
         binding.txtPrivacyPolicy.setOnClickListener(this)
 
 
-
-
-
-
         val name = sharePref.getString(Constant.USERNAME, "").toString()
         val profile_image = sharePref.getString(Constant.USERIMAGE, "").toString()
 
@@ -69,6 +67,7 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
                 is BaseResponse.Success -> {
                     dismissProgress()
                     processSet(it.data)
+                    userID = it.data?.data?.user?.user_id.toString()
                 }
 
                 is BaseResponse.Error -> {
@@ -119,7 +118,7 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             }
 
             R.id.txtSupport -> {
-                startActivity(Intent(this, SupportActivity::class.java))
+                startActivity(Intent(this, SupportActivity::class.java).putExtra("userID", userID))
             }
             R.id.txtChat -> {
 //                startActivity(Intent(this, ChatActivity::class.java))

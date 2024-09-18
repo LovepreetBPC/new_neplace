@@ -74,7 +74,7 @@ class MyAccountActivity : BaseActivity(),View.OnClickListener {
 
             }
             R.id.txtDeleteAccount -> {
-                commonAlertDialog("Are you sure you want to delete Account?", "Alert", "logout")
+                commonAlertDialog("Are you sure you want to delete Account?", "Alert", "delete")
 
             }
             R.id.imgEditProfile -> {
@@ -175,4 +175,5 @@ class MyAccountActivity : BaseActivity(),View.OnClickListener {
         }
 
     }
+
 }
