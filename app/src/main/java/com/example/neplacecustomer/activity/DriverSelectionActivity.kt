@@ -126,9 +126,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         FirebaseApp.initializeApp(this)
 
 
-        binding.relativeRideCancel.visibility = View.VISIBLE
         binding.txtLoc.setText(pickup_location.toString())
-
 
 
         plan_id = sharePref.getString(Constant.PlanID, "").toString()
@@ -219,7 +217,6 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 ride_status = "completed"
                 // Document does not exist
                 setRideData()
-
             }
         }
 

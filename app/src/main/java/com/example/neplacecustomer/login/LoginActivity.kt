@@ -65,7 +65,20 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         initViewss()
         setOnClick()
 
-        try{
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            token = task.result
+
+            Log.d("firebaseTOKEN", "init: " + token)
+        })
+
+        /*try{
             FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
 
@@ -75,12 +88,12 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 // Get new FCM registration token
                 token = task.result
 
-                Log.e("TAG", "init: " + token)
+                Log.d("firebaseTOKEN", "init: " + token)
             })
 
         }catch (e:Exception){
-            Log.e("firebase_error", "onCreate: "+e.message)
-        }
+            Log.e("firebaseTOKEN", "onCreate: "+e.message)
+        }*/
 
 
     }
