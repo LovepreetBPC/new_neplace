@@ -20,6 +20,7 @@ import com.example.neplacecustomer.databinding.ActivityScheduleRideReviewBinding
 import com.example.neplacecustomer.login.BaseActivity
 import com.example.neplacecustomer.login.repository.BaseResponse
 import com.example.neplacecustomer.model.AddRidesModel
+import com.example.neplacecustomer.model.RideData
 import com.example.neplacecustomer.model.UpdateStatusModel
 import com.example.neplacecustomer.viewmodel.AddRidesViewModel
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
@@ -251,11 +252,12 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 //            Toast.makeText(this, "Error  -> $id", Toast.LENGTH_SHORT).show()
         }
 
-        showDialog(id)
+        showDialog(data.data)
 
     }
 
-    private fun showDialog(id: String) {
+
+    fun showDialog(data: RideData) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
@@ -264,11 +266,12 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         val noContinue = dialog.findViewById(R.id.relativeBookAnotherRide) as RelativeLayout
         val yesCancel = dialog.findViewById(R.id.relativeGoBack) as RelativeLayout
         val txtTripId = dialog.findViewById(R.id.txtTripId) as TextView
-        txtTripId.text = "Trip Id-# $id"
+        txtTripId.text = "Trip Id-# ${data.id}"
         noContinue.setOnClickListener {
             startActivity(
                 Intent(this, BookRideActivity::class.java).putExtra(
-                    "subscribePlan", subscribePlan
+                    "subscribePlan",
+                    subscribePlan
                 )
             )
             finish()
@@ -277,10 +280,28 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
         yesCancel.setOnClickListener {
 
             val intent = Intent(this, AllRidesActivity::class.java)
+            intent.putExtra("type","Book")
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
             dialog.dismiss()
+
+//            val intent = Intent(this, DriverSelectionActivity::class.java)
+//            intent.putExtra("drop_lat", data.drop_lat)
+//            intent.putExtra("drop_long", data.drop_long)
+//            intent.putExtra("pickup_lat", data.pickup_lat)
+//            intent.putExtra("pickup_long", data.pickup_long)
+//            intent.putExtra("pickup_location", data.pickup_location)
+//            intent.putExtra("drop_location", data.drop_location)
+//            intent.putExtra("vehicle_type", data.vehicle_type.toString())
+//            intent.putExtra("id", data.id.toString())
+//            intent.putExtra("user_id", data.user_id.toString())
+//            intent.putExtra("ride_status", data.ride_status)
+//            intent.putExtra("type", "Book")
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//            startActivity(intent)
+//            finish()
+//            dialog.dismiss()
         }
 
         dialog.show()
@@ -341,7 +362,8 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 //                        .addFormDataPart("alacart", alacart)
                         .build()
 
-                    Log.e("requestBody", "rideStatus :  $rideStatus , " +
+                    Log.e(
+                        "requestBody", "rideStatus :  $rideStatus , " +
                                 "  pickup_lat :  $pickup_lat ," +
                                 "  pickup_long :  $pickup_long ," +
                                 "  drop_lat :  $drop_lat ," +
@@ -358,7 +380,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
                                 "  luggage :  $luggage" +
                                 "  child :  $child" +
                                 "  vehicleType :  $vehicleType" +
-                                "  pickup_city :  $pickup_city"+ "user_timeZone : $user_timezone "+ "  min_hours : $min_hours"
+                                "  pickup_city :  $pickup_city" + "user_timeZone : $user_timezone " + "  min_hours : $min_hours"
                     )
                     viewModel.getRidesUser(requestBody)
                 } else {

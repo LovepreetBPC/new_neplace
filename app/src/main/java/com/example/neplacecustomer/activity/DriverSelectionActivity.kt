@@ -108,6 +108,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     private var PERMISSION_REQUEST_CODE = 200
     var currentLat = "30.6960754"
     var currentLong = "76.6051696"
+    var type = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,6 +125,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         trip_id = intent.getStringExtra("id").toString()
         user_id = intent.getStringExtra("user_id").toString()
         ride_status = intent.getStringExtra("ride_status").toString()
+        type = intent.getStringExtra("type").toString()
         FirebaseApp.initializeApp(this)
 
 
@@ -264,9 +267,9 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.relativeGotoFile -> {
+                Log.d(TAG, "onClick: confirmed")
                 rideStatusUpdateViewModel.updateRideStatus("confirmed", trip_id, false)
                 updateRideStatus("confirmed")
-
             }
 
             R.id.relativeCancel -> {
@@ -275,7 +278,16 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.imgMenu -> {
-                finish()
+                if (type == "Book"){
+                    startActivity(Intent(this,SideMenuActivity::class.java))
+                    finish()
+                }else{
+                    startActivity(Intent(this, AllRidesActivity::class.java))
+                    finish()
+                }
+
+//                finish()
+
 //                startActivity(Intent(this, SideMenuActivity::class.java))
 
             }
@@ -355,14 +367,14 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
                         if (hoursDifference < 24) {
                             if (cancellation_charges.equals("0")) {
-                                rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+                                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
                                 updateRideStatus("canceled")
                             }else{
                                 startActivity(Intent(this,CancelRideDialogActivity::class.java).putExtra("ride_id",trip_id.toString()).putExtra("ride_amount",cancellation_charges.toString()))
                             }
 
                         } else {
-                            rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+                            rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
                             updateRideStatus("canceled")
 //                            Toast.makeText(this, "Cancellation request denied. Pickup was more than 24 hours ago.", Toast.LENGTH_SHORT).show()
                         }
@@ -380,8 +392,43 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.txtCancelRequestOnWay -> {
-                rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
-                updateRideStatus("cancelled")
+//                rideStatusUpdateViewModel.updateRideStatus("cancelled", trip_id, false)
+//                updateRideStatus("cancelled")
+
+                Log.e("TAG_CancelRequest", "onClick: "+ pickup_date +" "+ pickup_time)
+
+                val pickupTime = pickup_date +" "+ pickup_time
+                // Date format of the pickup time
+                val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                val currentTime = Date()
+
+
+                try {
+                    // Parse the pickup_time to a Date object
+                    val parsedPickupTime = format.parse(pickupTime)
+                    parsedPickupTime?.let {
+                        val timeDifference = currentTime.time - it.time
+                        val hoursDifference = timeDifference / (1000 * 60 * 60)
+
+                        if (hoursDifference < 24) {
+                            if (cancellation_charges.equals("0")) {
+                                rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
+                                updateRideStatus("canceled")
+                            }else{
+                                startActivity(Intent(this,CancelRideDialogActivity::class.java).putExtra("ride_id",trip_id.toString()).putExtra("ride_amount",cancellation_charges.toString()))
+                            }
+
+                        } else {
+                            rideStatusUpdateViewModel.updateRideStatus("canceled", trip_id, false)
+                            updateRideStatus("canceled")
+//                            Toast.makeText(this, "Cancellation request denied. Pickup was more than 24 hours ago.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: ParseException) {
+                    e.printStackTrace()
+                    Log.e("TAG_CancelRequest", "Failed to parse pickup time.")
+                }
+
             }
 
 
@@ -616,7 +663,6 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.linerLocation.visibility = View.VISIBLE
                 binding.imgDirections.visibility = View.GONE
                 binding.relativeRideCancel.visibility = View.VISIBLE
-
             }
            /* else if (ride_status.equals("Active")) {
                 binding.relativeMainBottom.visibility = View.GONE
@@ -709,7 +755,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                 binding.imgDirections.visibility = View.GONE
                 binding.relativeRideCancel.visibility = View.GONE
                 finish()
-                Toast.makeText(this, "Your trip has been canceled by driver ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Your trip has been canceled", Toast.LENGTH_SHORT).show()
             }
         } else {
             Log.e("ride_statusNew", "setRideData else :   " + ride_status)
@@ -762,7 +808,6 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             user_id = data!!.data.user_id.toString()
             if (data.data.driver_id.toString().isNotEmpty() && data.data.driver_id != 0) {
                 Log.e("driver_id", "processEdit: " + data.data.driver_id.toString())
-
 
 
                 Log.d("Driver_IMG", "processEdit: ${Constant.BASEURL + data.data.driver_image}")

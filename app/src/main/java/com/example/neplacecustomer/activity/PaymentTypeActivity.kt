@@ -148,10 +148,10 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                     dismissProgress()
 
                     if (it.data!!.status) {
+                        Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
 //                        rideStatusUpdateViewModel.updateRideStatus("cancelled", ride_id, false)
 //                        updateRideStatus("canceled")
                         startActivity(Intent(this, AllRidesActivity::class.java))
-                        Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
                         finish()
 
 

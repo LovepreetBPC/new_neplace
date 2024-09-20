@@ -68,13 +68,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
-
                 return@OnCompleteListener
             }
-
             // Get new FCM registration token
             token = task.result
-
             Log.d("firebaseTOKEN", "init: " + token)
         })
 
@@ -217,6 +214,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 if (Validation()) {
                     val convertedNumber = convertPhoneNumberFormat(binding.edtPhoneNumber.text.toString())
                     loginViewModel.loginUser("+$countyCode$convertedNumber")
+
                     phoneNumber = "+$countyCode$convertedNumber"
                     Log.e("phone_number", "onClick: " + countyCode + binding.edtPhoneNumber.text.toString())
                 }

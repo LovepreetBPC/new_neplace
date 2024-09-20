@@ -23,8 +23,7 @@ object Utils {
     const val DeviceType = "android"
 
 
-    fun hasInternetConnection(application: MyApplication): Boolean
-    {
+    fun hasInternetConnection(application: MyApplication): Boolean {
         val connectivityManager = application.getSystemService(
             Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager

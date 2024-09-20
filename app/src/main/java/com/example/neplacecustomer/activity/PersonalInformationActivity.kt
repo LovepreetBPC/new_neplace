@@ -113,10 +113,8 @@ class PersonalInformationActivity : BaseActivity(), View.OnClickListener {
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
-
                 return@OnCompleteListener
             }
-
             // Get new FCM registration token
             device_token = task.result
 

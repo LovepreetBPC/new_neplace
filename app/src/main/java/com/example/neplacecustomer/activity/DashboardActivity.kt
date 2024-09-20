@@ -1,12 +1,18 @@
 package com.example.neplacecustomer.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -20,6 +26,7 @@ import com.example.neplacecustomer.viewmodel.GetProfileViewModel
 import com.example.neplacecustomer.common.Constant
 import com.example.neplacecustomer.utils.Utils
 import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
+import android.provider.Settings
 
 class DashboardActivity : BaseActivity() {
 
@@ -27,6 +34,8 @@ class DashboardActivity : BaseActivity() {
     lateinit var getProfileViewModel: GetProfileViewModel
      lateinit var googleKeyViewModel : GetGoogleKeyViewModel
      var subscribePlan:Boolean= false
+
+    @SuppressLint("NewApi")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +49,7 @@ class DashboardActivity : BaseActivity() {
         }
 
         initViews()
+        askNotificationPermission()
 
         Log.e("12345678", "book ride: " + MAPS_API_KEY)
 
@@ -209,4 +219,39 @@ class DashboardActivity : BaseActivity() {
         }
 
     }
+
+
+    private fun askNotificationPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED
+            ) {
+//                Log.e(TAG, "PERMISSION_GRANTED")
+                // FCM SDK (and your app) can post notifications.
+            } else {
+//                Log.e(TAG, "NO_PERMISSION")
+                // Directly ask for the permission
+                requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
+
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Toast.makeText(this, "Notifications permission granted", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val settingsIntent: Intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                startActivity(settingsIntent)
+            }
+        }
+    }
+
 }
