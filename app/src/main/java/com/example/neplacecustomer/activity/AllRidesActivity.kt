@@ -2,7 +2,9 @@ package com.example.neplacecustomer.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.databinding.DataBindingUtil
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.neplacecustomer.R
 import com.example.neplacecustomer.adapter.ViewPagerAdapter
 import com.example.neplacecustomer.databinding.ActivityAllRidesBinding
@@ -30,6 +32,7 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
                 finish()
             }
         }
+
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(UpcomingRideFragment(), "Upcoming".lowercase())
         adapter.addFragment(HistoryRidesFragment(), "Historical".lowercase())
@@ -41,6 +44,8 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
 
         binding.tabs.addOnTabSelectedListener(this)
+
+        refreshLayout()
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -50,10 +55,50 @@ class AllRidesActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
         }
     }
 
+
     override fun onTabUnselected(tab: TabLayout.Tab?) {}
     override fun onTabReselected(tab: TabLayout.Tab?) {}
 
     interface Refreshable {
         fun refreshDataAsync()
+    }
+
+    fun refreshLayout(){
+        binding.swipeContainer.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            Handler().postDelayed(Runnable { // Stop animation (This will be after 3 seconds)
+
+                type = intent.getStringExtra("type").toString()
+
+                binding.imgBack.setOnClickListener{
+                    if (type == "Book"){
+                        startActivity(Intent(this,SideMenuActivity::class.java))
+                        finish()
+                    }else{
+                        finish()
+                    }
+                }
+
+                val adapter = ViewPagerAdapter(supportFragmentManager)
+                adapter.addFragment(UpcomingRideFragment(), "Upcoming".lowercase())
+                adapter.addFragment(HistoryRidesFragment(), "Historical".lowercase())
+                adapter.addFragment(CanceledRideFragment(), "Canceled".lowercase())
+                binding.viewPager.adapter = adapter
+
+                // bind the viewPager with the TabLayout.
+                binding.tabs.setupWithViewPager(binding.viewPager)
+
+
+                binding.tabs.addOnTabSelectedListener(this)
+
+
+                binding.swipeContainer.setRefreshing(false)
+            }, 2000) // Delay in millis
+        })
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        refreshLayout()
     }
 }

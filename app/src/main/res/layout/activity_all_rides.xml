@@ -7,10 +7,19 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.AllRidesActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
         <RelativeLayout
             android:id="@+id/relativeTop"
@@ -86,5 +95,8 @@
         </androidx.viewpager.widget.ViewPager>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </layout>

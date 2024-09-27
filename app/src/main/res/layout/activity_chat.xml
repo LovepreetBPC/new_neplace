@@ -79,6 +79,7 @@
             android:layout_marginHorizontal="@dimen/margin_twenty"
             android:layout_marginTop="@dimen/margin_fourty"
             android:layout_below="@id/relativeTop"
+            android:layout_above="@+id/r1"
              />
 
         <TextView

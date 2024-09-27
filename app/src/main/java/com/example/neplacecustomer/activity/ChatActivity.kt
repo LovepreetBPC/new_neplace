@@ -140,6 +140,8 @@ class ChatActivity : BaseActivity(), View.OnClickListener {
                 binding.recyclerView.layoutManager = LinearLayoutManager(this)
                 val adapter = ChatAdapter(this@ChatActivity, chatList, senderId)
                 binding.recyclerView.adapter = adapter
+                binding.recyclerView.scrollToPosition(adapter.itemCount - 1)
+
             }
     }
 

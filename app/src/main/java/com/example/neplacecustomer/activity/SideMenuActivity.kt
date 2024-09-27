@@ -116,7 +116,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.txtNotification -> {
                 startActivity(Intent(this, NotificationActivity::class.java))
             }
-
             R.id.txtSupport -> {
                 startActivity(Intent(this, SupportActivity::class.java).putExtra("userID", userID))
             }
@@ -134,7 +133,6 @@ class SideMenuActivity : BaseActivity(), View.OnClickListener {
             R.id.txtPrivacyPolicy -> {
                 startActivity(Intent(this, PrivacyPolicyActivity::class.java))
             }
-
 
             R.id.txtTermsCondition -> {
                 startActivity(Intent(this, TermsAndConditionsActivity::class.java))
