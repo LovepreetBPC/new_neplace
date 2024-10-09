@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin_ten"
                         android:padding="@dimen/padding_ten"
-                        android:text="Billing Information"
+                        android:text="Trip history"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
