@@ -21,6 +21,7 @@ import com.example.neplacecustomer.MapData
 import com.example.neplacecustomer.R
 import com.example.neplacecustomer.databinding.ActivityBookRideBinding
 import com.example.neplacecustomer.login.repository.BaseResponse
+import com.example.neplacecustomer.utils.Utils
 import com.example.neplacecustomer.viewmodel.GetGoogleKeyViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -71,6 +72,9 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
         binding = DataBindingUtil.setContentView(this, R.layout.activity_book_ride)
 
         Log.e("12345678", "book ride: $MAPS_API_KEY")
+        val apiKeys = Utils.getApiKeys(this)
+
+        MAPS_API_KEY = apiKeys["MAPS_API_KEY"] ?: getString(R.string.mapbox_access_token)
 
         mapAPi()
 

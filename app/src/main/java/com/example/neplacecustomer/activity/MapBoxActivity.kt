@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.neplacecustomer.R
 import com.example.neplacecustomer.databinding.ActivityMapBoxBinding
+import com.example.neplacecustomer.utils.Utils
 import com.mapbox.api.directions.v5.models.Bearing
 import com.mapbox.api.directions.v5.models.RouteOptions
 import com.mapbox.bindgen.Expected
@@ -474,14 +475,20 @@ class MapBoxActivity : AppCompatActivity() {
         )
 
         // initialize voice instructions api and the voice instruction player
+
+        val apiKeys = Utils.getApiKeys(this)
+
+        val mapsApiKey = apiKeys["MAPBOX_API_KEY"] ?: getString(R.string.mapbox_access_token)
+
+
         speechApi = MapboxSpeechApi(
             this,
-            getString(R.string.mapbox_access_token),
+            mapsApiKey,
             Locale.US.language
         )
         voiceInstructionsPlayer = MapboxVoiceInstructionsPlayer(
             this,
-            getString(R.string.mapbox_access_token),
+            mapsApiKey,
             Locale.US.language
         )
 
@@ -553,9 +560,14 @@ class MapBoxActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
+
+        val apiKeys = Utils.getApiKeys(this)
+
+        val mapsApiKey = apiKeys["MAPS_API_KEY"] ?: getString(R.string.mapbox_access_token)
+
         MapboxNavigationApp.setup(
             NavigationOptions.Builder(this)
-                .accessToken(getString(R.string.mapbox_access_token))
+                .accessToken(mapsApiKey)
                 // comment out the location engine setting block to disable simulation
                 .locationEngine(replayLocationEngine)
                 .build()

@@ -197,7 +197,7 @@ interface ApiInterface {
     @GET("api/myCards")
     suspend fun getCardslist():Response<GetCards>
 
-    @GET("api/themesetting/google_key")
+    @GET("api/themesetting")
     suspend fun getGoogleKey():Response<GetGoogleKeyModel>
 
     @POST("api/deleteCard/{card_id}")

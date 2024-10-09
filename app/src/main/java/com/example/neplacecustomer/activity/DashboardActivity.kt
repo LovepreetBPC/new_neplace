@@ -69,7 +69,12 @@ class DashboardActivity : BaseActivity() {
 
                 is BaseResponse.Success -> {
                     if (it.data!!.status) {
-                        MAPS_API_KEY = it.data.data.google_key
+                     val MAPS_API_KEY = it.data.data.google_key
+                     val mapbox_api_key = it.data.data.mapbox_api_key
+                     val stripe_key = it.data.data.stripe_key
+
+
+                        Utils.saveApiKeys(this, MAPS_API_KEY, mapbox_api_key, stripe_key)
                     }
                 }
 

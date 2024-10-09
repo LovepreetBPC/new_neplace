@@ -73,6 +73,7 @@ var sharePref= SharedPref
     }
 
     fun getOkHttpClient12(): OkHttpClient {
+
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val builder = OkHttpClient.Builder()

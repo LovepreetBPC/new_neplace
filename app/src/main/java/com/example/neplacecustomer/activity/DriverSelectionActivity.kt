@@ -51,6 +51,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.example.neplacecustomer.common.Constant
+import com.example.neplacecustomer.utils.Utils
 import com.example.neplacecustomer.viewmodel.GetRideCancelChargesViewModel
 import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
 import okhttp3.MultipartBody
@@ -95,7 +96,9 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     private val TAG = "lovepreet098799"
 
     private lateinit var mMap: GoogleMap
-    private val db = Firebase.firestore
+//    private val db = Firebase.firestore
+//    private lateinit var db: FirebaseFirestore
+
     private lateinit var firestore: FirebaseFirestore
     private lateinit var rideRef: DocumentReference
 
@@ -114,6 +117,13 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_driver_selection)
+        FirebaseApp.initializeApp(this)
+        try {
+
+            firestore = FirebaseFirestore.getInstance()
+        }catch (e:Exception){
+            Log.e(TAG, "onCreate: "+e.message)
+        }
 
         pickup_lat = intent.getStringExtra("pickup_lat").toString()
         pickup_long = intent.getStringExtra("pickup_long").toString()
@@ -191,17 +201,18 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 //        }
 
 
-        val tripRef = db.collection("Trip").document(trip_id)
-        tripRef.addSnapshotListener { documentSnapshot, e ->
-            if (e != null) {
-                Log.e(TAG, "Listen failed", e)
-                return@addSnapshotListener
-            }
+        try {
+            val tripRef = firestore.collection("Trip").document(trip_id)
+            tripRef.addSnapshotListener { documentSnapshot, e ->
+                if (e != null) {
+                    Log.e(TAG, "Listen failed", e)
+                    return@addSnapshotListener
+                }
 
-            if (documentSnapshot != null && documentSnapshot.exists()) {
-                val trip = documentSnapshot.toObject(UpdateStatusModel::class.java)
-                ride_status = trip?.status.toString()
-                setRideData()
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    val trip = documentSnapshot.toObject(UpdateStatusModel::class.java)
+                    ride_status = trip?.status.toString()
+                    setRideData()
 
 //                if (ride_status == "accepted") {
 //                    getRideDetailViewModel.getRide(trip_id)
@@ -211,17 +222,21 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 //
 //                }
 
-                Log.d(TAG, "Current ride status: $ride_status")
+                    Log.d(TAG, "Current ride status: $ride_status")
 //                getDriverInitViews()
 
-                // Do something with the retrieved data
-            } else {
-                Log.d(TAG, "Current data: null")
-                ride_status = "completed"
-                // Document does not exist
-                setRideData()
+                    // Do something with the retrieved data
+                } else {
+                    Log.d(TAG, "Current data: null")
+                    ride_status = "completed"
+                    // Document does not exist
+                    setRideData()
+                }
             }
+        }catch (e:Exception){
+            Log.e(TAG, "setOnClick: "+e.message)
         }
+
 
 
         // Fetching API_KEY which we wrapped
@@ -462,7 +477,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
     // Method to update ride status in Firestore
     private fun updateRideStatus(newStatus: String) {
-        db.collection("Trip").document(trip_id)
+
+        firestore.collection("Trip").document(trip_id)
             .update("status", newStatus)
             .addOnSuccessListener {
 //                Toast.makeText(this, "Ride status updated successfully", Toast.LENGTH_SHORT).show()
@@ -504,6 +520,8 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                     if (it.data!!.status) {
                         MAPS_API_KEY = it.data.data.google_key
                         apiKey = it.data.data.google_key
+
+                        Utils.saveApiKeys(this, it.data.data.google_key, it.data.data.mapbox_api_key, it.data.data.stripe_key)
 
                     } else {
                         apiKey = "AIzaSyAMAdPcBMgkpCDoycbvxeFh6274KbKCvjQ"
