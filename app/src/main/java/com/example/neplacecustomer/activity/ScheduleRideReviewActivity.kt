@@ -25,6 +25,7 @@ import com.example.neplacecustomer.model.UpdateStatusModel
 import com.example.neplacecustomer.viewmodel.AddRidesViewModel
 import com.example.neplacecustomer.viewmodel.GetProfileViewModel
 import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import okhttp3.MultipartBody
@@ -68,7 +69,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
     lateinit var alacart: String
     lateinit var eta: String
     var seatNumber: Int = 0
-    private val db = Firebase.firestore
+    var db = Firebase.firestore
     lateinit var getProfileViewModel: GetProfileViewModel
     var subscribePlan: Boolean = false
 
@@ -79,6 +80,7 @@ class ScheduleRideReviewActivity : BaseActivity(), View.OnClickListener {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_schedule_ride_review)
         FirebaseApp.initializeApp(this)
+
 
         val timezoneID = TimeZone.getDefault().id
         val sdf2 = SimpleDateFormat("dd-MMM-yyyy")

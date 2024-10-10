@@ -223,10 +223,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             } else {
 
                 if (i == 88) {
-                    choosePhotoFromGallary(145)
+                    choosePhotoFromGallary(88)
                 }
                 else {
-                    choosePhotoFromGallary(200)
+                    choosePhotoFromGallary(100)
 
                 }
 
@@ -347,6 +347,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
     }
 
     fun choosePhotoFromGallary(i: Int) {
+
         GALLERY = i
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(galleryIntent, GALLERY)

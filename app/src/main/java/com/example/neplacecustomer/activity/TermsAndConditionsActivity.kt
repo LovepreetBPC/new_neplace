@@ -31,6 +31,6 @@ class TermsAndConditionsActivity : AppCompatActivity() {
             }
         }
         //binding.webview.loadUrl("http://18.216.223.224/terms")
-        binding.webview.loadUrl(Constant.BASEURL + "terms")
+        binding.webview.loadUrl("https://app.goneplace.app/terms")
     }
 }
