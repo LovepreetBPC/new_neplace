@@ -53,7 +53,7 @@ import com.google.gson.Gson
 import com.neplace.customer.common.Constant
 import com.neplace.customer.utils.Utils
 import com.neplace.customer.viewmodel.GetRideCancelChargesViewModel
-import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
+import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request

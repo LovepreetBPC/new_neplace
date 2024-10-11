@@ -37,7 +37,7 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.gson.Gson
-import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
+import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException

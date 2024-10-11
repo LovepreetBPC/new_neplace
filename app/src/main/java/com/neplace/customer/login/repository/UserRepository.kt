@@ -27,7 +27,7 @@ import com.neplace.customer.model.SocialLoginModel
 import com.neplace.customer.model.StripePaymentModel
 import com.neplace.customer.model.UserNotificationModel
 import com.neplace.customer.model.VerifyOtpModel
-import com.nexter.application.retrofit.RetrofitUtils
+import com.neplace.customer.retrofit.RetrofitUtils
 import com.neplace.customer.retrofit.UserNetwork
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

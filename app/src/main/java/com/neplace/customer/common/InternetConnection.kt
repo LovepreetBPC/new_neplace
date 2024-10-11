@@ -1,4 +1,4 @@
-package com.nexter.application.common
+package com.neplace.customer.common
 
 import android.content.Context
 import android.net.ConnectivityManager

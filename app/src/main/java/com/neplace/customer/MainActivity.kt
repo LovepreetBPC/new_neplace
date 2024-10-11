@@ -16,7 +16,7 @@ import com.google.android.libraries.places.api.Places
 import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
 import com.google.maps.model.DirectionsResult
-import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
+import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 

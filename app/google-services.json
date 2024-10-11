@@ -38,6 +38,9 @@
       "api_key": [
         {
           "current_key": "AIzaSyD4uc4XxRnaZaBABMJn9qWCFcmwWHDfFRE"
+        },
+        {
+          "current_key": "AIzaSyBr0aRJ9oZBbtPS2tH5pcUZz3H32EyNGtY"
         }
       ],
       "services": {
@@ -62,7 +65,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:319811497841:android:fed16099855add7df710d0",
         "android_client_info": {
-          "package_name": "com.neplace.customer"
+          "package_name": "com.example.neplacecustomer"
         }
       },
       "oauth_client": [
@@ -70,7 +73,7 @@
           "client_id": "319811497841-1bqeguv91ua0rbl44demacu54f2oaia2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.neplace.customer",
+            "package_name": "com.example.neplacecustomer",
             "certificate_hash": "86f6619179233977422959c8ed2e2d08ca367897"
           }
         },
@@ -78,7 +81,7 @@
           "client_id": "319811497841-85mr0u31hi7ov96morq3vco24j6j1iuu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.neplace.customer",
+            "package_name": "com.example.neplacecustomer",
             "certificate_hash": "98f0ef886bd7fa784e59524e19e3dfa484da674d"
           }
         },
@@ -86,7 +89,7 @@
           "client_id": "319811497841-97318hu8lnqfn6a2f1cgcs30u7sulj94.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.neplace.customer",
+            "package_name": "com.example.neplacecustomer",
             "certificate_hash": "f526afbd1b7b0dbc51a7a58a29101f9791a2c732"
           }
         },
@@ -94,7 +97,7 @@
           "client_id": "319811497841-bkod05vse6iep2rn4lh82indf0jhkefl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.neplace.customer",
+            "package_name": "com.example.neplacecustomer",
             "certificate_hash": "79d0754f8c82ea91dfb46a27225efcf289f75f0e"
           }
         },
@@ -106,6 +109,111 @@
       "api_key": [
         {
           "current_key": "AIzaSyD4uc4XxRnaZaBABMJn9qWCFcmwWHDfFRE"
+        },
+        {
+          "current_key": "AIzaSyBr0aRJ9oZBbtPS2tH5pcUZz3H32EyNGtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319811497841-hhoh4d8khjkaqpuq6so1ecdbccus54vj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "319811497841-26qn1hi04gdph35vmv90lp66gkpo4fhq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neplace.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319811497841:android:28ab30fd8be31d73f710d0",
+        "android_client_info": {
+          "package_name": "com.neplace.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319811497841-aenqnsrgem067568s7koa13qtvbfbsq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neplace.customer",
+            "certificate_hash": "79d0754f8c82ea91dfb46a27225efcf289f75f0e"
+          }
+        },
+        {
+          "client_id": "319811497841-il4p2eujpreidrk94202c3k9ermegu2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neplace.customer",
+            "certificate_hash": "f526afbd1b7b0dbc51a7a58a29101f9791a2c732"
+          }
+        },
+        {
+          "client_id": "319811497841-i9338kv0lhu7eso0md2jknngpefj7pdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4uc4XxRnaZaBABMJn9qWCFcmwWHDfFRE"
+        },
+        {
+          "current_key": "AIzaSyBr0aRJ9oZBbtPS2tH5pcUZz3H32EyNGtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319811497841-hhoh4d8khjkaqpuq6so1ecdbccus54vj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "319811497841-26qn1hi04gdph35vmv90lp66gkpo4fhq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neplace.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319811497841:android:1b5a4f071d57cf49f710d0",
+        "android_client_info": {
+          "package_name": "com.neplace.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319811497841-85hvpcq8eq14hkt36idrfepqjvvfffem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neplace.driver",
+            "certificate_hash": "f526afbd1b7b0dbc51a7a58a29101f9791a2c732"
+          }
+        },
+        {
+          "client_id": "319811497841-i9338kv0lhu7eso0md2jknngpefj7pdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4uc4XxRnaZaBABMJn9qWCFcmwWHDfFRE"
+        },
+        {
+          "current_key": "AIzaSyBr0aRJ9oZBbtPS2tH5pcUZz3H32EyNGtY"
         }
       ],
       "services": {

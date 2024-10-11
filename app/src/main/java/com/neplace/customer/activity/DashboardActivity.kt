@@ -25,7 +25,7 @@ import com.neplace.customer.viewmodel.GetGoogleKeyViewModel
 import com.neplace.customer.viewmodel.GetProfileViewModel
 import com.neplace.customer.common.Constant
 import com.neplace.customer.utils.Utils
-import com.nexter.application.retrofit.RetrofitUtils.MAPS_API_KEY
+import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
 import android.provider.Settings
 
 class DashboardActivity : BaseActivity() {

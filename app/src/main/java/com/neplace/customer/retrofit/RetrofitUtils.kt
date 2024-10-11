@@ -1,4 +1,4 @@
-package com.nexter.application.retrofit
+package com.neplace.customer.retrofit
 
 import com.neplace.customer.retrofit.ApiInterface
 import com.google.gson.Gson
