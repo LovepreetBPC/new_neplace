@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black_bg"
-            tools:context="com.example.neplace.activity.EditProfileActivity">
+            tools:context="com.neplace.neplace.activity.EditProfileActivity">
 
             <RelativeLayout
                 android:id="@+id/relativeTop"
@@ -31,7 +31,7 @@
                     android:src="@mipmap/ic_back" />
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -98,7 +98,7 @@
                         android:layout_toEndOf="@id/RelativeSecurity"
                         android:gravity="center_vertical">
 
-                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        <com.neplace.customer.utils.textview.TextViewMedium
                             android:id="@+id/txtSupport"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                         android:layout_toEndOf="@id/RelativePhone"
                         android:gravity="center_vertical">
 
-                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        <com.neplace.customer.utils.textview.TextViewMedium
                             android:id="@+id/txtPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                         android:layout_toEndOf="@id/RelativeChat"
                         android:gravity="center_vertical">
 
-                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        <com.neplace.customer.utils.textview.TextViewMedium
                             android:id="@+id/txtChat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
                 </RelativeLayout>
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtDeleteAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

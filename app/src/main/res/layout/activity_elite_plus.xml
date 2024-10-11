@@ -30,7 +30,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -60,7 +60,7 @@
                 android:layout_below="@id/imgLogo"
                 android:layout_centerHorizontal="true">
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

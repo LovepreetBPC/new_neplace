@@ -31,7 +31,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -67,7 +67,7 @@
 
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup Date "
@@ -75,7 +75,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtDatePicker"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -88,7 +88,7 @@
                         android:textColor="@color/white"
                         android:drawableRight="@mipmap/ic_calendar" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtDateError"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                         android:layout_marginTop="4dp"
                         android:textColor="#B4141E"
                         android:textSize="@dimen/text_size_twelve" />
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup Time"
@@ -105,7 +105,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtTime"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -118,7 +118,7 @@
                         android:textColor="@color/white"
                         android:drawableRight="@mipmap/ic_clock" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtTimeError"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                         android:textSize="@dimen/text_size_twelve" />
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtContinue"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"

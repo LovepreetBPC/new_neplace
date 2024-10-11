@@ -32,7 +32,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -85,7 +85,7 @@
                         app:layout_constraintTop_toBottomOf="@id/imgProfile">
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                        <com.neplace.customer.utils.textview.TextViewSemiBold
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

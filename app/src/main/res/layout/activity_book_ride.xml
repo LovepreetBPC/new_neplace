@@ -40,7 +40,7 @@
                 android:src="@mipmap/ic_menu" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -73,7 +73,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/pickUpTextView" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/pickUpTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dropTextView" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/dropTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
             />
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewMedium
+        <com.neplace.customer.utils.textview.TextViewMedium
             android:id="@+id/txtSearch"
             android:layout_width="match_parent"
             android:layout_height="@dimen/edt_height"

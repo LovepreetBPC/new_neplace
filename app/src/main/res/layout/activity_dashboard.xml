@@ -32,7 +32,7 @@
                 android:src="@mipmap/ic_menu" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -78,7 +78,7 @@
                         android:layout_marginLeft="@dimen/margin_eight">
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                        <com.neplace.customer.utils.textview.TextViewSemiBold
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
               >
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtPlanName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
                         android:textSize="20sp"
                         android:textColor="@color/white" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtPrice"
                         android:layout_width="wrap_content"
                         android:gravity="center"
@@ -196,7 +196,7 @@
                         android:textColor="@color/white" />
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -244,7 +244,7 @@
 
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtTransfers"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                             android:gravity="center"
                             />
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtTransfersValue"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
                         >
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtUsed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
                             android:gravity="center"
                             />
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtUsedNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -326,7 +326,7 @@
                         >
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtRemaining"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
                             android:gravity="center"
                             />
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:id="@+id/txtRemainingNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -354,7 +354,7 @@
                 </LinearLayout>
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtUpgradePlan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -368,7 +368,7 @@
                     android:textColor="@color/white"
                     />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtContinue"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edt_height"
@@ -382,7 +382,7 @@
                     android:paddingHorizontal="20sp"
                     android:background="@drawable/btn_bg" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtSubscibeNow"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edt_height"

@@ -38,7 +38,7 @@
                     android:src="@mipmap/ic_back" />
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:orientation="horizontal"
                 >
 
-                <com.example.neplacecustomer.utils.textview.TextViewBold
+                <com.neplace.customer.utils.textview.TextViewBold
                     android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     />
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
 
             </LinearLayout>
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtPrivacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20sp" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtContinue"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edt_height"

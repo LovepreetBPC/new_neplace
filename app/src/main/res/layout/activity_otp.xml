@@ -45,14 +45,14 @@
             app:layout_constraintRight_toRightOf="parent">
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:lineSpacingExtra="4dp"
                 android:text="@string/enter_the_4_digit_code_sent_to_you_at" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:orientation="horizontal"
                 android:weightSum="4">
 
-                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                <com.neplace.customer.utils.edittext.EditTextMedium
                     android:id="@+id/edtOtp1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -83,7 +83,7 @@
                     android:textSize="@dimen/text_size_twenty"
                     android:background="@drawable/edittext_corner_gray" />
 
-                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                <com.neplace.customer.utils.edittext.EditTextMedium
                     android:id="@+id/edtOtp2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -97,7 +97,7 @@
                     android:maxLength="1"
                     android:background="@drawable/edittext_corner_gray" />
 
-                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                <com.neplace.customer.utils.edittext.EditTextMedium
                     android:id="@+id/edtOtp3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -111,7 +111,7 @@
                     android:maxLength="1"
                     android:background="@drawable/edittext_corner_gray" />
 
-                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                <com.neplace.customer.utils.edittext.EditTextMedium
                     android:id="@+id/edtOtp4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -128,7 +128,7 @@
             </LinearLayout>
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtVerifyOTP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
             >
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtResend"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edt_height"
@@ -172,7 +172,7 @@
                 android:text="Resend code via SMS"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_eighteen" />
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtSndOtp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edt_height"

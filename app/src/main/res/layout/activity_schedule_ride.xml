@@ -32,7 +32,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -70,7 +70,7 @@
                         android:layout_gravity="center"
                         android:src="@mipmap/img_calander" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Select Service Type"
@@ -92,7 +92,7 @@
                             />
                     </RelativeLayout>
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtHours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                     </RelativeLayout>
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -126,7 +126,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtPickUpAddress"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
@@ -140,7 +140,7 @@
                         android:textColor="@color/white"
                         />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -148,7 +148,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtDropOffAddress"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -161,7 +161,7 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         />
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup Date should be at least 24hours in  advance "
@@ -169,7 +169,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtDatePicker"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -182,7 +182,7 @@
                         android:textColor="@color/white"
                         android:drawableRight="@mipmap/ic_calendar" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pickup Time"
@@ -190,7 +190,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtTime"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -202,7 +202,7 @@
                         android:paddingHorizontal="@dimen/margin_twenty"
                         android:textColor="@color/white"
                         android:drawableRight="@mipmap/ic_clock" />
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtDateError"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                             android:layout_weight="1"
                             android:layout_marginEnd="@dimen/margin_ten">
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtNumberPassenger"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
                             android:layout_marginStart="@dimen/margin_ten"
                             android:layout_height="wrap_content">
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtNumberLuggage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
                             android:layout_marginRight="@dimen/margin_ten">
 
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtChildSeat"
                                 android:layout_width="wrap_content"
                                 android:textSize="@dimen/text_size_twelve"
@@ -334,7 +334,7 @@
                             android:layout_marginLeft="@dimen/margin_ten"
                             android:layout_height="wrap_content">
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtHandicap"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -364,7 +364,7 @@
                     </LinearLayout>
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtAirportCode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -373,7 +373,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    <com.neplace.customer.utils.edittext.EditTextMedium
                         android:id="@+id/edtAirportCode"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -388,7 +388,7 @@
                         android:drawableEnd="@mipmap/ic_airport" />
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtAirline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -397,7 +397,7 @@
                         android:layout_marginTop="@dimen/margin_twenty"
                         android:textSize="@dimen/text_size_twelve" />
 
-                    <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                    <com.neplace.customer.utils.edittext.EditTextMedium
                         android:id="@+id/edtAirline"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"
@@ -429,7 +429,7 @@
                             android:layout_marginRight="@dimen/margin_ten">
 
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtFlightNumber"
                                 android:layout_width="wrap_content"
                                 android:textSize="@dimen/text_size_twelve"
@@ -444,7 +444,7 @@
                                 android:layout_below="@id/txtFlightNumber"
                                 android:background="@drawable/edittext_corner_gray">
 
-                                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                                <com.neplace.customer.utils.edittext.EditTextMedium
                                     android:id="@+id/edtFlightNumber"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/edt_height"
@@ -470,7 +470,7 @@
                             android:layout_marginLeft="@dimen/margin_ten"
                             android:layout_height="wrap_content">
 
-                            <com.example.neplacecustomer.utils.textview.TextViewRegular
+                            <com.neplace.customer.utils.textview.TextViewRegular
                                 android:id="@+id/txtETA"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -486,7 +486,7 @@
                                 android:layout_below="@id/txtETA"
                                 android:background="@drawable/edittext_corner_gray">
 
-                                <com.example.neplacecustomer.utils.edittext.EditTextMedium
+                                <com.neplace.customer.utils.edittext.EditTextMedium
                                     android:id="@+id/edtETA"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -501,7 +501,7 @@
 
                     </LinearLayout>
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtContinue"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edt_height"

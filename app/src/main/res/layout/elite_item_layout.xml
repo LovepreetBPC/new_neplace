@@ -7,7 +7,7 @@
 
     >
 
-    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+    <com.neplace.customer.utils.textview.TextViewSemiBold
         android:id="@+id/txtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

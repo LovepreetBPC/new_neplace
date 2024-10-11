@@ -24,7 +24,7 @@
             android:src="@mipmap/ic_back" />
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        <com.neplace.customer.utils.textview.TextViewSemiBold
             android:id="@+id/txteditcard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_twenty" />
 
-        <com.example.neplacecustomer.utils.textview.TextViewRegular
+        <com.neplace.customer.utils.textview.TextViewRegular
             android:id="@+id/txtaddCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
     </RelativeLayout>
 
 
-    <com.example.neplacecustomer.utils.textview.TextViewMedium
+    <com.neplace.customer.utils.textview.TextViewMedium
         android:id="@+id/tvpayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
 
 
 
-    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+    <com.neplace.customer.utils.textview.TextViewSemiBold
         android:id="@+id/txtNoData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
 
 
 
-    <com.example.neplacecustomer.utils.textview.TextViewMedium
+    <com.neplace.customer.utils.textview.TextViewMedium
         android:id="@+id/txtCancelRide"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

@@ -41,7 +41,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -65,7 +65,7 @@
             android:paddingVertical="@dimen/padding_ten"
             android:visibility="gone">
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:id="@+id/txtRideTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                     android:text="$25"
                     android:textColor="@color/white" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtRecommended"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                     >
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
                         android:src="@mipmap/ic_msg" />
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                     android:layout_centerVertical="true"
                     android:src="@drawable/location_icon_new" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtStartAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -358,7 +358,7 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/car_img" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtCarName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -419,7 +419,7 @@
                         android:background="@drawable/btn_bg">
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -438,7 +438,7 @@
                         android:background="@drawable/blue_boder">
 
 
-                        <com.example.neplacecustomer.utils.textview.TextViewRegular
+                        <com.neplace.customer.utils.textview.TextViewRegular
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -493,7 +493,7 @@
                     android:minWidth="130dp">
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtConfirmedName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -608,7 +608,7 @@
                     android:layout_centerVertical="true"
                     android:src="@drawable/location_icon_new" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtStartAddressConfirmed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -636,7 +636,7 @@
                 android:visibility="visible">
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -645,7 +645,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/margin_fourteen" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txtStatus"
@@ -655,7 +655,7 @@
                     android:textSize="@dimen/text_size_sixteen" />
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtCancelRequestOnWay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -700,7 +700,7 @@
                         android:layout_height="30dp"
                         android:src="@mipmap/ic_clock" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtTimes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -724,7 +724,7 @@
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_distance" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewRegular
+                    <com.neplace.customer.utils.textview.TextViewRegular
                         android:id="@+id/txtMiless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -753,7 +753,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -800,14 +800,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtWaitingForDriver"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Waiting for driver ... "
                     android:textColor="@color/white" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtWaitingRecommended"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -878,7 +878,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="@dimen/padding_ten">
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtCancelRequest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -910,7 +910,7 @@
             android:visibility="gone">
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -950,7 +950,7 @@
                     >
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtDriverName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1064,7 +1064,7 @@
                     android:visibility="visible" />
 
 
-                <com.example.neplacecustomer.utils.edittext.EditTextRegular
+                <com.neplace.customer.utils.edittext.EditTextRegular
                     android:id="@+id/edtReview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

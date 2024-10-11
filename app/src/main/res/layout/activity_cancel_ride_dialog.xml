@@ -18,7 +18,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.neplacecustomer.utils.textview.TextViewBold
+        <com.neplace.customer.utils.textview.TextViewBold
             android:id="@+id/txtCancelRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         </RelativeLayout>
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewMedium
+        <com.neplace.customer.utils.textview.TextViewMedium
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:textSize="@dimen/text_size_twenty" />
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        <com.neplace.customer.utils.textview.TextViewSemiBold
             android:id="@+id/txtDec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

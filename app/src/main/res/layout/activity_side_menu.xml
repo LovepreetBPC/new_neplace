@@ -55,7 +55,7 @@
                         app:civ_border_width="2dp"
                         android:src="@mipmap/img_place_holder" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_twenty" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtDashboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                         android:text="@string/dashboard"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtMyAccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtBookRides"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                         android:padding="@dimen/padding_ten"
                         android:layout_marginHorizontal="@dimen/margin_ten">
 
-                        <com.example.neplacecustomer.utils.textview.TextViewMedium
+                        <com.neplace.customer.utils.textview.TextViewMedium
                             android:id="@+id/txtNotification"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                             android:elevation="10sp"
                             android:visibility="visible">
 
-                            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                            <com.neplace.customer.utils.textview.TextViewSemiBold
                                 android:id="@+id/txtNotificationCount"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -138,7 +138,7 @@
 
                     </RelativeLayout>
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtSupport"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                         android:layout_marginHorizontal="@dimen/margin_ten" />
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtReservation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtSubscriptionPlans"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtBillingInformation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtChat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtPrivacyPolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtTermsCondition"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_sixteen" />
 
-                    <com.example.neplacecustomer.utils.textview.TextViewMedium
+                    <com.neplace.customer.utils.textview.TextViewMedium
                         android:id="@+id/txtLogOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent">
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -265,7 +265,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_sixteen" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtContactUs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

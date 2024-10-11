@@ -31,7 +31,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -57,14 +57,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtWaitingForDriver"
                     android:layout_width="wrap_content"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"
                     android:text="Waiting for driver ... " />
 
-                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtRecommended"
                     android:layout_width="wrap_content"
                     android:layout_below="@id/txtWaitingForDriver"
@@ -135,7 +135,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal">
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtCancelRequest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

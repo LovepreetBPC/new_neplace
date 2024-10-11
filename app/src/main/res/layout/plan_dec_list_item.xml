@@ -22,7 +22,7 @@
             android:layout_marginStart="8dp"
             />
 
-        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        <com.neplace.customer.utils.textview.TextViewSemiBold
             android:id="@+id/txtDec"
             android:layout_width="match_parent"
             android:gravity="start"

@@ -46,7 +46,7 @@
                 android:textSize="50sp" />
         </RelativeLayout>
 
-        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        <com.neplace.customer.utils.textview.TextViewSemiBold
             android:id="@+id/txtCancelRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:textSize="@dimen/text_size_twenty" />
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewRegular
+        <com.neplace.customer.utils.textview.TextViewRegular
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@ Consider our subscription plans for more savings!"
             android:layout_marginTop="@dimen/margin_twenty"
             android:layout_height="wrap_content"
             >
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/txtSubscription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@ Consider our subscription plans for more savings!"
                 android:textColor="@color/white"
                 />
 
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/txtSubscriptionValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@ Consider our subscription plans for more savings!"
                 android:text="0 to 22 miles: $35"
                 android:textColor="@color/white" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/txtPlan2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +112,7 @@ Consider our subscription plans for more savings!"
                 android:text="A la carte Service: "
                 android:textColor="@color/white"
                 />
-            <com.example.neplacecustomer.utils.textview.TextViewRegular
+            <com.neplace.customer.utils.textview.TextViewRegular
                 android:id="@+id/txtPlan2Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,7 +129,7 @@ Consider our subscription plans for more savings!"
         </RelativeLayout>
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewRegular
+        <com.neplace.customer.utils.textview.TextViewRegular
             android:id="@+id/txtPlan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -159,7 +159,7 @@ Consider our subscription plans for more savings!"
                 android:background="@drawable/btn_bg">
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -178,7 +178,7 @@ Consider our subscription plans for more savings!"
                 android:background="@drawable/blue_boder">
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

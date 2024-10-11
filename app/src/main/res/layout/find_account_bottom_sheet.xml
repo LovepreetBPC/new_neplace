@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewMedium
+        <com.neplace.customer.utils.textview.TextViewMedium
             android:id="@+id/txtFindAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 >
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:textSize="@dimen/text_size_sixteen" />
 
 
-                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtMobileNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             </RelativeLayout>
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
 
                 android:id="@+id/txtYes"
                 android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                 android:textSize="@dimen/text_size_eighteen" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewMedium
+            <com.neplace.customer.utils.textview.TextViewMedium
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtYes"

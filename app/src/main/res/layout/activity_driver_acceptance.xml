@@ -32,7 +32,7 @@
                 android:src="@mipmap/ic_back" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -52,7 +52,7 @@
             android:paddingVertical="@dimen/padding_ten"
             android:paddingHorizontal="@dimen/paddinge_sixteen">
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:id="@+id/txtRideTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                <com.neplace.customer.utils.textview.TextViewSemiBold
                     android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:text="$25"
                     android:textColor="@color/white" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewRegular
+                <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtRecommended"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                     >
 
 
-                    <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+                    <com.neplace.customer.utils.textview.TextViewSemiBold
                         android:id="@+id/txtName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_location_white" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtStartAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -277,7 +277,7 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/car_img" />
 
-                <com.example.neplacecustomer.utils.textview.TextViewMedium
+                <com.neplace.customer.utils.textview.TextViewMedium
                     android:id="@+id/txtCarName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

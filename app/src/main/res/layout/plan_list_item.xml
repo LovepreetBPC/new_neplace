@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_selected" />
 
-            <com.example.neplacecustomer.utils.textview.TextViewBold
+            <com.neplace.customer.utils.textview.TextViewBold
                 android:id="@+id/txtPlanName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:layout_toStartOf="@id/txtPrice" />
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewBold
+            <com.neplace.customer.utils.textview.TextViewBold
                 android:id="@+id/txtPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         </RelativeLayout>
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+        <com.neplace.customer.utils.textview.TextViewSemiBold
             android:id="@+id/txtDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:layout_below="@id/relativeTitle" />
 
 
-        <com.example.neplacecustomer.utils.textview.TextViewRegular
+        <com.neplace.customer.utils.textview.TextViewRegular
             android:id="@+id/txtPlanMonthly"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             android:layout_alignParentRight="true">
 
 
-            <com.example.neplacecustomer.utils.textview.TextViewSemiBold
+            <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:id="@+id/txtMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
