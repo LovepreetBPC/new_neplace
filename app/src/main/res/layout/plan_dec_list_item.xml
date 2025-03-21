@@ -40,6 +40,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:visibility="gone"
         android:background="@color/white"
         android:layout_below="@id/RelativeMain"
         android:layout_marginHorizontal="30sp"

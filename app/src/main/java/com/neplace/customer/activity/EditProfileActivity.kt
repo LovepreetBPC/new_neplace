@@ -66,6 +66,10 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
     lateinit var mResultsBitmap: Bitmap
     lateinit var selectedUri: Uri
     var selectedImageData = ""
+    var social_LOGIN_EMAIL = ""
+    var social_LOGIN_USERNAME = ""
+    var Login_TYPE = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile)
@@ -84,6 +88,18 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener {
         viewModel = ViewModelProvider(this)[ProfileEditViewModel::class.java]
         getProfileViewModel = ViewModelProvider(this)[GetProfileViewModel::class.java]
         getProfileViewModel.getProfileUser()
+
+
+        try {
+            Login_TYPE = sharePref.getString(Constant.LOGIN_TYPE, "").toString()
+            social_LOGIN_EMAIL = sharePref.getString(Constant.EMAIL, "").toString()
+            social_LOGIN_USERNAME = sharePref.getString(Constant.USERNAME, "").toString()
+
+            binding.edtName.setText(social_LOGIN_USERNAME)
+            binding.edtEmail.setText(social_LOGIN_EMAIL)
+        }catch (e:Exception){
+
+        }
 
 
         viewModel.profileEditResponse.observe(this) {

@@ -1,6 +1,7 @@
 package com.neplace.customer.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,7 +10,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -21,6 +21,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -28,17 +29,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.neplace.customer.R
+import com.neplace.customer.common.Constant
 import com.neplace.customer.databinding.ActivityPersonalIdCardBinding
 import com.neplace.customer.login.BaseActivity
 import com.neplace.customer.login.repository.BaseResponse
 import com.neplace.customer.model.VerifyOtpModel
 import com.neplace.customer.utils.BitmapUtils
 import com.neplace.customer.viewmodel.RegisterCustomerCardViewModel
+import com.neplace.customer.viewmodel.RegisterViewModel
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
@@ -50,7 +52,6 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivityPersonalIdCardBinding
     lateinit var registerCustomerCardViewModel: RegisterCustomerCardViewModel
 
-
     private lateinit var pickerDialog: Dialog
     private var selectedImageFile: File? = null
     private var selectedImageFileBack: File? = null
@@ -59,13 +60,15 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
     var photoURI: Uri? = null
     var REQUEST_IMAGE_CAPTURE = 88
     private val PERMISSION_CAMERA_REQUEST_CODE = 400
-//    lateinit var currentPhotoPath: String
+
+    //    lateinit var currentPhotoPath: String
     private val PERMISSION_STORAGE_REQUEST_CODE = 600
     private val FILE_PROVIDER_AUTHORITY = "com.neplace.customer"
     private var mTempPhotoPath: String? = null
 
     lateinit var mResultsBitmap: Bitmap
-//    lateinit var selectedUri: Uri
+
+    //    lateinit var selectedUri: Uri
 //    lateinit var selectedUriBack: Uri
     var selectedImageData = ""
     var selectType = ""
@@ -77,10 +80,12 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         initViews()
         setOnClick()
         setSpinner()
+
     }
 
     private fun initViews() {
-        registerCustomerCardViewModel = ViewModelProvider(this)[RegisterCustomerCardViewModel::class.java]
+        registerCustomerCardViewModel =
+            ViewModelProvider(this)[RegisterCustomerCardViewModel::class.java]
 
         registerCustomerCardViewModel.registerCustomerCardResponse.observe(this) {
             when (it) {
@@ -96,6 +101,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                 is BaseResponse.Error -> {
                     processError(it.msg)
                 }
+
                 else -> {
                     dismissProgress()
                 }
@@ -103,6 +109,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
         }
 
     }
+
 
     private fun processSet(data: VerifyOtpModel?) {
         ToastMsg(data!!.message.toString())
@@ -130,6 +137,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             R.id.imgBack -> {
                 finish()
             }
+
             R.id.txtSave -> {
                 if (Validation()) {
                     var body: MultipartBody.Part? = null
@@ -137,24 +145,41 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                     if (selectedImageFile != null) {
                         Log.d("personalID", "onClick: if")
 
-                        if (selectedImageFileBack != null ){
+                        if (selectedImageFileBack != null) {
                             Log.d("personalID", "onClick back: if")
 
-                            val requestBody: RequestBody = selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-                            body = MultipartBody.Part.createFormData("personal_id_card_front_image", selectedImageFile!!.name, requestBody)
-                            bodyBack = MultipartBody.Part.createFormData("personal_id_card_back_image", selectedImageFileBack!!.name, requestBody)
+                            val requestBody: RequestBody =
+                                selectedImageFile!!.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+                            body = MultipartBody.Part.createFormData(
+                                "personal_id_card_front_image",
+                                selectedImageFile!!.name,
+                                requestBody
+                            )
+                            bodyBack = MultipartBody.Part.createFormData(
+                                "personal_id_card_back_image",
+                                selectedImageFileBack!!.name,
+                                requestBody
+                            )
 
-                            registerCustomerCardViewModel.registerCustomerCardUser(body,bodyBack)
+                            registerCustomerCardViewModel.registerCustomerCardUser(body, bodyBack)
 
-                        }else{
+                        } else {
                             Log.d("personalID", "onClick back: else")
-                            Toast.makeText(applicationContext, "please enter your ID card back image!!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext,
+                                "please enter your ID card back image!!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
 
                     } else {
                         Log.d("personalID", "onClick: else")
-                        Toast.makeText(applicationContext, "please enter your ID card front image!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "please enter your ID card front image!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         /*val requestBody: RequestBody = "".toRequestBody("multipart/form-data".toMediaTypeOrNull())
                         body = MultipartBody.Part.createFormData("personal_id_card_front_image", "", requestBody)
                         bodyBack = MultipartBody.Part.createFormData("personal_id_card_back_image", "", requestBody)
@@ -167,6 +192,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                 imagePickerDialog(88)
 
             }
+
             R.id.relativeback -> {
                 imagePickerDialog(100)
 
@@ -224,8 +250,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
 
                 if (i == 88) {
                     choosePhotoFromGallary(88)
-                }
-                else {
+                } else {
                     choosePhotoFromGallary(100)
 
                 }
@@ -253,8 +278,15 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             ), PERMISSION_CAMERA_REQUEST_CODE
         )
     }
-    fun setSpinner(){
-        val arrayList = arrayOf("Identification Card", "Passport", "Driving License","Government Issued ID","Others")
+
+    fun setSpinner() {
+        val arrayList = arrayOf(
+            "Identification Card",
+            "Passport",
+            "Driving License",
+            "Government Issued ID",
+            "Others"
+        )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -325,18 +357,19 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
     private fun checkStoragePermission(): Boolean {
         val readPermission =
             ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-        val writePermission = ActivityCompat.checkSelfPermission(
-            this,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
 
-        )
+        val writePermission =
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
         return readPermission == PackageManager.PERMISSION_GRANTED && writePermission == PackageManager.PERMISSION_GRANTED
     }
 
+    @SuppressLint("InlinedApi")
     private fun requestStoragePermission() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
+                Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.READ_MEDIA_IMAGES,
@@ -375,7 +408,7 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             if (data != null) {
                 val uri: Uri = data.getData()!!
                 selectedImageData = uri.toString()
-                if (GALLERY == 145) {
+                if (GALLERY == 88) {
                     selectedImageFile = File(getRealPathFromURI(uri)!!)
 
                     Glide.with(this).load(uri)
@@ -389,9 +422,10 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
                         binding.imgDocment.visibility = View.GONE
 
                     }
-                }
-                else if (GALLERY == 200){
+                } else if (GALLERY == 100) {
                     selectedImageFileBack = File(getRealPathFromURI(uri)!!)
+
+
                     Glide.with(this).load(uri)
                         .placeholder(R.mipmap.img_place_holder)
                         .error(R.mipmap.img_place_holder)
@@ -411,8 +445,8 @@ class PersonalIdCardActivity : BaseActivity(), View.OnClickListener {
             mResultsBitmap = let { BitmapUtils.resamplePic(it, mTempPhotoPath) }
             val uri: Uri = getImageUri(mResultsBitmap)
             selectedImageData = uri.toString()
-            Log.e("LOG_TAG", " selected image url: " + uri)
-            Log.e("Select", "CAM_REQUEST $uri")
+//            Log.e("LOG_TAG", " selected image url: " + uri)
+//            Log.e("Select", "CAM_REQUEST $uri")
             if (REQUEST_IMAGE_CAPTURE == 88) {
                 if (uri != null) {
                     selectedImageFile = File(getRealPathFromURI(uri)!!)

@@ -118,7 +118,7 @@
                     android:inputType="text"
                     android:background="@null"
                     android:hint="Type Your Message Here"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@android:color/darker_gray"
                     android:padding="12dp"
                     android:textColor="@color/white" />
 

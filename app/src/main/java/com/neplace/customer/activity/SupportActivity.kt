@@ -61,11 +61,12 @@ class SupportActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.relativeGmailSupport->{
                 val intent = Intent(Intent.ACTION_SEND)
-                val recipients = arrayOf("pk.parshar91@gmail.com")
+                //val recipients = arrayOf("pk.parshar91@gmail.com")
+                val recipients = arrayOf("support@gmail.com")
                 intent.putExtra(Intent.EXTRA_EMAIL, recipients)
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Subject text here...")
-                intent.putExtra(Intent.EXTRA_TEXT, "Body of the content here...")
-                intent.putExtra(Intent.EXTRA_CC, "mailcc@gmail.com")
+                //intent.putExtra(Intent.EXTRA_SUBJECT, "Subject text here...")
+                //intent.putExtra(Intent.EXTRA_TEXT, "Body of the content here...")
+                //intent.putExtra(Intent.EXTRA_CC, "mailcc@gmail.com")
                 intent.type = "text/html"
                 intent.setPackage("com.google.android.gm")
                 startActivity(Intent.createChooser(intent, "Send mail"))

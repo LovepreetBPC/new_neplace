@@ -19,9 +19,16 @@ object Constant {
     val USERNAME: String = "UserName"
     val PlanID: String = "PlanID"
     val USERIMAGE: String = "UserImage"
+    val FIRST_NAME: String = "FirstName"
+    val LAST_NAME: String = "LastName"
+    val CITY: String = "City"
+    val ADDRESS: String = "Address"
+
+    val LOGIN_TYPE: String = "login_type"
 
 
     val User_Stripe_Id="User_Stripe_Id"
+    var User_CARD_Id= "User_CARD_Id"
     val CardName="card_name"
     val CardNumber="card_number"
     val CardMonth="card_month"

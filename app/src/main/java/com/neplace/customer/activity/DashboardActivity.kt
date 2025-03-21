@@ -27,6 +27,7 @@ import com.neplace.customer.common.Constant
 import com.neplace.customer.utils.Utils
 import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
 import android.provider.Settings
+import com.neplace.customer.inapppurchase.logger
 
 class DashboardActivity : BaseActivity() {
 
@@ -34,6 +35,10 @@ class DashboardActivity : BaseActivity() {
     lateinit var getProfileViewModel: GetProfileViewModel
      lateinit var googleKeyViewModel : GetGoogleKeyViewModel
      var subscribePlan:Boolean= false
+
+    var social_LOGIN_EMAIL = ""
+    var social_LOGIN_USERNAME = ""
+    var Login_TYPE = ""
 
     @SuppressLint("NewApi")
     @RequiresApi(Build.VERSION_CODES.M)
@@ -53,9 +58,23 @@ class DashboardActivity : BaseActivity() {
 
         Log.e("12345678", "book ride: " + MAPS_API_KEY)
 
+
+        try {
+            Login_TYPE = sharePref.getString(Constant.LOGIN_TYPE, "").toString()
+            social_LOGIN_EMAIL = sharePref.getString(Constant.EMAIL, "").toString()
+            social_LOGIN_USERNAME = sharePref.getString(Constant.USERNAME, "").toString()
+
+            binding.txtEmail.text = social_LOGIN_EMAIL
+            binding.txtName.text = social_LOGIN_USERNAME
+            binding.txtMobileNumber.visibility= View.GONE
+        }catch (e:Exception){
+
+        }
+
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     private fun initViews() {
 
         googleKeyViewModel = ViewModelProvider(this)[GetGoogleKeyViewModel::class.java]
@@ -100,6 +119,7 @@ class DashboardActivity : BaseActivity() {
                     dismissProgress()
                     binding.idScroolMain.visibility = View.VISIBLE
                     processSet(it.data)
+                    binding.txtMobileNumber.visibility= View.GONE
                 }
 
                 is BaseResponse.Error -> {
@@ -128,7 +148,6 @@ class DashboardActivity : BaseActivity() {
         binding.txtSubscibeNow.setOnClickListener {
             startActivity(Intent(this, SubscriptionPlansActivity::class.java))
         }
-
     }
 
     override fun onResume() {
@@ -145,7 +164,6 @@ class DashboardActivity : BaseActivity() {
 //            ToastMsg(model.message.toString())
 
 
-
             if (model.data.subscription){
                 binding.relativePlanDetail.visibility = View.VISIBLE
                 binding.linearPlan.visibility = View.VISIBLE
@@ -153,46 +171,6 @@ class DashboardActivity : BaseActivity() {
                 binding.txtUpgradePlan.visibility = View.VISIBLE
                 binding.viewPlanBottom.visibility = View.VISIBLE
                 binding.txtSubscibeNow.visibility = View.GONE
-            }else{
-                binding.relativePlanDetail.visibility = View.GONE
-                binding.linearPlan.visibility = View.GONE
-                binding.txtContinue.visibility = View.GONE
-                binding.txtUpgradePlan.visibility = View.GONE
-                binding.viewPlanBottom.visibility = View.GONE
-                binding.txtSubscibeNow.visibility = View.VISIBLE
-
-            }
-
-            binding.txtMobileNumber.setText(model.data.user.phone_number.toString())
-
-            binding.txtName.setText(model.data.user.user_name.toString())
-//            binding.edtLastName.setText(model.data.last_name.toString())
-            binding.txtEmail.setText(model.data.user.email.toString())
-
-            Log.e("userEmail", "processSet: " + model.data.user.email.toString())
-            Glide.with(this).load(Constant.BASEURL + model.data.user.user_image)
-                .error(R.mipmap.img_place_holder)
-                .into(binding.imgProfile)
-
-
-
-
-
-
-
-            sharePref.saveString(Constant.USERNAME, model.data.user.user_name)
-            sharePref.saveString(Constant.EMAIL, model.data.user.email)
-            sharePref.saveString(Constant.PHONE_NUMBER, model.data.user.phone_number.toString())
-            sharePref.saveString(Constant.USERIMAGE, model.data.user.user_image.toString())
-            sharePref.saveString(Constant.PlanID, model.data.subscriptionDetails.plan_id.toString())
-            subscribePlan = model.data.subscription
-
-
-
-
-
-
-            if (model.data.subscription) {
 
                 if (model.data.subscriptionDetails.plan_id == 2) {
                     binding.txtTransfersValue.text = "Unlimited"
@@ -207,17 +185,75 @@ class DashboardActivity : BaseActivity() {
                     binding.relativeRemainin.visibility = View.VISIBLE
                     binding.View2.visibility = View.VISIBLE
                     binding.txtPlanName.text = model.data.subscriptionDetails.plan.name.toString()
-                    binding.txtPrice.text =
-                        "\$${model.data.subscriptionDetails.plan.price.toString()}/month"
-                    binding.txtUsedNumber.text = model.data.user.total_trips.toString()
-                    binding.txtRemainingNumber.text =
-                        (5 - model.data.user.total_trips.toInt()).toString()
+                    binding.txtPrice.text = "\$${model.data.subscriptionDetails.plan.price.toString()}/month"
+
+                    if (model.data.user.total_trips >= 5){
+                        binding.txtUsedNumber.text = "5"
+                        binding.txtRemainingNumber.text = "0"
+                    }else{
+                        binding.txtUsedNumber.text = model.data.user.total_trips.toString()
+                        binding.txtRemainingNumber.text = (5 - model.data.user.total_trips.toInt()).toString()
+                    }
                 }
+
+            }else{
+                binding.relativePlanDetail.visibility = View.GONE
+                binding.linearPlan.visibility = View.GONE
+                binding.txtContinue.visibility = View.GONE
+                binding.txtUpgradePlan.visibility = View.GONE
+                binding.viewPlanBottom.visibility = View.GONE
+                binding.txtSubscibeNow.visibility = View.VISIBLE
 
             }
 
+            if (model.data.user.phone_number != null){
+                binding.txtMobileNumber.visibility= View.VISIBLE
+            }
+            binding.txtMobileNumber.setText(model.data.user.phone_number.toString())
+
+            binding.txtName.setText(model.data.user.user_name.toString())
+//            binding.edtLastName.setText(model.data.last_name.toString())
+            binding.txtEmail.setText(model.data.user.email.toString())
 
 
+            Log.e("userEmail", "processSet: " + model.data.user.email.toString())
+            Glide.with(this).load(Constant.BASEURL + model.data.user.user_image)
+                .error(R.mipmap.img_place_holder)
+                .into(binding.imgProfile)
+
+
+            sharePref.saveString(Constant.USERNAME, model.data.user.user_name)
+            sharePref.saveString(Constant.EMAIL, model.data.user.email)
+            sharePref.saveString(Constant.PHONE_NUMBER, model.data.user.phone_number.toString())
+            sharePref.saveString(Constant.USERIMAGE, model.data.user.user_image.toString())
+            sharePref.saveString(Constant.PlanID, model.data.subscriptionDetails.plan_id.toString())
+            subscribePlan = model.data.subscription
+
+//            if (model.data.subscription) {
+//                Log.d("subscription55556", "processSet if block: 211")
+//
+//                if (model.data.subscriptionDetails.plan_id == 2) {
+//                    binding.txtTransfersValue.text = "Unlimited"
+//                    binding.relativeRemainin.visibility = View.GONE
+//                    binding.View2.visibility = View.GONE
+//                    binding.txtPlanName.text = model.data.subscriptionDetails.plan.name.toString()
+//                    binding.txtPrice.text = "\$${model.data.subscriptionDetails.plan.price.toString()}/month"
+//                    binding.txtUsedNumber.text = model.data.user.total_trips.toString()
+//                    binding.txtRemainingNumber.text = ( model.data.user.total_trips.toInt()).toString()
+//                } else {
+//                    Log.d("subscription55556", "processSet else block: 222")
+//
+//                    binding.txtTransfersValue.text = "5"
+//                    binding.relativeRemainin.visibility = View.VISIBLE
+//                    binding.View2.visibility = View.VISIBLE
+//                    binding.txtPlanName.text = model.data.subscriptionDetails.plan.name.toString()
+//                    binding.txtPrice.text = "\$${model.data.subscriptionDetails.plan.price.toString()}/month"
+//                    binding.txtUsedNumber.text = model.data.user.total_trips.toString()
+//                    binding.txtRemainingNumber.text = (5 - model.data.user.total_trips.toInt()).toString()
+//                }
+//            }else{
+//                Log.d("subscription55556", "processSet else block: 230")
+//            }
         } else {
 //            ToastMsg(model.message.toString())
 

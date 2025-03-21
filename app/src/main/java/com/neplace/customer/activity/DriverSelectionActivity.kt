@@ -12,6 +12,8 @@ import android.location.Location
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -54,6 +56,7 @@ import com.neplace.customer.common.Constant
 import com.neplace.customer.utils.Utils
 import com.neplace.customer.viewmodel.GetRideCancelChargesViewModel
 import com.neplace.customer.retrofit.RetrofitUtils.MAPS_API_KEY
+import com.neplace.customer.viewmodel.GetCardVM
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -71,6 +74,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     lateinit var rideStatusUpdateViewModel: RideStatusUpdateViewModel
     lateinit var sendRatingViewModel: SendRatingViewModel
     lateinit var googleKeyViewModel: GetGoogleKeyViewModel
+    lateinit var getCardVM: GetCardVM
 
     lateinit var pickup_lat: String
     lateinit var pickup_long: String
@@ -86,6 +90,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
     var driver_name: String = ""
 
     var driver_image: String = ""
+    var mystatus: String = ""
     lateinit var trip_id: String
     var plan_id: String = "1"
     lateinit var user_id: String
@@ -160,8 +165,14 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
     }
 
-    override fun onResume() {
-        super.onResume()
+//    override fun onResume() {
+//        super.onResume()
+//        setOnClick()
+//    }
+
+    //
+    override fun onRestart() {
+        super.onRestart()
         setOnClick()
     }
 
@@ -282,9 +293,17 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
             }
 
             R.id.relativeGotoFile -> {
-                Log.d(TAG, "onClick: confirmed")
-                rideStatusUpdateViewModel.updateRideStatus("confirmed", trip_id, false)
-                updateRideStatus("confirmed")
+
+                if (Constant.User_CARD_Id.equals("0")){
+                    Toast.makeText(this, "Please add card in your account to confirm ride", Toast.LENGTH_SHORT).show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        startActivity(Intent(this, PaymentTypeActivity::class.java))
+                    }, 3000)
+                }else{
+                    rideStatusUpdateViewModel.updateRideStatus("confirmed", trip_id, false)
+                   mystatus = "confirm"
+                }
+
             }
 
             R.id.relativeCancel -> {
@@ -505,9 +524,37 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
         googleKeyViewModel = ViewModelProvider(this)[GetGoogleKeyViewModel::class.java]
         rideStatusUpdateViewModel = ViewModelProvider(this)[RideStatusUpdateViewModel::class.java]
         sendRatingViewModel = ViewModelProvider(this)[SendRatingViewModel::class.java]
-
+        getCardVM = ViewModelProvider(this)[GetCardVM::class.java]
+        getCardVM.getCard()
 
         googleKeyViewModel.getGoogleKey()
+
+        getCardVM.getCardsResponse.observe(this) {
+            when (it) {
+                is BaseResponse.Loading -> {
+                    showProgress()
+                }
+
+                is BaseResponse.Success -> {
+                    dismissProgress()
+
+                    if (it.data!!.data.isEmpty()) {
+                        // empty case
+                    } else {
+                        Constant.User_CARD_Id = it.data.data.size.toString()
+                    }
+
+                }
+
+                is BaseResponse.Error -> {
+                    dismissProgress()
+                }
+
+                else -> {
+                    dismissProgress()
+                }
+            }
+        }
 
         googleKeyViewModel.getGoogleKeyResponse.observe(this) { it ->
             when (it) {
@@ -560,10 +607,11 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
                                 finish()
                             }
                             else {
+                                if (mystatus == "confirm"){
+                                    updateRideStatus("confirmed")
+                                }
                                 setRideData()
 //                                Toast.makeText(this, ""+it.data.message, Toast.LENGTH_SHORT).show()
-
-
                             }
                         }
 
@@ -575,6 +623,11 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 
                     else -> {
                         dismissProgress()
+                        if (Constant.User_CARD_Id.equals("0")){
+                            Toast.makeText(this, "No such payment method ", Toast.LENGTH_SHORT).show()
+                            var intent = Intent(this, PaymentTypeActivity::class.java)
+                            startActivity(intent)
+                        }
                     }
                 }
             }
@@ -819,7 +872,7 @@ class DriverSelectionActivity : BaseActivity(), View.OnClickListener, OnMapReady
 //        Log.e("ChatActivity", "DriverSection :  driver_name  -> ${data!!.data.driver_name} ,  driver_phoneNumber  -> ${data.data.driver_phone}  , driver_image -> ${data.data.driver_image} ")
 
 
-        setRideData()
+       /* setRideData()*/
 
         try {
 

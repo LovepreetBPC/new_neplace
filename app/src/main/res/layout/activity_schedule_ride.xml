@@ -449,14 +449,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/edt_height"
                                     android:layout_marginTop="@dimen/margin_four"
-                                    android:focusable="false"
                                     android:background="@drawable/edittext_corner_gray"
-                                    android:text=""
-                                    android:textSize="14sp"
+                                    android:drawableRight="@mipmap/ic_flight"
+                                    android:focusable="false"
                                     android:gravity="center_vertical"
                                     android:paddingHorizontal="@dimen/margin_twenty"
+                                    android:text=""
                                     android:textColor="@color/white"
-                                    android:drawableRight="@mipmap/ic_flight" />
+                                    android:textSize="14sp" />
 
                             </RelativeLayout>
 

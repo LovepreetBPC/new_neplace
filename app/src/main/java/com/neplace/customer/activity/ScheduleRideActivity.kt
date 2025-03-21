@@ -28,6 +28,7 @@ import com.neplace.customer.databinding.ActivityScheduleRideBinding
 import com.neplace.customer.login.BaseActivity
 import com.neplace.customer.login.repository.BaseResponse
 import com.neplace.customer.model.AddRidesModel
+import com.neplace.customer.model.Airline
 import com.neplace.customer.model.FlightNumberData
 import com.neplace.customer.viewmodel.AddRidesViewModel
 import com.neplace.customer.viewmodel.AirPortCodeViewModel
@@ -76,12 +77,16 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     lateinit var drop_location: String
     var rideStatus: String = "Active"
     var airPortCodeName = ""
+    var airlineCode = ""
+    var airPortCode = ""
     var airLineName = ""
     var flightName = ""
     var etaName = ""
 
-    var airportCodeArrayList = ArrayList<String>()
-    var airLineArrayList = ArrayList<String>()
+    //var airportCodeArrayList = ArrayList<String>()
+    var airportCodeArrayList = ArrayList<Airline>()
+//    var airLineArrayList = ArrayList<String>()
+    val airLineArrayList = ArrayList<Airline>()
     var flightArrayList = ArrayList<String>()
     var etaArrayList = ArrayList<String>()
 
@@ -156,7 +161,8 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             val adapter: ArrayAdapter<Any?> = ArrayAdapter<Any?>(
                 this@ScheduleRideActivity,
                 android.R.layout.simple_list_item_1,
-                airportCodeArrayList as List<Any?>
+                //airportCodeArrayList as List<Any?>
+                 airportCodeArrayList.map { it.airlineName }
             )
 
             // set adapter
@@ -176,8 +182,12 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             listView.onItemClickListener =
                 AdapterView.OnItemClickListener { parent, view, position, id -> // when item selected from list
                     // set selected item on textView
-                    binding.edtAirportCode.setText(adapter.getItem(position).toString())
+                    //binding.edtAirportCode.setText(adapter.getItem(position).toString())
 
+                    val selectedAirport = airportCodeArrayList[position]
+                    binding.edtAirportCode.setText(selectedAirport.airlineName.toString())
+                    airPortCode = selectedAirport.code
+                    dialog.dismiss()
         //                categoryId = arrayList[position].id.toString()
         //                categoryName = arrayList[position].name.toString()
                     dialog.dismiss()
@@ -198,7 +208,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
 
         airPortCodeModel.getAirPortCode()
         airLineViewModel.getAirLine()
-        flightNumberViewModel.getFlightNumber(airPortCodeName)
+
 
 
         viewModel.addRidesResponse.observe(this) {
@@ -230,7 +240,8 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 }
 
                 is BaseResponse.Success -> {
-                    for (i in it.data!!.data.indices) airportCodeArrayList.add(it.data.data[i].code)
+                    //for (i in it.data!!.data.indices) airportCodeArrayList.add(it.data.data[i].airport_name)
+                    for (i in it.data!!.data.indices) airportCodeArrayList.add(Airline(it.data.data[i].airport_name, it.data.data[i].code))
                     airPortCodeName = binding.edtAirportCode.text.toString()
                     Log.e(
                         "airportCodeAPIresponse",
@@ -263,8 +274,7 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                 }
 
                 is BaseResponse.Success -> {
-//                    airport_name=it.data!!.data[0].value
-                    for (i in it.data!!.data.indices) airLineArrayList.add(it.data.data[i].airline_name)
+                    for (i in it.data!!.data.indices) airLineArrayList.add(Airline(it.data.data[i].airline_name, it.data.data[i].code))
                     setAirLineData()
                     Log.e("airlineAPIresponse", "airlineAPIresponse: success " + it.data.data)
                 }
@@ -357,8 +367,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setAirPortCode() {
-
-//        Log.e("airportCode", "setAirPortCode: "+ s +"\n")
         binding.edtAirportCode.setOnClickListener(View.OnClickListener {
             dialog = Dialog(this@ScheduleRideActivity)
             dialog.setContentView(R.layout.dialog_searchable_spinner)
@@ -368,11 +376,11 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             val editText: EditText = dialog.findViewById(R.id.edit_text)
             val listView: ListView = dialog.findViewById(R.id.list_view)
 
-            Log.e("setAirPortCode", "setAirPortCode: " + categoryData.toString())
             val adapter: ArrayAdapter<Any?> = ArrayAdapter<Any?>(
                 this@ScheduleRideActivity,
                 android.R.layout.simple_list_item_1,
-                airportCodeArrayList as List<Any?>
+                //airportCodeArrayList as List<Any?>
+                airportCodeArrayList.map { it.airlineName }
             )
 
             // set adapter
@@ -392,9 +400,11 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             listView.onItemClickListener =
                 AdapterView.OnItemClickListener { parent, view, position, id -> // when item selected from list
                     // set selected item on textView
-                    binding.edtAirportCode.setText(adapter.getItem(position).toString())
-        //                airPortCodeName = airportCodeArrayList[position].toString()
+                    val selectedAirport = airportCodeArrayList[position]
+                    binding.edtAirportCode.setText(selectedAirport.airlineName.toString())
+                    airPortCode = selectedAirport.code
                     dialog.dismiss()
+                    //binding.edtAirportCode.setText(adapter.getItem(position).toString())
 
                 }
         })
@@ -403,7 +413,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setAirLineData() {
-
         binding.edtAirline.setOnClickListener(View.OnClickListener {
             dialog = Dialog(this@ScheduleRideActivity)
             dialog.setContentView(R.layout.dialog_searchable_spinner)
@@ -413,11 +422,11 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             val editText: EditText = dialog.findViewById(R.id.edit_text)
             val listView: ListView = dialog.findViewById(R.id.list_view)
 
-            Log.e("setAirLineCode", "setAirLine: $airlineData")
             val adapter: ArrayAdapter<Any?> = ArrayAdapter<Any?>(
                 this@ScheduleRideActivity,
                 android.R.layout.simple_list_item_1,
-                airLineArrayList as List<Any?>
+               // airLineArrayList as List<Any?>
+                airLineArrayList.map { it.airlineName } // Show only airline names
             )
 
             // set adapter
@@ -437,10 +446,16 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             listView.onItemClickListener =
                 AdapterView.OnItemClickListener { parent, view, position, id -> // when item selected from list
                     // set selected item on textView
-                    binding.edtAirline.setText(adapter.getItem(position).toString())
-        //                airLineName = airlineData[position].toString()
-
+                    val selectedAirline = airLineArrayList[position]
+                    binding.edtAirline.setText(selectedAirline.airlineName)
+                    airlineCode = selectedAirline.code
+                    flightNumberViewModel.getFlightNumber(airlineCode)
                     dialog.dismiss()
+
+                    /*binding.edtAirline.setText(adapter.getItem(position).toString())
+                    airlineCode = airLineArrayList[position].toString()
+                    flightNumberViewModel.getFlightNumber(airlineCode)
+                    dialog.dismiss()*/
                 }
         })
     }
@@ -456,7 +471,6 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
             val editText: EditText = dialog.findViewById(R.id.edit_text)
             val listView: ListView = dialog.findViewById(R.id.list_view)
 
-            Log.e("setFlightData", "flightData: " + flightData.toString())
             val adapter: ArrayAdapter<Any?> = ArrayAdapter<Any?>(
                 this@ScheduleRideActivity,
                 android.R.layout.simple_list_item_1,
@@ -566,8 +580,10 @@ class ScheduleRideActivity : BaseActivity(), View.OnClickListener {
                         intent.putExtra("luggage", selectLuggage.toString())
                         intent.putExtra("child", selectChild.toString())
                         intent.putExtra("seat", seatNumber.toString())
-                        intent.putExtra("airPort_code", binding.edtAirportCode.text.toString())
-                        intent.putExtra("airline", binding.edtAirline.text.toString())
+                        //intent.putExtra("airPort_code", binding.edtAirportCode.text.toString())
+                        //intent.putExtra("airline", binding.edtAirline.text.toString())
+                        intent.putExtra("airPort_code", airPortCode)
+                        intent.putExtra("airline", airlineCode)
                         intent.putExtra("flight_number", binding.edtFlightNumber.text.toString())
                         intent.putExtra("pickup_lat", pickup_lat.toString())
                         intent.putExtra("pickup_long", pickup_long.toString())

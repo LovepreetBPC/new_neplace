@@ -19,6 +19,7 @@
             android:text="Lorem ipsum is derived from the Latin dolorem ipsum roughly translated as "
             android:maxWidth="280dp"
             android:minWidth="80dp"
+            android:textSize="14sp"
             android:textColor="@color/white"
 
             />
@@ -29,6 +30,7 @@
             android:text="10.00PM"
             android:textColor="@color/white"
             android:singleLine="true"
+            android:textSize="9dp"
             android:layout_alignEnd="@id/txtMsg"
             android:layout_below="@id/txtMsg"
 

@@ -60,11 +60,12 @@ class NotificationActivity : BaseActivity() {
                 is BaseResponse.Success -> {
                     dismissProgress()
                     setRecyclerView(it.data)
+                    //ToastMsg(it.data!!.message)
                 }
 
                 is BaseResponse.Error -> {
                     dismissProgress()
-                    ToastMsg(it.msg.toString())
+//                    ToastMsg(it.msg.toString())
                 }
 
                 else -> {
@@ -82,13 +83,13 @@ class NotificationActivity : BaseActivity() {
                 is BaseResponse.Success -> {
                     dismissProgress()
                     getNotificationViewModel.getNotification()
-//                    ToastMsg(it.data!!.message.toString())
+                    ToastMsg(it.data!!.message)
 
                 }
 
                 is BaseResponse.Error -> {
                     dismissProgress()
-                    ToastMsg(it.msg.toString())
+//                    ToastMsg(it.msg.toString())
                 }
 
                 else -> {
@@ -106,13 +107,14 @@ class NotificationActivity : BaseActivity() {
                 is BaseResponse.Success -> {
                     dismissProgress()
                     getNotificationViewModel.getNotification()
+                    ToastMsg(it.data!!.message)
 //                    ToastMsg(it.data!!.message.toString())
 
                 }
 
                 is BaseResponse.Error -> {
                     dismissProgress()
-                    ToastMsg(it.msg.toString())
+//                    ToastMsg(it.msg.toString())
                 }
 
                 else -> {
@@ -128,7 +130,7 @@ class NotificationActivity : BaseActivity() {
 
         if (data != null) {
             if (data.data.size < 1) {
-                ToastMsg("No Data Found")
+                //ToastMsg("No Data Found")
             } else {
                 binding.recyclerView.layoutManager = LinearLayoutManager(this)
                 adapter = NotificationAdapter(data!!.data,

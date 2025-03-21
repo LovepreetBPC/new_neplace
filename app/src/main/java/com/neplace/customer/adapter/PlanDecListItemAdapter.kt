@@ -20,7 +20,7 @@ class PlanDecListItemAdapter(val context: Context, val data: List<String>) :Recy
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Log.d("dataPos", "onBindViewHolder: ${data[position]}")
+//        Log.d("dataPos", "onBindViewHolder: ${data[position]}")
         holder.txtDec.text= data[position].toString()
 
 //        holder.itemView.setOnClickListener{

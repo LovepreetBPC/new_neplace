@@ -23,6 +23,7 @@ import com.neplace.customer.viewmodel.StripePaymentViewModel
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.neplace.customer.common.Constant
 import okhttp3.MultipartBody
 
 class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
@@ -76,6 +77,8 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
         planSubscriptionViewModel = ViewModelProvider(this)[PlanSubscriptionViewModel::class.java]
         getCardVM.getCard()
 
+        Constant.User_CARD_Id = "0"
+        //Log.d("confirmedSTATUS", "initviews1: ${Constant.User_CARD_Id}")
 
         getCardVM.getCardsResponse.observe(this) {
             when (it) {
@@ -93,14 +96,14 @@ class PaymentTypeActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         card_id = it.data.data[0].cardid
                         cardPaymenyId = it.data.data[0].id.toString()
-                        Log.d("cardPaymenyId", "cardPaymenyId: $cardPaymenyId")
-                        Log.d("cardPaymenyId", "ride_id: $ride_id")
 
                         binding.txtNoData.visibility = View.GONE
                         binding.tvpayment.visibility = View.VISIBLE
                         binding.recyclerListView.visibility = View.VISIBLE
                         setRecycler(it.data)
 
+                        Constant.User_CARD_Id = it.data.data.size.toString()
+                        //Log.d("confirmedSTATUS", "initviews: ${Constant.User_CARD_Id}")
                     }
 
                 }

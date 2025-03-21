@@ -4,7 +4,7 @@ data class RideStatusUpdateModel(
     val `data`: RideStatusUpdateData,
     val message: String,
     val status: Boolean,
-    val statusCode: Int
+    val statusCode: Int,
 )
 
 data class RideStatusUpdateData(
@@ -13,5 +13,5 @@ data class RideStatusUpdateData(
     val id: Int,
     val ride_id: String,
     val status: String,
-    val updated_at: String
+    val updated_at: String,
 )

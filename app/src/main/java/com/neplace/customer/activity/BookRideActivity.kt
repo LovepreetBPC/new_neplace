@@ -153,7 +153,7 @@ class BookRideActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
 //        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
 //        mMap.addMarker(MarkerOptions().position(latLng).title("Current Location"))
         val originLocation = LatLng(originLatitude.toDouble(), originLongitude.toDouble())
-        mMap.addMarker(MarkerOptions().position(originLocation).title("Current Location"))
+        //mMap.addMarker(MarkerOptions().position(originLocation).title("Current Location"))
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 15F))
 
     }

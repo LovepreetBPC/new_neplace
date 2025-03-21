@@ -12,7 +12,7 @@ object Utils {
 
     const val BASE_URL = "https://dev.pricepally.com/api/"
 
-    var stripeToken = ""
+    var stripeToken : String ? = null
 
 
     // headers

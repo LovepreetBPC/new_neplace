@@ -89,6 +89,36 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearRegistrationPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/linearPrice"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+
+                <com.neplace.customer.utils.textview.TextViewBold
+                    android:id="@+id/txtRegistrationPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    />
+                <com.neplace.customer.utils.textview.TextViewMedium
+                    android:id="@+id/txtFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registration Fee"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    />
+
+            </LinearLayout>
+
+
             <com.neplace.customer.utils.textview.TextViewMedium
                 android:id="@+id/txtPrivacy"
                 android:layout_width="match_parent"
@@ -109,9 +139,9 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/linearPrice"
+                android:layout_below="@id/linearRegistrationPrice"
                 android:layout_above="@+id/txtPrivacy"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20sp" />
 
             <com.neplace.customer.utils.textview.TextViewMedium

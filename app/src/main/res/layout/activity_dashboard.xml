@@ -168,8 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_twelve"
                     android:visibility="gone"
-                    android:layout_below="@id/relativeProfile"
-              >
+                    android:layout_below="@id/relativeProfile">
 
 
                     <com.neplace.customer.utils.textview.TextViewSemiBold

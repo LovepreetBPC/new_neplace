@@ -12,9 +12,9 @@
         android:id="@+id/relativeTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -26,24 +26,22 @@
 
 
         <com.neplace.customer.utils.textview.TextViewSemiBold
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
             android:text="@string/privacy_policy"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/padding_ten"
-            android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_twenty" />
     </RelativeLayout>
-
 
 
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        android:layout_below="@id/relativeTop" />
+        android:layout_below="@id/relativeTop"
+        tools:ignore="MissingConstraints" />
 
 
 </RelativeLayout>

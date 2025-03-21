@@ -2,6 +2,8 @@ package com.neplace.customer.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -46,7 +48,7 @@ class PlanDetailActivity : BaseActivity() {
         }
 
         binding.txtPrivacy.setOnClickListener{
-            startActivity(Intent(this@PlanDetailActivity, PrivacyPolicyActivity::class.java))
+            startActivity(Intent(this@PlanDetailActivity, PrivacyPolicyActivity::class.java).putExtra("SCREEN_OPEN", "PlanDetailActivity"))
             finish()
         }
 
@@ -87,6 +89,13 @@ class PlanDetailActivity : BaseActivity() {
 
     private fun processEdit(data: PlanDetailModel?) {
 //        ToastMsg(data!!.message.toString())
+        Log.d("extraprice__GET", "processEdit: ${data!!.data.extra_price}")
+        if (data!!.data.extra_price.equals("0")){
+            binding.linearRegistrationPrice.visibility = View.GONE
+        }else{
+            binding.linearRegistrationPrice.visibility = View.VISIBLE
+            binding.txtRegistrationPrice.text = "$" + data!!.data.extra_price + "/"
+        }
         binding.txtPrice.text = "$" + data!!.data.price + "/"
         binding.txtMonth.text = data.data.type
         binding.recyclerView.layoutManager = LinearLayoutManager(this)

@@ -23,5 +23,6 @@ data class PlanDetailData(
     val trial_interval: String,
     val trial_period: Int,
     val type: String,
+    val extra_price: String,
     val updated_at: Any
 )

@@ -2,6 +2,7 @@ package com.neplace.customer.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.neplace.customer.common.Constant
 import com.neplace.customer.login.repository.BaseResponse
 import com.neplace.customer.login.repository.UserRepository
 import com.neplace.customer.model.RideStatusUpdateModel

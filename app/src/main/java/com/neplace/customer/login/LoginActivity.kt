@@ -10,26 +10,28 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInResult
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 import com.neplace.customer.R
 import com.neplace.customer.activity.DashboardActivity
 import com.neplace.customer.activity.OtpActivity
 import com.neplace.customer.activity.WebViewActivity
+import com.neplace.customer.common.Constant
 import com.neplace.customer.databinding.ActivityLoginBinding
-import com.google.firebase.messaging.FirebaseMessaging
 import com.neplace.customer.login.repository.BaseResponse
 import com.neplace.customer.model.LoginModel
 import com.neplace.customer.viewmodel.LoginViewModel
 import com.neplace.customer.viewmodel.SocialLoginViewModel
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.bottomsheet.BottomSheetDialog
-
-import com.neplace.customer.common.Constant
 import java.util.*
+
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivityLoginBinding
@@ -42,6 +44,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     var REQUEST_CODE_GOOGLE_PLUS_LOGIN = 100
     private lateinit var googleApiClient: GoogleApiClient
+
+    lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    private  var RC_SIGN_IN = 1000
 
 
     private val mGoogleSignInClient: GoogleSignInClient? by lazy {
@@ -65,6 +72,45 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         initViewss()
         setOnClick()
 
+
+
+
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+
+
+
+        googleApiClient = GoogleApiClient.Builder(this)
+            .addApi<GoogleSignInOptions>(Auth.GOOGLE_SIGN_IN_API, gso)
+            .build()
+
+
+        // Initialize sign in options the client-id is copied form google-services.json file
+        /*val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("319811497841-imm66r5uo7f67tbs1dhktv07jvhl1f1i.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
+
+        // Initialize sign in client
+        googleSignInClient = GoogleSignIn.getClient(this@LoginActivity, googleSignInOptions)
+
+        // Initialize firebase auth
+        firebaseAuth = FirebaseAuth.getInstance()
+        // Initialize firebase user
+        val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
+        // Check condition
+        if (firebaseUser != null) {
+            // When user already sign in redirect to profile activity
+            startActivity(
+                Intent(
+                    this@LoginActivity,
+                    DashboardActivity::class.java
+                ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        }
+*/
 
         try {
             FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
@@ -97,6 +143,66 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
 
     }
+
+
+
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Check condition
+        if (requestCode == 100) {
+            // When request code is equal to 100 initialize task
+            val signInAccountTask: Task<GoogleSignInAccount> =
+                GoogleSignIn.getSignedInAccountFromIntent(data)
+
+            // check condition
+            if (signInAccountTask.isSuccessful) {
+                // When google sign in successful initialize string
+                val s = "Google sign in successful"
+                // Display Toast
+                displayToast(s)
+                // Initialize sign in account
+                try {
+                    // Initialize sign in account
+                    val googleSignInAccount = signInAccountTask.getResult(ApiException::class.java)
+                    // Check condition
+                    if (googleSignInAccount != null) {
+                        // When sign in account is not equal to null initialize auth credential
+                        val authCredential: AuthCredential = GoogleAuthProvider.getCredential(
+                            googleSignInAccount.idToken, null
+                        )
+                        // Check credential
+                        firebaseAuth.signInWithCredential(authCredential)
+                            .addOnCompleteListener(this) { task ->
+                                // Check condition
+                                if (task.isSuccessful) {
+                                    // When task is successful redirect to profile activity
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            DashboardActivity::class.java
+                                        ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    )
+                                    // Display Toast
+                                    displayToast("Firebase authentication successful")
+                                } else {
+                                    // When task is unsuccessful display Toast
+                                    displayToast(
+                                        "Authentication Failed :" + task.exception?.message
+                                    )
+                                }
+                            }
+                    }
+                } catch (e: ApiException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    private fun displayToast(s: String) {
+        Toast.makeText(applicationContext, s, Toast.LENGTH_SHORT).show()
+    }*/
+
 
     private fun initViewss() {
         socialLoginViewModel = ViewModelProvider(this)[SocialLoginViewModel::class.java]
@@ -142,9 +248,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                         sharePref.saveString(Constant.USERNAME, it.data.data.name)
                     }else{
                         ToastMsg(it.data!!.message.toString())
-
                     }
-
                 }
 
                 is BaseResponse.Error -> {
@@ -225,6 +329,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             }
 
             R.id.relativeGoogle -> {
+               /* val intent: Intent = googleSignInClient.signInIntent
+                // Start activity for result
+                startActivityForResult(intent, 100)*/
                 doGooglePlusLogin()
             }
 
@@ -244,40 +351,84 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
 
     fun doGooglePlusLogin() {
-        val signInIntent = mGoogleSignInClient?.signInIntent
-        startActivityForResult(signInIntent!!, REQUEST_CODE_GOOGLE_PLUS_LOGIN)
-
-
+//        val signInIntent = mGoogleSignInClient?.signInIntent
+//        startActivityForResult(signInIntent!!, REQUEST_CODE_GOOGLE_PLUS_LOGIN)
+        val signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
+        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        // Handle the sign-in result
+//        if (requestCode == REQUEST_CODE_GOOGLE_PLUS_LOGIN) {
+//
+//            try {
+//                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+//                val googleSignInAccount = task.getResult(ApiException::class.java)
+//                Log.d("EMAIL_SIGNUP", "googleSignInAccount 359: "+ googleSignInAccount)
+//
+//                // Google Sign-In was successful, authenticate with Firebase
+//                val account = task.getResult(ApiException::class.java)
+//                if (account != null) {
+//                    socialLoginViewModel.loginUser(
+//                        googleSignInAccount?.email ?: "",
+//                        token,
+//                        "android",
+//                        "2",
+//                        googleSignInAccount?.id ?: "0"
+//                    )
+//                    sharePref.saveString(Constant.USERNAME, googleSignInAccount?.displayName)
+//                    sharePref.saveString(Constant.EMAIL, googleSignInAccount?.email)
+//
+//                    Log.d("EMAIL_SIGNUP", "onActivityResult 374: "+ account.email)
+//                }
+//            } catch (e: ApiException) {
+//                // Google Sign-In failed, handle the exception
+//                Log.e("social_login", "onActivityResult: " + e.message.toString())
+//                // ...
+//            }
+//        }
+//    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        // Handle the sign-in result
-        if (requestCode == REQUEST_CODE_GOOGLE_PLUS_LOGIN) {
-
-            try {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-                val googleSignInAccount = task.getResult(ApiException::class.java)
-
-                // Google Sign-In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)
-                if (account != null) {
-                    socialLoginViewModel.loginUser(
-                        googleSignInAccount?.email ?: "",
-                        token,
-                        "android",
-                        "2",
-                        googleSignInAccount?.id ?: "0"
-                    )
-                }
-            } catch (e: ApiException) {
-                // Google Sign-In failed, handle the exception
-                Log.e("social_login", "onActivityResult: " + e.message.toString())
-                // ...
+        if (requestCode == RC_SIGN_IN) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(
+                data!!
+            )
+            if (result != null) {
+                handleSignInResult(result)
             }
         }
     }
 
 
+    private fun handleSignInResult(result: GoogleSignInResult) {
+        if (result.isSuccess) {
+            // Signed in successfully, show authenticated UI.
+            val acct = result.signInAccount
+            val email = acct!!.email
+            val name = acct.displayName
+            val photo = acct.photoUrl
+            val user_name = name!!.split("\\s+".toRegex()).dropLastWhile { it.isEmpty() }
+                .toTypedArray()
+            val fname = user_name[0]
+            val lname = user_name[1]
+
+
+            acct!!.email?.let {
+                socialLoginViewModel.loginUser(
+                    it,
+                    token,
+                    "android",
+                    "2",
+                    acct.id.toString()
+                )
+            }
+                    sharePref.saveString(Constant.USERNAME, acct.displayName)
+                    sharePref.saveString(Constant.EMAIL, acct.email)
+        }
+    }
 }

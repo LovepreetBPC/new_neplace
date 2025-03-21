@@ -73,6 +73,7 @@ var sharePref= SharedPref
     }
 
     fun getOkHttpClient12(): OkHttpClient {
+        val token = Utils.stripeToken ?: "pk_test_51NpyRGEPE4f5OLIc0orSy6NLsGo17NcsXQ9khzmSx94iOidaIVgkoPpT5dPsFtEORp3svJQkrbn2LCE0Ohz7gY1w00UpdKzon0"
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -85,7 +86,7 @@ var sharePref= SharedPref
         builder.addInterceptor { chain ->
             val request = chain.request()
             val header = request.newBuilder()
-                .header("Authorization", "Bearer ${Utils.stripeToken}")
+                .header("Authorization", "Bearer $token")
             val build = header!!.build()
             chain.proceed(build)
         }

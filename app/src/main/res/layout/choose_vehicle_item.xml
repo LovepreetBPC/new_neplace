@@ -53,16 +53,25 @@
             android:layout_below="@id/txtCarName"
             android:layout_centerHorizontal="true" />
 
-        <TextView
-            android:id="@+id/txtSheet"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
-            android:gravity="center"
-            android:background="@mipmap/car_seets_bg"
-            android:textColor="@color/black"
             android:layout_below="@id/txtPrice"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:background="@mipmap/car_seets_bg">
+
+            <TextView
+                android:id="@+id/txtSheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
 
 
     </RelativeLayout>

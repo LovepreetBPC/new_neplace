@@ -112,7 +112,7 @@ interface ApiInterface {
     @GET("api/airportapi/airline")
     suspend fun getAirline(): Response<AirlineModel>
 
-    @GET("api/airportapi/flight/{key}")
+    @GET("api/airportapi/flights/{key}")
     suspend fun getFlightNumber(@Path("key") key: String?): Response<FlightNumberModel>
 
     @GET("api/airportapi/eta/{key}")

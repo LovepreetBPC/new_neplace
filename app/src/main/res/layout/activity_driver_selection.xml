@@ -44,7 +44,7 @@
             <com.neplace.customer.utils.textview.TextViewSemiBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity=""
                 android:text="Driver Selection"
                 android:textColor="@color/black"
@@ -180,6 +180,7 @@
 
                 <com.neplace.customer.utils.textview.TextViewRegular
                     android:id="@+id/txtRecommended"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

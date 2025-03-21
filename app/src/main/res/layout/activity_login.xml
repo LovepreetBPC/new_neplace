@@ -176,12 +176,12 @@
                 <com.neplace.customer.utils.textview.TextViewMedium
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/continue_with_google"
-                    android:gravity="center"
                     android:layout_centerInParent="true"
                     android:drawablePadding="@dimen/padding_twenty"
-                    android:textSize="@dimen/text_size_sixteen"
+                    android:gravity="center"
+                    android:text="@string/continue_with_google"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_sixteen"
                     app:drawableLeftCompat="@mipmap/ic_google" />
 
             </RelativeLayout>
